@@ -1,0 +1,9 @@
+#userRegForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.formRow {
+  margin-top: 10px;
+  display: flex;
+}

@@ -1,0 +1,42 @@
+#productBox {
+  padding: 15px 20px;
+}
+
+tr,
+th,
+td {
+  border: none;
+  text-align: left;
+}
+
+#productBox,
+#checkOutSummary {
+  border: 1px solid #969696 !important;
+}
+
+#checkOutSummary {
+  height: 250px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#checkOutSummary > hr {
+  margin: 0px;
+}
+
+#productTable {
+  height: 100%;
+}
+
+.productImgBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.productText {
+  text-align: left !important;
+  width: 75%;
+}

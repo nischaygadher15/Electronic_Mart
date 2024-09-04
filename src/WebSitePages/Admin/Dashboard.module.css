@@ -1,0 +1,16 @@
+#dashWrapper {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 0px;
+  color: black;
+  background-color: #f1f5f7;
+}
+
+#graphs {
+  min-height: 295px;
+}
+
+#circleDiag {
+  min-height: 320px;
+}

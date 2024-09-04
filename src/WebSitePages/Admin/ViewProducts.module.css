@@ -1,0 +1,22 @@
+#productTable {
+  border: 1px solid black;
+  border-radius: 15px !important;
+}
+
+tr,
+th,
+td {
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.productImgBox {
+  display: flex;
+  justify-content: left;
+}
+
+.productText {
+  text-align: left !important;
+  width: 75%;
+}

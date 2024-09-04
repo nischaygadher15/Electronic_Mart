@@ -1,0 +1,10 @@
+#addProductsWrapper {
+  padding: 24px;
+  color: black;
+}
+
+#addForm {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 5px;
+}

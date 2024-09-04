@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1080" height="1080" viewBox="0 0 1080 1080" xml:space="preserve">
+<desc>Created with Fabric.js 5.2.4</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 540 540)" id="a485136a-7e04-450b-9cd9-aee5f2816b17"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke"  x="-540" y="-540" rx="0" ry="0" width="1080" height="1080" />
+</g>
+<g transform="matrix(1 0 0 1 540 540)" id="5e68fd25-8e3c-474d-a6b6-d5066f55864f"  >
+</g>
+<g transform="matrix(1 0 0 1 540 542.81)" id="apexcharts-radialbarTrack-0"  >
+<path style="stroke: rgb(242,242,242); stroke-opacity: 0.85; stroke-width: 4.258536585365854; stroke-dasharray: 0 0; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-30, -30)" d="M 30 7.317073170731707 C 42.52704805770883 7.317073170740728 52.6823802120832 17.47196222483977 52.68292680765941 29.99901027062374 C 52.683473403235624 42.5260583164077 42.52902746876 52.6818335517377 30.00197945875063 52.682926742898104 C 17.47493144874126 52.684019934058526 7.318713151790796 42.53001713853892 7.31707336504828 30.00296918815388 C 7.315433578305765 17.475921237768837 17.468993215537516 7.319259898533939 29.996041082448496 7.317073516212432" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 542.17 542.81)" id="SvgjsPath1470"  >
+<path style="stroke: rgb(28,187,140); stroke-opacity: 0.85; stroke-width: 4.390243902439025; stroke-dasharray: 0 0; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  transform=" translate(-32.17, -30)" d="M 30 7.317073170731707 C 40.709927559465015 7.317073170731707 49.96053130824515 14.808064383907736 52.18725045566924 25.2839543302313 C 54.41396960309334 35.75984427655486 49.009983187301174 46.365764787795726 39.22597751367061 50.72188477091753 C 29.44197184004004 55.07800475403934 17.944264185532766 51.997203273204974 11.649126712958509 43.33268986907318" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 540 542.81)" id="SvgjsCircle1468"  >
+<circle style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  cx="0" cy="0" r="20.553658536585367" />
+</g>
+</svg>

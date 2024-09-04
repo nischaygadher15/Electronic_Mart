@@ -1,0 +1,23 @@
+#productContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 50px;
+}
+
+#card {
+  width: 100%;
+  padding: 10px;
+  align-items: center;
+}
+
+#cardBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#add2Cart {
+  width: 150px;
+}
