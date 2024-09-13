@@ -53,7 +53,7 @@ const Login = () => {
             if (docSnap.data().role == 1) {
               toast.success("Logged in successfully");
               setisLoading(false);
-              nvg("/admin");
+              nvg("/admin/dash");
             } else {
               if (previousUrl.includes("cart")) {
                 toast.success("redirected to checkout page");
@@ -69,28 +69,6 @@ const Login = () => {
             toast.error(error.message);
           });
       }
-
-      // if (res.data[0].usrName == uname.current.value) {
-      //   if (res.data[0].pwd == upwd.current.value) {
-      //     uname.current.value = "";
-      //     upwd.current.value = "";
-      //     toast.success("Logged in successflly");
-      //     let activeUser = {
-      //       isLoggedIn: true,
-      //       usrName: res.data[0].usrName,
-      //       role: res.data[0].role,
-      //     };
-      //     sessionStorage.setItem("temp", JSON.stringify(activeUser));
-      //     if (res.data[0].role == 1) nvg("/admin");
-      //     else nvg("/");
-      //   } else {
-      //     toast.error("Invalid Credentials");
-      //     alert("err1");
-      //   }
-      // } else {
-      //   if (uname.current.value == "") toast.error("UserName can't be empty");
-      //   else toast.error("Invalid Credentials");
-      // }
     } catch (err) {
       toast.error("Invalid Credentials");
     }

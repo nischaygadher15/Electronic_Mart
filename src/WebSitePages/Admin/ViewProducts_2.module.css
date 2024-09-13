@@ -1,0 +1,125 @@
+#viewWrapper {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+#viewSection,
+#filterSection {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 24px;
+}
+
+#searchBox {
+  position: relative;
+}
+
+#searchIcon {
+  font-size: 14px;
+  position: absolute;
+  top: calc(50% - 7px);
+  left: 12px;
+}
+
+#productGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px;
+}
+
+.containerPg {
+  list-style: none;
+  display: flex;
+  margin: 0px;
+}
+
+.liTag,
+.prevBtnLi,
+.nextBtnLi {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.activeliTag {
+  background-color: #5664d2;
+  border-radius: 50%;
+  color: white;
+}
+
+.activeAClass {
+  color: white !important;
+}
+
+.aClass,
+.prevBtnA,
+.nextBtnA {
+  text-decoration: none;
+  color: black;
+}
+
+.disabledBtn,
+.disabledLink {
+  color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  cursor: default;
+}
+
+#filterSection {
+  padding: 0px;
+}
+
+.filterContainer {
+  padding: 24px;
+}
+
+.MyAccordian {
+  --bs-accordion-color: #505d69;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-border: none;
+  --bs-accordion-border-width: 0px;
+  --bs-accordion-border-radius: 0px;
+  --bs-accordion-inner-border-radius: 0px;
+  --bs-accordion-btn-padding-x: 0rem;
+  --bs-accordion-btn-padding-y: 0rem;
+  --bs-accordion-btn-color: black;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-btn-icon: url("../../assets/icons8-plus.svg");
+  --bs-accordion-btn-icon-width: 14px;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url("../../assets/Minus_icon.svg");
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-body-padding-x: 0px;
+  --bs-accordion-body-padding-y: 0px;
+  --bs-accordion-active-color: black;
+  --bs-accordion-active-bg: transparent;
+}
+
+.myBody {
+  margin-top: 20px;
+}
+
+.myBody > p {
+  margin-bottom: 8px;
+}
+
+.priceSliderLabel {
+  background-color: #5664d2 !important;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  padding: 2px 5px;
+  font-weight: 500;
+  position: absolute;
+  top: -30px;
+  left: -15px;
+}

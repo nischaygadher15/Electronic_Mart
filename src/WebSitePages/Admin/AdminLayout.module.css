@@ -15,7 +15,64 @@
 
 #adminMainArea {
   width: 82%;
+  height: 100%;
   background-color: #f1f5f7;
+  overflow: hidden;
+}
+
+#myNavbar {
+  --bs-navbar-padding-x: 0;
+  --bs-navbar-padding-y: 0;
+  --bs-navbar-color: #8590a5;
+  --bs-navbar-hover-color: white;
+  --bs-navbar-disabled-color: transparent;
+  --bs-navbar-active-color: white;
+  --bs-navbar-nav-link-padding-x: 30px;
+  --bs-navbar-toggler-padding-y: 10px;
+  --bs-navbar-toggler-padding-x: 0.75rem;
+  --bs-navbar-toggler-font-size: 1.25rem;
+  --bs-navbar-toggler-icon-bg: url(
+    data:image/svg + xml,
+    %3csvgxmlns="http://www.w3.org/2000/svg"viewBox="0 0 30 30"%3e%3cpathstroke="rgba%2833, 37, 41, 0.75%29"stroke-linecap="round"stroke-miterlimit="10"stroke-width="2"d="M4 7h22M4 15h22M4 23h22"/%3e%3c/svg%3e
+  );
+  --bs-navbar-toggler-border-color: rgba(var(--bs-emphasis-color-rgb), 0.15);
+  --bs-navbar-toggler-border-radius: var(--bs-border-radius);
+  --bs-navbar-toggler-focus-width: 0.25rem;
+  --bs-navbar-toggler-transition: box-shadow 0.15s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
+}
+
+#myNavContainer {
+  padding: 0px;
+}
+
+#myNav {
+  width: 100%;
+}
+
+.myNavLink {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 30px;
+  font-size: var(--bs-nav-link-font-size);
+  /* font-weight: var(--bs-nav-link-font-weight); */
+  font-weight: 500;
+  color: var(--bs-nav-link-color);
+  text-decoration: none;
+  background: none;
+  border: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+.myNavLink:hover {
+  color: white;
 }
 
 #sidebarLinks {
@@ -54,4 +111,46 @@
 #userList > li:hover {
   color: white;
   font-weight: "bold";
+}
+
+.MyAccordian {
+  --bs-accordion-color: #505d69;
+  --bs-accordion-bg: transparent;
+  --bs-accordion-transition: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+  --bs-accordion-border: none;
+  --bs-accordion-border-width: 0px;
+  --bs-accordion-border-radius: 0px;
+  --bs-accordion-inner-border-radius: 0px;
+  --bs-accordion-btn-padding-x: 30px;
+  --bs-accordion-btn-padding-y: 10px;
+  --bs-accordion-btn-color: #8590a5;
+  --bs-accordion-btn-bg: transparent;
+  --bs-accordion-btn-icon: url("../../assets/down-arrow.svg");
+  --bs-accordion-btn-icon-width: 12px;
+  --bs-accordion-btn-icon-transform: rotate(-180deg);
+  --bs-accordion-btn-icon-transition: transform 0.2s ease-in-out;
+  --bs-accordion-btn-active-icon: url("../../assets/down-arrow.svg");
+  --bs-accordion-btn-focus-box-shadow: none;
+  --bs-accordion-body-padding-x: 0px;
+  --bs-accordion-body-padding-y: 0px;
+  --bs-accordion-active-color: white;
+  --bs-accordion-active-bg: transparent;
+}
+
+.accHeader > button:hover {
+  color: white;
+}
+
+.myBody {
+  margin-top: 0px;
+}
+
+.myBody > p {
+  margin-bottom: 8px;
+}
+
+.active {
+  color: var(--bs-navbar-active-color) !important;
 }

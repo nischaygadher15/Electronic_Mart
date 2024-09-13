@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import style from "../Admin/Dashboard.module.css";
-import AddProduct from "./AddProduct";
-import ViewProducts from "./ViewProducts";
 import { ProductId } from "../../Components/Navbar/ProductContext";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";

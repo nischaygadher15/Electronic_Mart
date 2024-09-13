@@ -1,6 +1,6 @@
 import { deleteDoc, doc, setDoc, Timestamp } from "firebase/firestore";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { db, storage } from "../../Firebase/firebaseConfig";
+import { db, storage } from "../Firebase/firebaseConfig.jsx";
 import style from "../Admin/AddProduct.module.css";
 import {
   deleteObject,
@@ -9,13 +9,13 @@ import {
   uploadBytesResumable,
 } from "firebase/storage";
 import { toast } from "react-toastify";
-import { ProductId } from "../../Components/Navbar/ProductContext";
+import { ProductId } from "../Components/Navbar/ProductContext.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { selectProducts, SET_PRODUCTS } from "../../Store/productSlice";
+import { selectProducts, SET_PRODUCTS } from "../Store/productSlice.js";
 import { FaEdit } from "react-icons/fa";
-import products from "../../JSON_Data/ProductsList.js";
+import products from "../JSON_Data/ProductsList.js";
 import { useNavigate, useParams } from "react-router-dom";
-import useFetchProducts from "../../Store/useFetchProducts.js";
+import useFetchProducts from "../Store/useFetchProducts.js";
 
 const AddProduct = () => {
   // <==== Variable Declaration ====>

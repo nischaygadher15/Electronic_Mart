@@ -10,10 +10,31 @@ import { MdDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Dropdown } from "react-bootstrap";
+import { signOut } from "firebase/auth";
+import { auth } from "../../Firebase/firebaseConfig";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const AdminNavBar = () => {
   let userDrop = useRef(null);
   let [userDropClicked, setUserDropClicked] = useState(false);
+  let nvg = useNavigate();
+
+  // <==== Admin Logout Function ====>
+  let logOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        // dispatch(ACTIVE_USER({ usrName: "Guest", isLoggedIn: false }));
+        // sessionStorage.removeItem("activeUser");
+        toast.success("You Logged Out Successfully.");
+      })
+      .catch((error) => {
+        // An error happened.
+        toast.error(error.message);
+      });
+    nvg("/login");
+  };
   return (
     <div id={style.adminNav}>
       <div id={style.navLeft}>
@@ -61,7 +82,7 @@ const AdminNavBar = () => {
                   <FaRegUser className="me-2" />
                   Profile
                 </Dropdown.Item>
-                <Dropdown.Item>
+                <Dropdown.Item onClick={logOut}>
                   <CiLogout className="me-2" />
                   Log out
                 </Dropdown.Item>

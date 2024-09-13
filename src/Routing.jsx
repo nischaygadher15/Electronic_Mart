@@ -8,9 +8,9 @@ import Products from "./WebSitePages/Products";
 import Cart from "./WebSitePages/Cart";
 import Admin from "./WebSitePages/Admin/Admin";
 import ProtectedAdmin from "./Components/Protection";
-import ViewProducts from "./WebSitePages/Admin/ViewProducts";
 import Dashboard from "./WebSitePages/Admin/Dashboard";
 import Addproduct_2 from "./WebSitePages/Admin/Addproduct_2";
+import ViewProducts_2 from "./WebSitePages/Admin/ViewProducts_2";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +35,8 @@ const router = createBrowserRouter([
     children: [
       { path: "/admin/dash", element: <Dashboard /> },
       { path: "/admin/add", element: <Addproduct_2 /> },
-      // { path: "/admin/edit/:id", element:  },
-      // { path: "/admin/view", element:  },
+      { path: "/admin/edit/", element: <Addproduct_2 /> },
+      { path: "/admin/view", element: <ViewProducts_2 /> },
     ],
   },
   {
