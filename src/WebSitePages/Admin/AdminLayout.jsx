@@ -241,7 +241,7 @@ const AdminLayout = ({ children }) => {
                             padding: "10px 60px",
                           }}
                         >
-                          Add Users
+                          User Grid
                         </NavLink>
                         <NavLink
                           to="/users/view"
@@ -250,7 +250,7 @@ const AdminLayout = ({ children }) => {
                             padding: "10px 60px",
                           }}
                         >
-                          View Users
+                          User List
                         </NavLink>
                         <NavLink
                           to="/users/edit"
@@ -259,7 +259,7 @@ const AdminLayout = ({ children }) => {
                             padding: "10px 60px",
                           }}
                         >
-                          Edit Users
+                          User Profile
                         </NavLink>
                       </Accordion.Body>
                     </Accordion.Item>

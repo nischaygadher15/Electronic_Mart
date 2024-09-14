@@ -18,9 +18,13 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
-import { Dropdown, DropdownButton } from "react-bootstrap";
+import { Button, Dropdown, DropdownButton, Modal } from "react-bootstrap";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoIosCloseCircle } from "react-icons/io";
+import { RiFacebookBoxFill } from "react-icons/ri";
+import { FaTwitter } from "react-icons/fa";
+import { FaGooglePlusG } from "react-icons/fa";
+
 // -----------------------------------------From Header-----------------------------------------------
 
 const DefaultLayout = ({ children }) => {
@@ -38,6 +42,21 @@ const DefaultLayout = ({ children }) => {
     };
   };
 
+  // <============================ Log In Modal Functions ============================>
+  let [logInShow, setLogInShow] = useState(false);
+  const handleLogInClose = () => setLogInShow(false);
+  const handleLogInShow = () => setLogInShow(true);
+
+  // <============================ Log In Modal Functions ============================>
+  let [regShow, setRegShow] = useState(false);
+  const handleRegClose = () => setRegShow(false);
+  const handleRegShow = () => setRegShow(true);
+
+  // <============================ Log In Modal Functions ============================>
+  let [locShow, setLocShow] = useState(false);
+  const handleLocClose = () => setLocShow(false);
+  const handleLocShow = () => setLocShow(true);
+
   let logOut = () => {
     showLoader(1);
     signOut(auth)
@@ -51,10 +70,18 @@ const DefaultLayout = ({ children }) => {
       });
     nvg("/");
   };
+
+  let inputStyle = {
+    backgroundColor: "#f4f4f4",
+    padding: "12px",
+    fontSize: "18px",
+  };
+
   return (
     <>
       {/* {isLoading && <Loader />} */}
       <div className="container-fluid p-0">
+        {/* <================================= Upper Navbar =================================> */}
         <nav id={style.navBar}>
           <div className="row w-100 g-0">
             <div className="col-3">
@@ -94,38 +121,33 @@ const DefaultLayout = ({ children }) => {
                   </button>
                 </div>
                 <div className="rightNavIcons d-flex">
+                  {/* <================================= Location Modal =================================> */}
                   <label htmlFor="" className="location">
                     <button
                       className="btn"
                       style={{ padding: "0px", height: "100%", border: "none" }}
                       onClick={() => {
-                        locBox.current.style.display = "flex";
+                        // locBox.current.style.display = "flex";
+                        handleLocShow();
                       }}
                     >
                       <FaLocationDot className={style.navbarIcons} />
                     </button>
-                    <div
-                      id={style.locationWrapper}
-                      className="row w-100 justify-content-center align-items-center"
-                      ref={locBox}
+                    <Modal
+                      show={locShow}
+                      onHide={handleLocClose}
+                      centered
+                      bsPrefix={style.locModal}
                     >
-                      <div className="col-6" id={style.selectLocationBox}>
-                        <label
-                          htmlFor="locCloseBtn"
-                          className="form-label"
-                          onClick={() => {
-                            locBox.current.style.display = "none";
-                          }}
-                        >
-                          <IoIosCloseCircle
-                            className={style.locationClose}
-                            id="locCloseBtn"
-                          />
-                        </label>
-                        <p className="text-center fs-4">
-                          <i className="fa-solid fa-location-pin me-2" />
-                          Please Select Your Location
-                        </p>
+                      <Modal.Header closeButton bsPrefix={style.modelLocHead}>
+                        <Modal.Title>
+                          <p className="text-center w-100 pt-3">
+                            <i className="fa-solid fa-location-pin me-2" />
+                            Please Select Your Location
+                          </p>
+                        </Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body bsPrefix={style.modelLocBody}>
                         <select
                           id="selLoc"
                           className="form-select"
@@ -153,9 +175,11 @@ const DefaultLayout = ({ children }) => {
                           <option value="jam">Jamnagar</option>
                           <option value="dwk">Dwarka</option>
                         </select>
-                      </div>
-                    </div>
+                      </Modal.Body>
+                    </Modal>
                   </label>
+
+                  {/* <================================= Dark/Day Mode =================================> */}
                   <label htmlFor="moon" className="darkMode">
                     <button
                       className="btn"
@@ -168,6 +192,8 @@ const DefaultLayout = ({ children }) => {
                       />
                     </button>
                   </label>
+
+                  {/* <================================= Wish List =================================> */}
                   <label htmlFor="heart">
                     <button
                       className="btn"
@@ -176,6 +202,7 @@ const DefaultLayout = ({ children }) => {
                       <FaRegHeart id="heart" className={style.navbarIcons} />
                     </button>
                   </label>
+                  {/* <================================= User Log In/ Register =================================> */}
                   <label htmlFor="user">
                     <Dropdown style={{ height: "100%" }}>
                       <Dropdown.Toggle
@@ -187,6 +214,7 @@ const DefaultLayout = ({ children }) => {
                           padding: "10px 15px",
                           height: "100%",
                         }}
+                        className={style.userDropSym}
                       >
                         <FaUser
                           id="user"
@@ -195,22 +223,25 @@ const DefaultLayout = ({ children }) => {
                         />
                       </Dropdown.Toggle>
 
-                      <Dropdown.Menu className="my-2">
-                        <Dropdown.Item href="#" id="userDropDown">
+                      <Dropdown.Menu id={style.userDropDown}>
+                        <Dropdown.Item href="#" style={{ padding: "5px 10px" }}>
                           <button
                             className="btn btn-warning w-100"
-                            onClick={() => nvg("/login")}
+                            onClick={handleLogInShow}
                           >
                             Log In
                           </button>
                         </Dropdown.Item>
-                        <Dropdown.Item href="#" className="text-center">
+                        <Dropdown.Item href="#" className="text-center fw-bold">
                           OR
                         </Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">
+                        <Dropdown.Item
+                          href="#/action-3"
+                          style={{ padding: "5px 10px" }}
+                        >
                           <button
                             className="btn btn-primary w-100"
-                            onClick={() => nvg("/register")}
+                            onClick={handleRegShow}
                           >
                             Register
                           </button>
@@ -218,6 +249,8 @@ const DefaultLayout = ({ children }) => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </label>
+
+                  {/* <================================= Cart =================================> */}
                   <label htmlFor="cart">
                     <button
                       className="btn"
@@ -293,6 +326,204 @@ const DefaultLayout = ({ children }) => {
             </ul>
           </div>
         </nav>
+
+        {/* <================================= Log In Modal =================================> */}
+        <div className="LogInModal">
+          <Modal
+            show={logInShow}
+            onHide={handleLogInClose}
+            centered
+            bsPrefix={style.logInModal}
+          >
+            <Modal.Header closeButton bsPrefix={style.modelHead}>
+              Log In
+            </Modal.Header>
+            <Modal.Body bsPrefix={style.modelBody}>
+              <form id={style.logInForm}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Password"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="submit"
+                    value="Log in"
+                    className={style.LogInBtn}
+                  />
+                </div>
+                <div className="mb-3 d-flex justify-content-between align-items-center">
+                  <div className="remMe">
+                    <input
+                      type="checkbox"
+                      className="form-check-input me-2"
+                      id={style.remMeCheck}
+                    />
+                    <span>Remember me?</span>
+                  </div>
+                  <div className="adminWrapper">
+                    <button className="btn btn-primary">Admin Panel</button>
+                  </div>
+                </div>
+                <div
+                  className="mb-3 d-flex align-items-center justify-content-center"
+                  style={{ fontSize: "18px" }}
+                >
+                  <span>Don't have an account?&nbsp;</span>
+                  <button
+                    className="btn p-0 text-warning"
+                    style={{ fontSize: "18px" }}
+                    onClick={() => {
+                      handleLogInClose();
+                      handleRegShow();
+                    }}
+                  >
+                    Register Now
+                  </button>
+                </div>
+                <div className={style.socialIcons}>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#facebook"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#849fd7" }}
+                  >
+                    <RiFacebookBoxFill />
+                  </a>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#twitter"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#33BDF1" }}
+                  >
+                    <FaTwitter />
+                  </a>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#google-plus"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#e46f61" }}
+                  >
+                    <FaGooglePlusG />
+                  </a>
+                </div>
+              </form>
+            </Modal.Body>
+          </Modal>
+        </div>
+
+        {/* <=================================== Registration Modal ===================================> */}
+        <div className="regModal">
+          <Modal
+            show={regShow}
+            onHide={handleRegClose}
+            centered
+            bsPrefix={style.logInModal}
+          >
+            <Modal.Header closeButton bsPrefix={style.modelHead}>
+              Register
+            </Modal.Header>
+            <Modal.Body bsPrefix={style.modelBody}>
+              <form id={style.logInForm}>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Your Name"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-4">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Email"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Confirm Password"
+                    style={inputStyle}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="submit"
+                    value="Register"
+                    className={style.LogInBtn}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="checkbox"
+                    className="form-check-input me-2"
+                    id={style.remMeCheck}
+                  />
+                  <span>I Accept to the Terms & Conditions</span>
+                </div>
+                <div
+                  className="mb-3 d-flex align-items-center justify-content-center"
+                  style={{ fontSize: "18px" }}
+                >
+                  <span>Have an account already?&nbsp;</span>
+                  <button
+                    className="btn p-0 text-warning"
+                    style={{ fontSize: "18px" }}
+                    onClick={() => {
+                      handleRegClose();
+                      handleLogInShow();
+                    }}
+                  >
+                    Login
+                  </button>
+                </div>
+                <div className={style.socialIcons}>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#facebook"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#849fd7" }}
+                  >
+                    <RiFacebookBoxFill />
+                  </a>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#twitter"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#33BDF1" }}
+                  >
+                    <FaTwitter />
+                  </a>
+                  <a
+                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#google-plus"
+                    className={style.socFrame}
+                    style={{ backgroundColor: "#e46f61" }}
+                  >
+                    <FaGooglePlusG />
+                  </a>
+                </div>
+              </form>
+            </Modal.Body>
+          </Modal>
+        </div>
+
         {/* ------------------------------------------------------------------------------------------- */}
         {children}
       </div>

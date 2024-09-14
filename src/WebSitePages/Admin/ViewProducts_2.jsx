@@ -8,7 +8,6 @@ import { Accordion, Badge, Card } from "react-bootstrap";
 import { MdModeEdit } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 import { nanoid } from "@reduxjs/toolkit";
-import { IoIosArrowUp } from "react-icons/io";
 import ReactSlider from "react-slider";
 
 const ViewProducts_2 = () => {
@@ -106,10 +105,12 @@ const ViewProducts_2 = () => {
                     </label>
                     <select id="selCategory" className="form-select">
                       <option value="empty">Select Category</option>
-                      {categories.map((c) => {
+                      {categories.map((c, inx) => {
                         return (
                           <>
-                            <option value={c.toLocaleLowerCase()}>{c}</option>
+                            <option key={inx} value={c.toLocaleLowerCase()}>
+                              {c}
+                            </option>
                           </>
                         );
                       })}
@@ -124,13 +125,8 @@ const ViewProducts_2 = () => {
                         className="horizontal-slider"
                         thumbClassName="example-thumb"
                         trackClassName="example-track"
-                        defaultValue={[5000, 35000]}
+                        defaultValue={[2000, 8000]}
                         ariaLabel={["minVal", "maxVal"]}
-                        marks
-                        markClassName="example-mark"
-                        ariaValuetext={(state) =>
-                          `Thumb value ${state.valueNow}`
-                        }
                         renderThumb={(props, state) => (
                           <div {...props}>
                             <h6>
@@ -142,7 +138,7 @@ const ViewProducts_2 = () => {
                         )}
                         pearling
                         min={0}
-                        max={40000}
+                        max={10000}
                         minDistance={1000}
                         onChange={(value, inx) => {
                           console.log(`Value: ${value}, Thumb: ${inx}`);
@@ -368,13 +364,14 @@ const ViewProducts_2 = () => {
 
                   {/* <========================= Products Grid ========================> */}
                   <div className="mb-4" id={style.productGrid}>
-                    {currentItems.map((p) => {
+                    {currentItems.map((p, inx) => {
                       return (
                         <Card
                           style={{
                             width: "auto",
                             borderRadius: "0px",
                           }}
+                          key={`product${inx}`}
                         >
                           <div
                             className="actionBtn w-100 d-flex justify-content-between p-2 position-absolute"

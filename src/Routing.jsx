@@ -11,6 +11,9 @@ import ProtectedAdmin from "./Components/Protection";
 import Dashboard from "./WebSitePages/Admin/Dashboard";
 import Addproduct_2 from "./WebSitePages/Admin/Addproduct_2";
 import ViewProducts_2 from "./WebSitePages/Admin/ViewProducts_2";
+import UserGrid from "./WebSitePages/Admin/UserGrid";
+import UserList from "./WebSitePages/Admin/UserList";
+import UserProfile from "./WebSitePages/Admin/UserProfile";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +40,9 @@ const router = createBrowserRouter([
       { path: "/admin/add", element: <Addproduct_2 /> },
       { path: "/admin/edit/", element: <Addproduct_2 /> },
       { path: "/admin/view", element: <ViewProducts_2 /> },
+      { path: "/admin/view", element: <UserGrid /> },
+      { path: "/admin/view", element: <UserList /> },
+      { path: "/admin/view", element: <UserProfile /> },
     ],
   },
   {

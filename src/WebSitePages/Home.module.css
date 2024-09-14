@@ -21,3 +21,26 @@
 #add2Cart {
   width: 150px;
 }
+
+.carouselImg {
+  height: 60vh;
+  object-fit: cover;
+}
+
+.carCaption {
+  position: absolute;
+  top: 20px;
+  left: 70px;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: black;
+}
+
+.shopNow {
+  display: inline-block;
+  background-color: #fdb03d;
+  padding: 16px 30px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}

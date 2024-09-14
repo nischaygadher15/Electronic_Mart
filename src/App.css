@@ -53,3 +53,8 @@
 .dropdown-item:focus {
   background-color: transparent !important;
 }
+
+.homeCorousels .carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
