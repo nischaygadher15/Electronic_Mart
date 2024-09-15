@@ -29,6 +29,7 @@
   gap: 0px;
 }
 
+/* Pagination Css */
 .containerPg {
   list-style: none;
   display: flex;
@@ -70,6 +71,7 @@
   cursor: default;
 }
 
+/* Filter section Css */
 #filterSection {
   padding: 0px;
 }

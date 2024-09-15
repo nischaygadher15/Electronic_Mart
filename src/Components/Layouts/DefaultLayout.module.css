@@ -1,11 +1,3 @@
-.hiddenLinks {
-  border: 1px solid transparent !important;
-  margin: 0px 8px !important;
-}
-.hiddenLinks:hover {
-  border-color: black !important;
-}
-
 #navBar {
   padding: 20px 50px;
   background-color: #ffffff;
@@ -28,6 +20,7 @@
 #lowerNavBar {
   position: sticky;
   top: 0px;
+  z-index: 9;
 }
 
 #navLinks > li > a {
