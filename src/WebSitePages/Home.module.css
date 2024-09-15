@@ -1,4 +1,8 @@
-.homeWrapper {
+/* .homeWrapper {
+  padding: 0px 50px;
+} */
+
+.container {
   padding: 0px 50px;
 }
 
@@ -195,6 +199,7 @@
   left: -15px;
 }
 
+/* Best seller Scroller  */
 #bestSeller {
   max-height: 400px;
   overflow-y: scroll;
@@ -203,7 +208,54 @@
   scrollbar-width: none; /* Firefox */
 }
 
+#bestSellInner {
+  animation: scrollInfinite 30s linear infinite;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 #bestSeller::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes scrollInfinite {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+/* Offers Boxs */
+#offerWrapper {
+  padding: 80px 70px;
+  background: url("../assets/bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+#offerWrapper a {
+  text-decoration: none;
+  color: black;
+}
+
+.offer {
+  background-color: #fafafa;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+/* Footer */
+
+.ftList {
+  list-style: none;
+}
+
+.ftList > li {
+  margin-bottom: 16px;
+}
+
+.ftList > li > a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
 }

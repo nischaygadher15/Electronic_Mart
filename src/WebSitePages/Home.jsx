@@ -28,7 +28,11 @@ import data from "../JSON_Data/ProductsList.js";
 import { nanoid } from "@reduxjs/toolkit";
 import { useOutletContext } from "react-router-dom";
 import ReactSlider from "react-slider";
-import pImg from "../assets/Products Images/product1.jpg";
+import smartWatch from "../assets/off1.png";
+import smartPhone from "../assets/off2.png";
+import { FaDolly } from "react-icons/fa";
+import { FaShippingFast } from "react-icons/fa";
+import { FaRegThumbsUp } from "react-icons/fa";
 
 const Home = () => {
   //Varialble Declaration
@@ -55,6 +59,11 @@ const Home = () => {
     "Cameras",
     "iPad & Tablets",
   ];
+
+  let serviceIcon = {
+    color: "#fdb03d",
+    fontSize: "50px",
+  };
 
   //Home Carosel
   const handleSelect = (selectedIndex) => {
@@ -86,630 +95,778 @@ const Home = () => {
     [currentPage]
   );
 
-  let autoScroll = () => {
-    bestSellerBox.current.scrollBy({
-      top: "100",
-      left: "0",
-      behavior: "smooth",
-    });
-  };
-
   return (
     <div className={style.homeWrapper} ref={home}>
       {/* <================================= Home Corousel =================================>   */}
-      <div className="homeCorousels" data-bs-theme="dark">
-        <Carousel indicators={false} className={style.cars}>
-          <Carousel.Item>
-            <img
-              className={`d-block w-100 ${style.carouselImg}`}
-              src={banner1}
-              alt="First slide"
-            />
-            <Carousel.Caption bsPrefix={style.carCaption}>
-              <p style={{ fontSize: "16px", margin: "0px" }}>
-                Get flat&nbsp;
-                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                  10%
-                </span>
-                &nbsp; Cashback
-              </p>
-              <h2
-                style={{
-                  fontSize: "50px",
-                  fontWeight: "400",
-                  margin: "30px 0px",
-                }}
-              >
-                EXCITING DEALS ON <br /> TELEVISIONS
-              </h2>
+      <div className={style.container}>
+        <div className="homeCorousels" data-bs-theme="dark">
+          <Carousel indicators={false} className={style.cars}>
+            <Carousel.Item>
+              <img
+                className={`d-block w-100 ${style.carouselImg}`}
+                src={banner1}
+                alt="First slide"
+              />
+              <Carousel.Caption bsPrefix={style.carCaption}>
+                <p style={{ fontSize: "16px", margin: "0px" }}>
+                  Get flat&nbsp;
+                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                    10%
+                  </span>
+                  &nbsp; Cashback
+                </p>
+                <h2
+                  style={{
+                    fontSize: "50px",
+                    fontWeight: "400",
+                    margin: "30px 0px",
+                  }}
+                >
+                  EXCITING DEALS ON <br /> TELEVISIONS
+                </h2>
 
-              <NavLink to="/product" className={style.shopNow}>
-                SHOP NOW
-              </NavLink>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className={`d-block w-100 ${style.carouselImg}`}
-              src={banner2}
-              alt="First slide"
-            />
-            <Carousel.Caption bsPrefix={style.carCaption}>
-              <p style={{ fontSize: "16px", margin: "0px" }}>
-                Get flat&nbsp;
-                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                  10%
-                </span>
-                &nbsp; Cashback
-              </p>
-              <h2
-                style={{
-                  fontSize: "50px",
-                  fontWeight: "400",
-                  margin: "30px 0px",
-                }}
-              >
-                EXCITING DEALS ON <br /> TELEVISIONS
-              </h2>
+                <NavLink to="/product" className={style.shopNow}>
+                  SHOP NOW
+                </NavLink>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className={`d-block w-100 ${style.carouselImg}`}
+                src={banner2}
+                alt="First slide"
+              />
+              <Carousel.Caption bsPrefix={style.carCaption}>
+                <p style={{ fontSize: "16px", margin: "0px" }}>
+                  Get flat&nbsp;
+                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                    10%
+                  </span>
+                  &nbsp; Cashback
+                </p>
+                <h2
+                  style={{
+                    fontSize: "50px",
+                    fontWeight: "400",
+                    margin: "30px 0px",
+                  }}
+                >
+                  EXCITING DEALS ON <br /> TELEVISIONS
+                </h2>
 
-              <NavLink to="/product" className={style.shopNow}>
-                SHOP NOW
-              </NavLink>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className={`d-block w-100 ${style.carouselImg}`}
-              src={banner3}
-              alt="First slide"
-            />
-            <Carousel.Caption bsPrefix={style.carCaption}>
-              <p style={{ fontSize: "16px", margin: "0px" }}>
-                Get flat&nbsp;
-                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                  10%
-                </span>
-                &nbsp; Cashback
-              </p>
-              <h2
-                style={{
-                  fontSize: "50px",
-                  fontWeight: "400",
-                  margin: "30px 0px",
-                }}
-              >
-                EXCITING DEALS ON <br /> TELEVISIONS
-              </h2>
+                <NavLink to="/product" className={style.shopNow}>
+                  SHOP NOW
+                </NavLink>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className={`d-block w-100 ${style.carouselImg}`}
+                src={banner3}
+                alt="First slide"
+              />
+              <Carousel.Caption bsPrefix={style.carCaption}>
+                <p style={{ fontSize: "16px", margin: "0px" }}>
+                  Get flat&nbsp;
+                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                    10%
+                  </span>
+                  &nbsp; Cashback
+                </p>
+                <h2
+                  style={{
+                    fontSize: "50px",
+                    fontWeight: "400",
+                    margin: "30px 0px",
+                  }}
+                >
+                  EXCITING DEALS ON <br /> TELEVISIONS
+                </h2>
 
-              <NavLink to="/product" className={style.shopNow}>
-                SHOP NOW
-              </NavLink>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className={`d-block w-100 ${style.carouselImg}`}
-              src={banner4}
-              alt="First slide"
-            />
-            <Carousel.Caption bsPrefix={style.carCaption}>
-              <p style={{ fontSize: "16px", margin: "0px" }}>
-                Get flat&nbsp;
-                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                  10%
-                </span>
-                &nbsp; Cashback
-              </p>
-              <h2
-                style={{
-                  fontSize: "50px",
-                  fontWeight: "400",
-                  margin: "30px 0px",
-                }}
-              >
-                EXCITING DEALS ON <br /> TELEVISIONS
-              </h2>
+                <NavLink to="/product" className={style.shopNow}>
+                  SHOP NOW
+                </NavLink>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className={`d-block w-100 ${style.carouselImg}`}
+                src={banner4}
+                alt="First slide"
+              />
+              <Carousel.Caption bsPrefix={style.carCaption}>
+                <p style={{ fontSize: "16px", margin: "0px" }}>
+                  Get flat&nbsp;
+                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                    10%
+                  </span>
+                  &nbsp; Cashback
+                </p>
+                <h2
+                  style={{
+                    fontSize: "50px",
+                    fontWeight: "400",
+                    margin: "30px 0px",
+                  }}
+                >
+                  EXCITING DEALS ON <br /> TELEVISIONS
+                </h2>
 
-              <NavLink to="/product" className={style.shopNow}>
-                SHOP NOW
-              </NavLink>
-            </Carousel.Caption>
-          </Carousel.Item>
-        </Carousel>
+                <NavLink to="/product" className={style.shopNow}>
+                  SHOP NOW
+                </NavLink>
+              </Carousel.Caption>
+            </Carousel.Item>
+          </Carousel>
+        </div>
       </div>
       <div className={style.productsArea}>
+        {/* <================================= Product Grid Title =================================>   */}
         <h2
           className="text-center fs-1"
           style={{ paddingTop: "50px", color: "#060606" }}
         >
           <span className="fw-normal">Our</span> New Products
         </h2>
-        <div className="row g-4" style={{ padding: "50px 0px" }}>
-          <div className="col-3">
-            {/* <========================= Filters Section ========================> */}
-            <div id={style.filterSection}>
-              <div className={style.filterContainer}>
-                <h3 className="fs-4 mb-0">Filters</h3>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Category Filter ========================> */}
-              <div className={style.filterContainer}>
-                <label
-                  htmlFor="selCategory"
-                  className="form-label"
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: "500",
-                    marginBottom: "24px",
-                  }}
-                >
-                  Categories
-                </label>
-                <select id="selCategory" className="form-select">
-                  <option value="empty">Select Category</option>
-                  {categories.map((c, inx) => {
-                    return (
-                      <>
-                        <option key={inx} value={c.toLocaleLowerCase()}>
-                          {c}
-                        </option>
-                      </>
-                    );
-                  })}
-                </select>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Price Filter ========================> */}
-              <div className={style.filterContainer}>
-                <div className="priceFilter">
-                  <p
+
+        {/* <================================= Product Grid =================================>   */}
+        <div className={`mb-5 ${style.container}`}>
+          <div className="row g-4" style={{ padding: "50px 0px" }}>
+            <div className="col-3">
+              {/* <========================= Filters Section ========================> */}
+              <div id={style.filterSection}>
+                <div className={style.filterContainer}>
+                  <h3 className="fs-4 mb-0">Filters</h3>
+                </div>
+                <hr className="m-0 p-0" />
+                {/* <========================= Category Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <label
+                    htmlFor="selCategory"
+                    className="form-label"
                     style={{
                       fontSize: "18px",
                       fontWeight: "500",
                       marginBottom: "24px",
                     }}
                   >
-                    Price Range
-                  </p>
-                  <ReactSlider
-                    className="horizontal-slider"
-                    thumbClassName="example-thumb"
-                    trackClassName="example-track"
-                    defaultValue={[2000, 8000]}
-                    ariaLabel={["minVal", "maxVal"]}
-                    renderThumb={(props, state) => (
-                      <div {...props}>
-                        <h6>
-                          <Badge bsPrefix={style.priceSliderLabel}>
-                            &#8377;&nbsp;{state.valueNow}
-                          </Badge>
-                        </h6>
-                      </div>
-                    )}
-                    pearling
-                    min={0}
-                    max={10000}
-                    minDistance={1000}
-                    onChange={(value, inx) => {
-                      console.log(`Value: ${value}, Thumb: ${inx}`);
-                    }}
-                  />
+                    Categories
+                  </label>
+                  <select id="selCategory" className="form-select">
+                    <option value="empty">Select Category</option>
+                    {categories.map((c, inx) => {
+                      return (
+                        <>
+                          <option key={inx} value={c.toLocaleLowerCase()}>
+                            {c}
+                          </option>
+                        </>
+                      );
+                    })}
+                  </select>
                 </div>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Discount Filter ========================> */}
-              <div className={style.filterContainer}>
-                <Accordion className={style.MyAccordian}>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header className={style.accHeader}>
-                      Discount
-                    </Accordion.Header>
-                    <Accordion.Body className={style.myBody}>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        50% or more
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        40% or more
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        30% or more
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        20% or more
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        10% or more
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="discountFilterVal"
-                        />{" "}
-                        Less than 10%
-                      </label>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Electronics Filter ========================> */}
-              <div className={style.filterContainer}>
-                <Accordion className={style.MyAccordian}>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header className={style.accHeader}>
-                      Electronics
-                    </Accordion.Header>
-                    <Accordion.Body className={style.myBody}>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Accessories</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Cameras & Photography</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Car & Vehicle Electronics</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Computers & Accessories</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>GPS & Accessories</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Headphones</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Home Audio</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Home Theater, TV & Video </span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Mobiles & Accessories </span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Portable Media Players</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Tablets</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Telephones & Accessories</span>
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="checkbox"
-                          className="mt-0 me-2 form-check-input"
-                          name="discountFilterVal"
-                        />
-                        <span>Wearable Technology</span>
-                      </label>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Size Filter ========================> */}
-              <div className={style.filterContainer}>
-                <Accordion className={style.MyAccordian}>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header className={style.accHeader}>
-                      Size
-                    </Accordion.Header>
-                    <Accordion.Body className={style.myBody}>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="sizeFilterVal"
-                        />{" "}
-                        X-Large
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="sizeFilterVal"
-                        />{" "}
-                        Large
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="sizeFilterVal"
-                        />{" "}
-                        Medium
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="sizeFilterVal"
-                        />{" "}
-                        Small
-                      </label>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= Customer Rating Filter ========================> */}
-              <div className={style.filterContainer}>
-                <Accordion className={style.MyAccordian}>
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header className={style.accHeader}>
-                      Customer Rating
-                    </Accordion.Header>
-                    <Accordion.Body className={style.myBody}>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="cusRateFilterVal"
-                        />{" "}
-                        4&nbsp;
-                        <i
-                          class="fa-solid fa-star"
-                          style={{ color: "#FCB92C", fontSize: "10px" }}
-                        />
-                        &nbsp;&&nbsp; Above
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="cusRateFilterVal"
-                        />{" "}
-                        3&nbsp;
-                        <i
-                          class="fa-solid fa-star"
-                          style={{ color: "#FCB92C", fontSize: "10px" }}
-                        />
-                        &nbsp;&&nbsp; Above
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="cusRateFilterVal"
-                        />{" "}
-                        2&nbsp;
-                        <i
-                          class="fa-solid fa-star"
-                          style={{ color: "#FCB92C", fontSize: "10px" }}
-                        />
-                        &nbsp;&&nbsp; Above
-                      </label>
-                      <label className="d-flex align-items-center mb-2">
-                        <input
-                          type="radio"
-                          className="me-1"
-                          name="cusRateFilterVal"
-                        />{" "}
-                        1&nbsp;
-                        <i
-                          class="fa-solid fa-star"
-                          style={{ color: "#FCB92C", fontSize: "10px" }}
-                        />
-                      </label>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
-              </div>
-              <hr className="m-0 p-0" />
-              {/* <========================= BEST SELLER MARQUEE ========================> */}
-              <div className={style.filterContainer}>
-                <div className="mb-3">
-                  <h5 className={`${style.bestSelTitle} mb-0`}>
-                    Best Seller&nbsp;
-                    <button className="btn btn-primary" onClick={autoScroll}>
-                      autoScroll
-                    </button>
-                  </h5>
+                <hr className="m-0 p-0" />
+                {/* <========================= Price Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <div className="priceFilter">
+                    <p
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "500",
+                        marginBottom: "24px",
+                      }}
+                    >
+                      Price Range
+                    </p>
+                    <ReactSlider
+                      className="horizontal-slider"
+                      thumbClassName="example-thumb"
+                      trackClassName="example-track"
+                      defaultValue={[2000, 8000]}
+                      ariaLabel={["minVal", "maxVal"]}
+                      renderThumb={(props, state) => (
+                        <div {...props}>
+                          <h6>
+                            <Badge bsPrefix={style.priceSliderLabel}>
+                              &#8377;&nbsp;{state.valueNow}
+                            </Badge>
+                          </h6>
+                        </div>
+                      )}
+                      pearling
+                      min={0}
+                      max={10000}
+                      minDistance={1000}
+                      onChange={(value, inx) => {
+                        console.log(`Value: ${value}, Thumb: ${inx}`);
+                      }}
+                    />
+                  </div>
                 </div>
-                <div
-                  className="d-flex flex-column"
-                  id={style.bestSeller}
-                  ref={bestSellerBox}
-                >
-                  {currentItems.map((p) => {
-                    return (
-                      <div className="d-flex mb-3">
-                        <div className="p-0" style={{ width: "30%" }}>
-                          <img
-                            src={p.image[0]}
-                            alt="Product Image"
-                            style={{ width: "100%", height: "120px" }}
+                <hr className="m-0 p-0" />
+                {/* <========================= Discount Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <Accordion className={style.MyAccordian}>
+                    <Accordion.Item defaultActiveKey="0">
+                      <Accordion.Header className={style.accHeader}>
+                        Discount
+                      </Accordion.Header>
+                      <Accordion.Body className={style.myBody}>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          50% or more
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          40% or more
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          30% or more
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          20% or more
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          10% or more
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="discountFilterVal"
+                          />{" "}
+                          Less than 10%
+                        </label>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
+                <hr className="m-0 p-0" />
+                {/* <========================= Electronics Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <Accordion className={style.MyAccordian}>
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header className={style.accHeader}>
+                        Electronics
+                      </Accordion.Header>
+                      <Accordion.Body className={style.myBody}>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
                           />
-                        </div>
-                        <div className="px-3" style={{ width: "70%" }}>
-                          <p className="mb-2">
-                            Women Windbreaker Striped Climbing Raincoats
-                          </p>
-                          <p className="fw-bold mb-0  ">$1200</p>
-                        </div>
-                      </div>
+                          <span>Accessories</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Cameras & Photography</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Car & Vehicle Electronics</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Computers & Accessories</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>GPS & Accessories</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Headphones</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Home Audio</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Home Theater, TV & Video </span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Mobiles & Accessories </span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Portable Media Players</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Tablets</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Telephones & Accessories</span>
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="checkbox"
+                            className="mt-0 me-2 form-check-input"
+                            name="discountFilterVal"
+                          />
+                          <span>Wearable Technology</span>
+                        </label>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
+                <hr className="m-0 p-0" />
+                {/* <========================= Size Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <Accordion className={style.MyAccordian}>
+                    <Accordion.Item defaultActiveKey="0">
+                      <Accordion.Header className={style.accHeader}>
+                        Size
+                      </Accordion.Header>
+                      <Accordion.Body className={style.myBody}>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="sizeFilterVal"
+                          />{" "}
+                          X-Large
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="sizeFilterVal"
+                          />{" "}
+                          Large
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="sizeFilterVal"
+                          />{" "}
+                          Medium
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="sizeFilterVal"
+                          />{" "}
+                          Small
+                        </label>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
+                <hr className="m-0 p-0" />
+                {/* <========================= Customer Rating Filter ========================> */}
+                <div className={style.filterContainer}>
+                  <Accordion className={style.MyAccordian}>
+                    <Accordion.Item defaultActiveKey="0">
+                      <Accordion.Header className={style.accHeader}>
+                        Customer Rating
+                      </Accordion.Header>
+                      <Accordion.Body className={style.myBody}>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="cusRateFilterVal"
+                          />{" "}
+                          4&nbsp;
+                          <i
+                            class="fa-solid fa-star"
+                            style={{ color: "#FCB92C", fontSize: "10px" }}
+                          />
+                          &nbsp;&&nbsp; Above
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="cusRateFilterVal"
+                          />{" "}
+                          3&nbsp;
+                          <i
+                            class="fa-solid fa-star"
+                            style={{ color: "#FCB92C", fontSize: "10px" }}
+                          />
+                          &nbsp;&&nbsp; Above
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="cusRateFilterVal"
+                          />{" "}
+                          2&nbsp;
+                          <i
+                            class="fa-solid fa-star"
+                            style={{ color: "#FCB92C", fontSize: "10px" }}
+                          />
+                          &nbsp;&&nbsp; Above
+                        </label>
+                        <label className="d-flex align-items-center mb-2">
+                          <input
+                            type="radio"
+                            className="me-1"
+                            name="cusRateFilterVal"
+                          />{" "}
+                          1&nbsp;
+                          <i
+                            class="fa-solid fa-star"
+                            style={{ color: "#FCB92C", fontSize: "10px" }}
+                          />
+                        </label>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
+                <hr className="m-0 p-0" />
+                {/* <========================= BEST SELLER MARQUEE ========================> */}
+                <div className={style.filterContainer}>
+                  <div className="mb-3">
+                    <h5 className={`${style.bestSelTitle} mb-0`}>
+                      Best Seller&nbsp;
+                    </h5>
+                  </div>
+                  <div id={style.bestSeller} ref={bestSellerBox}>
+                    <div
+                      id={style.bestSellInner}
+                      className="d-flex flex-column"
+                    >
+                      {currentItems.map((p) => {
+                        return (
+                          <div className="mb-3">
+                            <a
+                              href="#"
+                              className="d-flex mb-2"
+                              style={{ textDecoration: "none", color: "black" }}
+                            >
+                              <div className="p-0" style={{ width: "30%" }}>
+                                <img
+                                  src={p.image[0]}
+                                  alt="Product Image"
+                                  style={{ width: "100%", height: "120px" }}
+                                />
+                              </div>
+                              <div className="px-3" style={{ width: "70%" }}>
+                                <p className="mb-2">
+                                  Women Windbreaker Striped Climbing Raincoats
+                                </p>
+                                <p className="fw-bold mb-0  ">$1200</p>
+                              </div>
+                            </a>
+                          </div>
+                        );
+                      })}
+                      {currentItems.map((p) => {
+                        return (
+                          <div className="mb-3">
+                            <a
+                              href="#"
+                              className="d-flex mb-2"
+                              style={{ textDecoration: "none", color: "black" }}
+                            >
+                              <div className="p-0" style={{ width: "30%" }}>
+                                <img
+                                  src={p.image[0]}
+                                  alt="Product Image"
+                                  style={{ width: "100%", height: "120px" }}
+                                />
+                              </div>
+                              <div className="px-3" style={{ width: "70%" }}>
+                                <p className="mb-2">
+                                  Women Windbreaker Striped Climbing Raincoats
+                                </p>
+                                <p className="fw-bold mb-0  ">$1200</p>
+                              </div>
+                            </a>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-9">
+              <div id={style.mainArea}>
+                {/* <========================= Products Grid ========================> */}
+                <div className="mb-5" id={style.productGrid}>
+                  {currentItems.map((p, inx) => {
+                    return (
+                      <Card
+                        style={{
+                          padding: "16px 0",
+                          position: "relative",
+                          overflow: "hidden",
+                        }}
+                        key={`product${inx}`}
+                        onMouseOut={(e) => {
+                          e.target.childNodes[1].style.top = "-20%";
+                          console.log("out");
+                        }}
+                      >
+                        <Card.Img
+                          variant="top"
+                          src={p.image[0]}
+                          style={{
+                            width: "180px",
+                            height: "200px",
+                            margin: "auto",
+                            padding: "20px 16px",
+                          }}
+                          className={`img-fluid`}
+                          onMouseEnter={(e) => {
+                            e.target.nextElementSibling.style.top = "25%";
+                            console.log(quickView.current);
+                            console.log("in");
+                          }}
+                        />
+                        <button
+                          className={`btn ${style.quickViewBtn}`}
+                          ref={quickView}
+                        >
+                          Quick View
+                        </button>
+                        <Card.Body>
+                          <Card.Title className="text-center mb-2">
+                            <span>{`${p.title.substring(0, 15)}...`}</span>
+                          </Card.Title>
+                          <Card.Text>
+                            <p className="text-center text-danger fw-bold mb-2">
+                              {`Price : $${p.price}`}
+                            </p>
+                          </Card.Text>
+                          <div className="add2Cart text-center">
+                            <button className={`btn ${style.add2Cart}`}>
+                              ADD TO CART
+                            </button>
+                          </div>
+                        </Card.Body>
+                      </Card>
                     );
                   })}
+                </div>
+
+                {/* <========================= Pagination ========================> */}
+                <div className="pagination d-flex justify-content-between align-items-center">
+                  <span>
+                    Page {currentPage} Of {pageCount}
+                  </span>
+                  <ReactPaginate
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    renderOnZeroPageCount={null}
+                    id={style.mypaginate}
+                    pageClassName={style.liTag}
+                    containerClassName={style.containerPg}
+                    pageLinkClassName={style.aClass}
+                    activeClassName={style.activeliTag}
+                    activeLinkClassName={style.activeAClass}
+                    previousClassName={style.prevBtnLi}
+                    nextClassName={style.nextBtnLi}
+                    previousLinkClassName={style.prevBtnA}
+                    nextLinkClassName={style.nextBtnA}
+                    disabledClassName={style.disabledBtn}
+                    disabledLinkClassName={style.disabledLink}
+                  />
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-9">
-            <div id={style.mainArea}>
-              {/* <========================= Products Grid ========================> */}
-              <div className="mb-5" id={style.productGrid}>
-                {currentItems.map((p, inx) => {
-                  return (
-                    <Card
-                      style={{
-                        padding: "16px 0",
-                        position: "relative",
-                        overflow: "hidden",
-                      }}
-                      key={`product${inx}`}
-                      onMouseOut={(e) => {
-                        e.target.childNodes[1].style.top = "-20%";
-                        console.log("out");
-                      }}
-                    >
-                      <Card.Img
-                        variant="top"
-                        src={p.image[0]}
-                        style={{
-                          width: "180px",
-                          height: "200px",
-                          margin: "auto",
-                          padding: "20px 16px",
-                        }}
-                        className={`img-fluid`}
-                        onMouseEnter={(e) => {
-                          e.target.nextElementSibling.style.top = "25%";
-                          console.log(quickView.current);
-                          console.log("in");
-                        }}
-                      />
-                      <button
-                        className={`btn ${style.quickViewBtn}`}
-                        ref={quickView}
-                      >
-                        Quick View
-                      </button>
-                      <Card.Body>
-                        <Card.Title className="text-center mb-2">
-                          <span>{`${p.title.substring(0, 15)}...`}</span>
-                        </Card.Title>
-                        <Card.Text>
-                          <p className="text-center text-danger fw-bold mb-2">
-                            {`Price : $${p.price}`}
-                          </p>
-                        </Card.Text>
-                        <div className="add2Cart text-center">
-                          <button className={`btn ${style.add2Cart}`}>
-                            ADD TO CART
-                          </button>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  );
-                })}
-              </div>
+        </div>
 
-              {/* <========================= Pagination ========================> */}
-              <div className="pagination d-flex justify-content-between align-items-center">
-                <span>
-                  Page {currentPage} Of {pageCount}
-                </span>
-                <ReactPaginate
-                  breakLabel="..."
-                  nextLabel=">"
-                  onPageChange={handlePageClick}
-                  pageRangeDisplayed={5}
-                  pageCount={pageCount}
-                  previousLabel="<"
-                  renderOnZeroPageCount={null}
-                  id={style.mypaginate}
-                  pageClassName={style.liTag}
-                  containerClassName={style.containerPg}
-                  pageLinkClassName={style.aClass}
-                  activeClassName={style.activeliTag}
-                  activeLinkClassName={style.activeAClass}
-                  previousClassName={style.prevBtnLi}
-                  nextClassName={style.nextBtnLi}
-                  previousLinkClassName={style.prevBtnA}
-                  nextLinkClassName={style.nextBtnA}
-                  disabledClassName={style.disabledBtn}
-                  disabledLinkClassName={style.disabledLink}
-                />
+        {/* <================================= Product Offers =================================>   */}
+        <div className="row g-5" id={style.offerWrapper}>
+          <div className="col-6 mt-0 px-4">
+            <a href="#">
+              <div className={`row ${style.offer}`}>
+                <div className="col-6 d-flex flex-column justify-content-center">
+                  <span style={{ fontSize: "18px" }}>
+                    New Collections, New Trendy
+                  </span>
+                  <p className="fs-2 fw-bold">Smart Watches</p>
+                  <span style={{ fontSize: "18px" }}>
+                    Sale up to 25% off all in store
+                  </span>
+                </div>
+                <div className="col-6">
+                  <img
+                    src={smartWatch}
+                    alt="Smart Watch"
+                    className="img-fluid"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col-6 mt-0 px-4">
+            <a href="#">
+              <div className={`row ${style.offer}`}>
+                <div className="col-6 d-flex flex-column justify-content-center">
+                  <span style={{ fontSize: "18px" }}>
+                    Top Brands, lowest Prices
+                  </span>
+                  <p className="fs-2 fw-bold">Smart Phones</p>
+                  <span style={{ fontSize: "18px" }}>
+                    Free shipping order over $100
+                  </span>
+                </div>
+                <div className="col-6">
+                  <img
+                    src={smartPhone}
+                    alt="Smart Watch"
+                    className="img-fluid"
+                  />
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        {/* <================================= Footer Services =================================>   */}
+        <div className={style.container} style={{ padding: "50px" }}>
+          <p className="fw-bold fs-3">Electronics:</p>
+          <p style={{ fontSize: "18px", marginBottom: "50px" }}>
+            If you're considering a new laptop, looking for a powerful new car
+            stereo or shopping for a new HDTV, we make it easy to find exactly
+            what you need at a price you can afford. We offer Every Day Low
+            Prices on TVs, laptops, cell phones, tablets and iPads, video games,
+            desktop computers, cameras and camcorders, audio, video and more
+          </p>
+          <div className="servicesWrapper row">
+            <div className="service col-4 d-flex align-items-center">
+              <FaDolly style={serviceIcon} />
+              <div className="serviceText ms-3">
+                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
+                <p className="mb-0">on orders over $100</p>
               </div>
             </div>
+            <div className="service col-4 d-flex align-items-center">
+              <FaShippingFast style={serviceIcon} />
+              <div className="serviceText ms-3">
+                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
+                <p className="mb-0">on orders over $100</p>
+              </div>
+            </div>
+            <div className="service col-4 d-flex align-items-center">
+              <FaRegThumbsUp style={serviceIcon} />
+              <div className="serviceText ms-3">
+                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
+                <p className="mb-0">on orders over $100</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* <================================= Footer Links =================================>   */}
+        <div
+          className={style.container}
+          style={{ backgroundColor: "#060E1F", color: "white" }}
+        >
+          <div className="row" style={{ padding: "50px 0px" }}>
+            <div className="col-4">
+              <ul className={style.ftList}>
+                <li>
+                  <h4 className="mb-4">Categories</h4>
+                </li>
+                <li>
+                  <a href="#">Mobiles</a>
+                </li>
+                <li>
+                  <a href="#">Computers</a>
+                </li>
+                <li>
+                  <a href="#">TV, Audio</a>
+                </li>
+                <li>
+                  <a href="#">Smartphones</a>
+                </li>
+                <li>
+                  <a href="#">Washing Machines </a>
+                </li>
+                <li>
+                  <a href="#">Refrigerators</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-4"></div>
+            <div className="col-4"></div>
+            <div className="col-4"></div>
           </div>
         </div>
       </div>
