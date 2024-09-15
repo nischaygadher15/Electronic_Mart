@@ -81,10 +81,12 @@
   left: 30%;
   right: 30%;
   transition: all 0.5s ease;
+  z-index: 5;
 }
 
-.cardImg:hover .quickViewBtn {
-  top: -20% !important;
+.quickViewBtn:hover {
+  background-color: rgba(41, 37, 96, 0.7);
+  color: white;
 }
 
 /* Pagination Css */
@@ -133,6 +135,7 @@
 #filterSection {
   padding: 0px 24px;
   /* height: 100%; */
+  border-radius: 5px;
   background-color: #fafafa;
 }
 
@@ -166,6 +169,12 @@
   --bs-accordion-active-bg: transparent;
 }
 
+.accHeader > button,
+.bestSelTitle {
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .myBody {
   margin-top: 20px;
 }
@@ -184,4 +193,17 @@
   position: absolute;
   top: -30px;
   left: -15px;
+}
+
+#bestSeller {
+  max-height: 400px;
+  overflow-y: scroll;
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#bestSeller::-webkit-scrollbar {
+  display: none;
 }

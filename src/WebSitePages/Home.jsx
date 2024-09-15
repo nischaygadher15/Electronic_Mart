@@ -28,10 +28,14 @@ import data from "../JSON_Data/ProductsList.js";
 import { nanoid } from "@reduxjs/toolkit";
 import { useOutletContext } from "react-router-dom";
 import ReactSlider from "react-slider";
+import pImg from "../assets/Products Images/product1.jpg";
 
 const Home = () => {
   //Varialble Declaration
   let home = useRef(0);
+  let quickBtnFlag = false;
+  let quickView = useRef(null);
+  let bestSellerBox = useRef(null);
   let AppWrapper = useOutletContext();
   const [index, setIndex] = useState(0);
   let products = data.slice(0, data.length);
@@ -81,6 +85,14 @@ const Home = () => {
     () => console.log(`Current Page: ${currentPage}/${pageCount}`),
     [currentPage]
   );
+
+  let autoScroll = () => {
+    bestSellerBox.current.scrollBy({
+      top: "100",
+      left: "0",
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div className={style.homeWrapper} ref={home}>
@@ -220,7 +232,6 @@ const Home = () => {
                 <h3 className="fs-4 mb-0">Filters</h3>
               </div>
               <hr className="m-0 p-0" />
-
               {/* <========================= Category Filter ========================> */}
               <div className={style.filterContainer}>
                 <label
@@ -248,7 +259,6 @@ const Home = () => {
                 </select>
               </div>
               <hr className="m-0 p-0" />
-
               {/* <========================= Price Filter ========================> */}
               <div className={style.filterContainer}>
                 <div className="priceFilter">
@@ -287,12 +297,11 @@ const Home = () => {
                 </div>
               </div>
               <hr className="m-0 p-0" />
-
               {/* <========================= Discount Filter ========================> */}
               <div className={style.filterContainer}>
                 <Accordion className={style.MyAccordian}>
-                  <Accordion.Item defaultActiveKey="0">
-                    <Accordion.Header id={style.accHeader}>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header className={style.accHeader}>
                       Discount
                     </Accordion.Header>
                     <Accordion.Body className={style.myBody}>
@@ -349,12 +358,128 @@ const Home = () => {
                 </Accordion>
               </div>
               <hr className="m-0 p-0" />
-
+              {/* <========================= Electronics Filter ========================> */}
+              <div className={style.filterContainer}>
+                <Accordion className={style.MyAccordian}>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header className={style.accHeader}>
+                      Electronics
+                    </Accordion.Header>
+                    <Accordion.Body className={style.myBody}>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Accessories</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Cameras & Photography</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Car & Vehicle Electronics</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Computers & Accessories</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>GPS & Accessories</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Headphones</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Home Audio</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Home Theater, TV & Video </span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Mobiles & Accessories </span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Portable Media Players</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Tablets</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Telephones & Accessories</span>
+                      </label>
+                      <label className="d-flex align-items-center mb-2">
+                        <input
+                          type="checkbox"
+                          className="mt-0 me-2 form-check-input"
+                          name="discountFilterVal"
+                        />
+                        <span>Wearable Technology</span>
+                      </label>
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+              </div>
+              <hr className="m-0 p-0" />
               {/* <========================= Size Filter ========================> */}
               <div className={style.filterContainer}>
                 <Accordion className={style.MyAccordian}>
-                  <Accordion.Item defaultActiveKey="0">
-                    <Accordion.Header id={style.accHeader}>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header className={style.accHeader}>
                       Size
                     </Accordion.Header>
                     <Accordion.Body className={style.myBody}>
@@ -395,12 +520,11 @@ const Home = () => {
                 </Accordion>
               </div>
               <hr className="m-0 p-0" />
-
               {/* <========================= Customer Rating Filter ========================> */}
               <div className={style.filterContainer}>
                 <Accordion className={style.MyAccordian}>
-                  <Accordion.Item defaultActiveKey="0">
-                    <Accordion.Header id={style.accHeader}>
+                  <Accordion.Item eventKey="0">
+                    <Accordion.Header className={style.accHeader}>
                       Customer Rating
                     </Accordion.Header>
                     <Accordion.Body className={style.myBody}>
@@ -459,6 +583,43 @@ const Home = () => {
                   </Accordion.Item>
                 </Accordion>
               </div>
+              <hr className="m-0 p-0" />
+              {/* <========================= BEST SELLER MARQUEE ========================> */}
+              <div className={style.filterContainer}>
+                <div className="mb-3">
+                  <h5 className={`${style.bestSelTitle} mb-0`}>
+                    Best Seller&nbsp;
+                    <button className="btn btn-primary" onClick={autoScroll}>
+                      autoScroll
+                    </button>
+                  </h5>
+                </div>
+                <div
+                  className="d-flex flex-column"
+                  id={style.bestSeller}
+                  ref={bestSellerBox}
+                >
+                  {currentItems.map((p) => {
+                    return (
+                      <div className="d-flex mb-3">
+                        <div className="p-0" style={{ width: "30%" }}>
+                          <img
+                            src={p.image[0]}
+                            alt="Product Image"
+                            style={{ width: "100%", height: "120px" }}
+                          />
+                        </div>
+                        <div className="px-3" style={{ width: "70%" }}>
+                          <p className="mb-2">
+                            Women Windbreaker Striped Climbing Raincoats
+                          </p>
+                          <p className="fw-bold mb-0  ">$1200</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-9">
@@ -474,6 +635,10 @@ const Home = () => {
                         overflow: "hidden",
                       }}
                       key={`product${inx}`}
+                      onMouseOut={(e) => {
+                        e.target.childNodes[1].style.top = "-20%";
+                        console.log("out");
+                      }}
                     >
                       <Card.Img
                         variant="top"
@@ -484,9 +649,17 @@ const Home = () => {
                           margin: "auto",
                           padding: "20px 16px",
                         }}
-                        className={`img-fluid ${style.cardImg}`}
+                        className={`img-fluid`}
+                        onMouseEnter={(e) => {
+                          e.target.nextElementSibling.style.top = "25%";
+                          console.log(quickView.current);
+                          console.log("in");
+                        }}
                       />
-                      <button className={`btn ${style.quickViewBtn}`}>
+                      <button
+                        className={`btn ${style.quickViewBtn}`}
+                        ref={quickView}
+                      >
                         Quick View
                       </button>
                       <Card.Body>
