@@ -1,3 +1,7 @@
+.container {
+  padding: 0px 50px;
+}
+
 #navBar {
   padding: 20px 50px;
   background-color: #ffffff;
@@ -67,6 +71,7 @@
   transform: translate(-30%, calc(30% + 15px)) !important;
 }
 
+/* Log in Modal Section css */
 .logInModal {
   --bs-modal-zindex: 1055;
   --bs-modal-width: 550px;
@@ -231,4 +236,81 @@
   position: relative;
   flex: 1 1 auto;
   padding: var(--bs-modal-padding);
+}
+
+/* Footer */
+
+.ftList {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.ftList > li {
+  margin-bottom: 16px;
+}
+
+.ftList > li > a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  align-items: center;
+}
+
+.getTouchIcons {
+  color: #ffffff;
+  margin-right: 14px;
+}
+
+.footerLinks2 ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.ftLinks2 {
+  color: #707070;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ftLinks2 li::after {
+  content: "";
+  border-right: 1px solid #707070;
+  padding: 0px 5px;
+  color: #707070;
+}
+
+.ftLinks2 li a {
+  text-decoration: none;
+  color: #707070;
+}
+
+.ftLinks2 li a:hover {
+  color: #fdb03d;
+}
+
+.ftLinksPay {
+  display: flex;
+  gap: 5px;
+}
+
+.ftLinksPay li img {
+  width: 55px;
+  height: 35px;
+}
+
+.footerText {
+  background-color: #060e1f;
+  padding: 20px 0px;
+}
+
+.footerText p a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.footerText p a:hover {
+  text-decoration: underline;
+  color: #fdb03d;
 }

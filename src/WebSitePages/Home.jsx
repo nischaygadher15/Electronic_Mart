@@ -16,6 +16,8 @@ import {
   Badge,
   Button,
   Card,
+  Form,
+  InputGroup,
   Modal,
   NavLink,
 } from "react-bootstrap";
@@ -30,9 +32,15 @@ import { useOutletContext } from "react-router-dom";
 import ReactSlider from "react-slider";
 import smartWatch from "../assets/off1.png";
 import smartPhone from "../assets/off2.png";
-import { FaDolly } from "react-icons/fa";
+import { FaDolly, FaGooglePlusG, FaTwitter } from "react-icons/fa";
 import { FaShippingFast } from "react-icons/fa";
 import { FaRegThumbsUp } from "react-icons/fa";
+import { FaLocationPin } from "react-icons/fa6";
+import { CiMobile2 } from "react-icons/ci";
+import { IoCall } from "react-icons/io5";
+import { IoMailOpen } from "react-icons/io5";
+import { RiFacebookBoxFill } from "react-icons/ri";
+import { FaPaperPlane } from "react-icons/fa";
 
 const Home = () => {
   //Varialble Declaration
@@ -795,78 +803,6 @@ const Home = () => {
                 </div>
               </div>
             </a>
-          </div>
-        </div>
-
-        {/* <================================= Footer Services =================================>   */}
-        <div className={style.container} style={{ padding: "50px" }}>
-          <p className="fw-bold fs-3">Electronics:</p>
-          <p style={{ fontSize: "18px", marginBottom: "50px" }}>
-            If you're considering a new laptop, looking for a powerful new car
-            stereo or shopping for a new HDTV, we make it easy to find exactly
-            what you need at a price you can afford. We offer Every Day Low
-            Prices on TVs, laptops, cell phones, tablets and iPads, video games,
-            desktop computers, cameras and camcorders, audio, video and more
-          </p>
-          <div className="servicesWrapper row">
-            <div className="service col-4 d-flex align-items-center">
-              <FaDolly style={serviceIcon} />
-              <div className="serviceText ms-3">
-                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
-                <p className="mb-0">on orders over $100</p>
-              </div>
-            </div>
-            <div className="service col-4 d-flex align-items-center">
-              <FaShippingFast style={serviceIcon} />
-              <div className="serviceText ms-3">
-                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
-                <p className="mb-0">on orders over $100</p>
-              </div>
-            </div>
-            <div className="service col-4 d-flex align-items-center">
-              <FaRegThumbsUp style={serviceIcon} />
-              <div className="serviceText ms-3">
-                <p className="fs-3 fw-semibold mb-1">Free Shipping</p>
-                <p className="mb-0">on orders over $100</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* <================================= Footer Links =================================>   */}
-        <div
-          className={style.container}
-          style={{ backgroundColor: "#060E1F", color: "white" }}
-        >
-          <div className="row" style={{ padding: "50px 0px" }}>
-            <div className="col-4">
-              <ul className={style.ftList}>
-                <li>
-                  <h4 className="mb-4">Categories</h4>
-                </li>
-                <li>
-                  <a href="#">Mobiles</a>
-                </li>
-                <li>
-                  <a href="#">Computers</a>
-                </li>
-                <li>
-                  <a href="#">TV, Audio</a>
-                </li>
-                <li>
-                  <a href="#">Smartphones</a>
-                </li>
-                <li>
-                  <a href="#">Washing Machines </a>
-                </li>
-                <li>
-                  <a href="#">Refrigerators</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-4"></div>
-            <div className="col-4"></div>
-            <div className="col-4"></div>
           </div>
         </div>
       </div>
