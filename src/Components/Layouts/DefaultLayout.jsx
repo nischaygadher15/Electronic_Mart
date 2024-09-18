@@ -46,6 +46,7 @@ import pay7 from "../../assets/pay7.png";
 import pay8 from "../../assets/pay8.png";
 import pay9 from "../../assets/pay9.png";
 import { IoMdArrowDropdown } from "react-icons/io";
+import { RiSmartphoneFill } from "react-icons/ri";
 
 const DefaultLayout = ({ children }) => {
   let mainWrapper = useRef(null);
@@ -336,38 +337,92 @@ const DefaultLayout = ({ children }) => {
               <NavLink to="/">HOME</NavLink>
             </li>
             <li>
-              <div className={style.ddOnHover}>
+              <div
+                className={style.ddOnHover}
+                onMouseOver={() => {
+                  document
+                    .querySelector("#electronics")
+                    .classList.add(style.show);
+                }}
+                onMouseLeave={() => {
+                  document
+                    .querySelector("#electronics")
+                    .classList.remove(style.show);
+                }}
+              >
                 <span className={style.ddOnHoverTitle}>
                   ELECTRONICS <IoMdArrowDropdown className="ms-1" />
                 </span>
-                <div className={style.ddOnHoverOuterBody}>
+                <div className={style.ddOnHoverOuterBody} id="electronics">
                   <div className={`row ${style.ddOnHoverBody}`}>
-                    <div className="col-6">
+                    <div className="col-6 p-0">
                       <ul className={style.ddOnHoverList}>
                         <li className={style.ddOnHoverBodyTitle}>
                           <h4 className="mb-4">Mobiles, Computers</h4>
                         </li>
                         <li>
-                          <a href="#">Mobiles</a>
+                          <a href="#">All Mobile Phones</a>
                         </li>
                         <li>
-                          <a href="#">Computers</a>
+                          <a href="#">All Mobile Accessories</a>
                         </li>
                         <li>
-                          <a href="#">TV, Audio</a>
+                          <a href="#">Cases & Covers</a>
                         </li>
                         <li>
-                          <a href="#">Smartphones</a>
+                          <a href="#">Screen Protectors</a>
                         </li>
                         <li>
-                          <a href="#">Washing Machines </a>
+                          <a href="#">Power Banks</a>
+                        </li>
+                        <li>
+                          <a href="#">All Certified Refurbished</a>
+                        </li>
+                        <li>
+                          <a href="#">Tablets</a>
+                        </li>
+                        <li>
+                          <a href="#">Wearable Devices</a>
+                        </li>
+                        <li>
+                          <a href="#">Smart Home</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-6 p-0">
+                      <ul className={style.ddOnHoverList}>
+                        <li className={style.ddOnHoverBodyTitle}>
+                          <h4 className="mb-4 opacity-0">Mobiles, Computers</h4>
+                        </li>
+                        <li>
+                          <a href="#">Musical Instruments</a>
+                        </li>
+                        <li>
+                          <a href="#">Gaming Consoles</a>
+                        </li>
+                        <li>
+                          <a href="#">All Electronics</a>
+                        </li>
+                        <li>
+                          <a href="#">Air Conditioners</a>
                         </li>
                         <li>
                           <a href="#">Refrigerators</a>
                         </li>
+                        <li>
+                          <a href="#">Washing Machines</a>
+                        </li>
+                        <li>
+                          <a href="#">Kitchen & Home Appliances</a>
+                        </li>
+                        <li>
+                          <a href="#">Heating & Cooling Appliances</a>
+                        </li>
+                        <li>
+                          <a href="#">All Appliances</a>
+                        </li>
                       </ul>
                     </div>
-                    <div className="col-6"></div>
                   </div>
                 </div>
               </div>
@@ -692,7 +747,7 @@ const DefaultLayout = ({ children }) => {
               </li>
               <li>
                 <a href="#">
-                  <CiMobile2 className={style.getTouchIcons} />
+                  <RiSmartphoneFill className={style.getTouchIcons} />
                   12 2345 6790
                 </a>
               </li>
