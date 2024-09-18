@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
-import header from "../Navbar/Header.module.css";
 // import { ProductId } from "./ProductContext";
 import Loader from "../Loader";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,6 +45,7 @@ import pay6 from "../../assets/pay6.png";
 import pay7 from "../../assets/pay7.png";
 import pay8 from "../../assets/pay8.png";
 import pay9 from "../../assets/pay9.png";
+import { IoMdArrowDropdown } from "react-icons/io";
 
 const DefaultLayout = ({ children }) => {
   let mainWrapper = useRef(null);
@@ -338,7 +336,41 @@ const DefaultLayout = ({ children }) => {
               <NavLink to="/">HOME</NavLink>
             </li>
             <li>
-              <NavLink to="/electronics">ELECTRONICS</NavLink>
+              <div className={style.ddOnHover}>
+                <span className={style.ddOnHoverTitle}>
+                  ELECTRONICS <IoMdArrowDropdown className="ms-1" />
+                </span>
+                <div className={style.ddOnHoverOuterBody}>
+                  <div className={`row ${style.ddOnHoverBody}`}>
+                    <div className="col-6">
+                      <ul className={style.ddOnHoverList}>
+                        <li className={style.ddOnHoverBodyTitle}>
+                          <h4 className="mb-4">Mobiles, Computers</h4>
+                        </li>
+                        <li>
+                          <a href="#">Mobiles</a>
+                        </li>
+                        <li>
+                          <a href="#">Computers</a>
+                        </li>
+                        <li>
+                          <a href="#">TV, Audio</a>
+                        </li>
+                        <li>
+                          <a href="#">Smartphones</a>
+                        </li>
+                        <li>
+                          <a href="#">Washing Machines </a>
+                        </li>
+                        <li>
+                          <a href="#">Refrigerators</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="col-6"></div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
               <NavLink to="/Appliance">APPLIANCES</NavLink>
@@ -557,7 +589,7 @@ const DefaultLayout = ({ children }) => {
       <div style={{ zIndex: "0" }}>{children}</div>
 
       {/* <================================= Footer Services =================================>   */}
-      <div className={style.container} style={{ padding: "50px" }}>
+      <div className={style.container} style={{ padding: "60px" }}>
         <p className="fw-bold fs-3">Electronics:</p>
         <p style={{ fontSize: "18px", marginBottom: "50px" }}>
           If you're considering a new laptop, looking for a powerful new car
@@ -753,8 +785,8 @@ const DefaultLayout = ({ children }) => {
         </div>
       </div>
 
-      {/* <================================= Footer Links 1 =================================>   */}
-      <div className={style.container} style={{ padding: "50px" }}>
+      {/* <================================= Footer Links 2 =================================>   */}
+      <div className={style.container} style={{ padding: "60px" }}>
         <div className={style.footerLinks2}>
           <ul>
             <li className="mb-4">

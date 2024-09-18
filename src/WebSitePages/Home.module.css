@@ -3,7 +3,7 @@
 } */
 
 .container {
-  padding: 0px 50px;
+  padding: 0px 60px;
 }
 
 #productContainer {
@@ -81,15 +81,16 @@
 .quickViewBtn {
   padding: 10px;
   position: absolute;
+  background-color: rgb(41, 37, 96);
   top: -20%;
   left: 30%;
   right: 30%;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   z-index: 5;
 }
 
 .quickViewBtn:hover {
-  background-color: rgba(41, 37, 96, 0.7);
+  background-color: #fdb03d;
   color: white;
 }
 
@@ -225,7 +226,7 @@
 
 /* Offers Boxs */
 #offerWrapper {
-  padding: 80px 70px;
+  padding: 80px 60px;
   background: url("../assets/bg.jpg");
   background-attachment: fixed;
   background-size: cover;

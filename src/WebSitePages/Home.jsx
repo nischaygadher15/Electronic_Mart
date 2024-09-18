@@ -45,8 +45,6 @@ import { FaPaperPlane } from "react-icons/fa";
 const Home = () => {
   //Varialble Declaration
   let home = useRef(0);
-  let quickBtnFlag = false;
-  let quickView = useRef(null);
   let bestSellerBox = useRef(null);
   let AppWrapper = useOutletContext();
   const [index, setIndex] = useState(0);
@@ -72,6 +70,8 @@ const Home = () => {
     color: "#fdb03d",
     fontSize: "50px",
   };
+
+  let leaveFlag = false;
 
   //Home Carosel
   const handleSelect = (selectedIndex) => {
@@ -106,128 +106,142 @@ const Home = () => {
   return (
     <div className={style.homeWrapper} ref={home}>
       {/* <================================= Home Corousel =================================>   */}
-      <div className={style.container}>
-        <div className="homeCorousels" data-bs-theme="dark">
-          <Carousel indicators={false} className={style.cars}>
-            <Carousel.Item>
-              <img
-                className={`d-block w-100 ${style.carouselImg}`}
-                src={banner1}
-                alt="First slide"
-              />
-              <Carousel.Caption bsPrefix={style.carCaption}>
-                <p style={{ fontSize: "16px", margin: "0px" }}>
-                  Get flat&nbsp;
-                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                    10%
-                  </span>
-                  &nbsp; Cashback
-                </p>
-                <h2
+      <div className="homeCorousels" data-bs-theme="dark">
+        <Carousel indicators={false} className={style.cars}>
+          <Carousel.Item>
+            <img
+              className={`d-block w-100 ${style.carouselImg}`}
+              src={banner1}
+              alt="First slide"
+            />
+            <Carousel.Caption bsPrefix={style.carCaption}>
+              <p style={{ fontSize: "16px", margin: "0px" }}>
+                Get flat&nbsp;
+                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                  10%
+                </span>
+                &nbsp; Cashback
+              </p>
+              <h2
+                style={{
+                  fontSize: "50px",
+                  fontWeight: "400",
+                  margin: "30px 0px",
+                }}
+              >
+                EXCITING DEALS ON <br /> TELEVISIONS
+              </h2>
+
+              <NavLink to="/product" className={style.shopNow}>
+                SHOP NOW
+              </NavLink>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className={`d-block w-100 ${style.carouselImg}`}
+              src={banner2}
+              alt="First slide"
+            />
+            <Carousel.Caption bsPrefix={style.carCaption}>
+              <p style={{ fontSize: "16px", margin: "0px" }}>
+                Top
+                <span
                   style={{
-                    fontSize: "50px",
-                    fontWeight: "400",
-                    margin: "30px 0px",
+                    fontSize: "30px",
+                    fontWeight: "600",
+                    margin: "0px 5px",
                   }}
                 >
-                  EXCITING DEALS ON <br /> TELEVISIONS
-                </h2>
-
-                <NavLink to="/product" className={style.shopNow}>
-                  SHOP NOW
-                </NavLink>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className={`d-block w-100 ${style.carouselImg}`}
-                src={banner2}
-                alt="First slide"
-              />
-              <Carousel.Caption bsPrefix={style.carCaption}>
-                <p style={{ fontSize: "16px", margin: "0px" }}>
-                  Get flat&nbsp;
-                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                    10%
-                  </span>
-                  &nbsp; Cashback
-                </p>
-                <h2
+                  Brands
+                </span>
+                lowest
+                <span
                   style={{
-                    fontSize: "50px",
-                    fontWeight: "400",
-                    margin: "30px 0px",
+                    fontSize: "30px",
+                    fontWeight: "600",
+                    margin: "0px 5px",
                   }}
                 >
-                  EXCITING DEALS ON <br /> TELEVISIONS
-                </h2>
+                  Prices
+                </span>
+              </p>
+              <h2
+                style={{
+                  fontSize: "45px",
+                  fontWeight: "400",
+                  margin: "30px 0px",
+                }}
+              >
+                WIDE RANGE OF MOBILE <br /> PHONES!
+              </h2>
 
-                <NavLink to="/product" className={style.shopNow}>
-                  SHOP NOW
-                </NavLink>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className={`d-block w-100 ${style.carouselImg}`}
-                src={banner3}
-                alt="First slide"
-              />
-              <Carousel.Caption bsPrefix={style.carCaption}>
-                <p style={{ fontSize: "16px", margin: "0px" }}>
-                  Get flat&nbsp;
-                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                    10%
-                  </span>
-                  &nbsp; Cashback
-                </p>
-                <h2
-                  style={{
-                    fontSize: "50px",
-                    fontWeight: "400",
-                    margin: "30px 0px",
-                  }}
-                >
-                  EXCITING DEALS ON <br /> TELEVISIONS
-                </h2>
+              <NavLink to="/product" className={style.shopNow}>
+                SHOP NOW
+              </NavLink>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className={`d-block w-100 ${style.carouselImg}`}
+              src={banner3}
+              alt="First slide"
+            />
+            <Carousel.Caption bsPrefix={style.carCaption}>
+              <p style={{ fontSize: "16px", margin: "0px" }}>
+                Get flat&nbsp;
+                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                  10%
+                </span>
+                &nbsp; Cashback
+              </p>
+              <h2
+                style={{
+                  fontSize: "50px",
+                  fontWeight: "400",
+                  margin: "30px 0px",
+                }}
+              >
+                EXCITING DEALS ON <br /> TELEVISIONS
+              </h2>
 
-                <NavLink to="/product" className={style.shopNow}>
-                  SHOP NOW
-                </NavLink>
-              </Carousel.Caption>
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                className={`d-block w-100 ${style.carouselImg}`}
-                src={banner4}
-                alt="First slide"
-              />
-              <Carousel.Caption bsPrefix={style.carCaption}>
-                <p style={{ fontSize: "16px", margin: "0px" }}>
-                  Get flat&nbsp;
-                  <span style={{ fontSize: "30px", fontWeight: "bold" }}>
-                    10%
-                  </span>
-                  &nbsp; Cashback
-                </p>
-                <h2
-                  style={{
-                    fontSize: "50px",
-                    fontWeight: "400",
-                    margin: "30px 0px",
-                  }}
-                >
-                  EXCITING DEALS ON <br /> TELEVISIONS
-                </h2>
+              <NavLink to="/product" className={style.shopNow}>
+                SHOP NOW
+              </NavLink>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className={`d-block w-100 ${style.carouselImg}`}
+              src={banner4}
+              alt="First slide"
+            />
+            <Carousel.Caption bsPrefix={style.carCaption}>
+              <p style={{ fontSize: "16px", margin: "0px" }}>
+                Get flat&nbsp;
+                <span style={{ fontSize: "30px", fontWeight: "bold" }}>
+                  10%
+                </span>
+                &nbsp; Cashback
+              </p>
+              <h2
+                style={{
+                  fontSize: "50px",
+                  fontWeight: "400",
+                  margin: "30px 0px",
+                }}
+              >
+                EXCITING DEALS ON <br /> TELEVISIONS
+              </h2>
 
-                <NavLink to="/product" className={style.shopNow}>
-                  SHOP NOW
-                </NavLink>
-              </Carousel.Caption>
-            </Carousel.Item>
-          </Carousel>
-        </div>
+              <NavLink to="/product" className={style.shopNow}>
+                SHOP NOW
+              </NavLink>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       </div>
+
       <div className={style.productsArea}>
         {/* <================================= Product Grid Title =================================>   */}
         <h2
@@ -679,11 +693,21 @@ const Home = () => {
                           overflow: "hidden",
                         }}
                         key={`product${inx}`}
-                        onMouseOut={(e) => {
-                          e.target.childNodes[1].style.top = "-20%";
-                          console.log("out");
+                        onMouseEnter={() => {
+                          document.querySelector(`#qvb${inx}`).style.top =
+                            "25%";
+                        }}
+                        onMouseLeave={() => {
+                          document.querySelector(`#qvb${inx}`).style.top =
+                            "-20%";
                         }}
                       >
+                        <button
+                          className={`btn ${style.quickViewBtn}`}
+                          id={`qvb${inx}`}
+                        >
+                          Quick View
+                        </button>
                         <Card.Img
                           variant="top"
                           src={p.image[0]}
@@ -694,18 +718,7 @@ const Home = () => {
                             padding: "20px 16px",
                           }}
                           className={`img-fluid`}
-                          onMouseEnter={(e) => {
-                            e.target.nextElementSibling.style.top = "25%";
-                            console.log(quickView.current);
-                            console.log("in");
-                          }}
                         />
-                        <button
-                          className={`btn ${style.quickViewBtn}`}
-                          ref={quickView}
-                        >
-                          Quick View
-                        </button>
                         <Card.Body>
                           <Card.Title className="text-center mb-2">
                             <span>{`${p.title.substring(0, 15)}...`}</span>
@@ -759,7 +772,7 @@ const Home = () => {
         </div>
 
         {/* <================================= Product Offers =================================>   */}
-        <div className="row g-5" id={style.offerWrapper}>
+        <div className="row g-5 m-0" id={style.offerWrapper}>
           <div className="col-6 mt-0 px-4">
             <a href="#">
               <div className={`row ${style.offer}`}>
