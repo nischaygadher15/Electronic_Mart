@@ -9,6 +9,10 @@
   color: var(--bs-navbar-active-color) !important;
 }
 
+.activeNavLink {
+  color: #fdb03d !important;
+}
+
 /* Price Slider from Admin Panel View product */
 .horizontal-slider {
   width: 100%;

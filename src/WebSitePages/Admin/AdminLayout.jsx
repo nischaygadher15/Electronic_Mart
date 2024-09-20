@@ -217,12 +217,15 @@ const AdminLayout = ({ children }) => {
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="d-flex flex-column" id={style.myNav}>
+                  {/* Dashboard */}
                   <NavLink to="/admin/dash" className={style.myNavLink}>
                     <MdOutlineDashboard
                       style={{ fontSize: "20px", marginRight: "10px" }}
                     />
                     Dashboard
                   </NavLink>
+
+                  {/* Users Accordian */}
                   <Accordion className={style.MyAccordian}>
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={style.accHeader}>
@@ -235,7 +238,7 @@ const AdminLayout = ({ children }) => {
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
                         <NavLink
-                          to="/users/add"
+                          to="/admin/usergrid"
                           className={style.myNavLink}
                           style={{
                             padding: "10px 60px",
@@ -244,7 +247,7 @@ const AdminLayout = ({ children }) => {
                           User Grid
                         </NavLink>
                         <NavLink
-                          to="/users/view"
+                          to="/admin/userlist"
                           className={style.myNavLink}
                           style={{
                             padding: "10px 60px",
@@ -253,7 +256,7 @@ const AdminLayout = ({ children }) => {
                           User List
                         </NavLink>
                         <NavLink
-                          to="/users/edit"
+                          to="/admin/userprofile"
                           className={style.myNavLink}
                           style={{
                             padding: "10px 60px",
@@ -264,6 +267,8 @@ const AdminLayout = ({ children }) => {
                       </Accordion.Body>
                     </Accordion.Item>
                   </Accordion>
+
+                  {/* Product Accordian */}
                   <Accordion className={style.MyAccordian}>
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={style.accHeader}>
@@ -305,6 +310,8 @@ const AdminLayout = ({ children }) => {
                       </Accordion.Body>
                     </Accordion.Item>
                   </Accordion>
+
+                  {/* Order */}
                   <NavLink to="/admin/orders" className={style.myNavLink}>
                     <FaClipboardList
                       style={{ fontSize: "20px", marginRight: "10px" }}

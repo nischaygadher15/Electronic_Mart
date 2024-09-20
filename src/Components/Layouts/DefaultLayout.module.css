@@ -27,6 +27,14 @@
   z-index: 9;
 }
 
+#navLinks {
+  list-style: none;
+}
+
+#navLinks > li > a:hover {
+  color: #fdb03d;
+}
+
 #navLinks > li > a {
   text-decoration: none;
   color: #ffffff;
@@ -96,34 +104,25 @@
 }
 
 .ddOnHoverOuterBody {
-  height: 0px;
   min-width: 600px;
-  border: none;
-  overflow: hidden;
+  border-radius: 5px;
   position: absolute;
   top: 45px;
   left: 0px;
-  transition: all 1s ease;
-  animation: openUp 200ms;
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 300ms ease;
 }
 
-@keyframes openUp {
-  to {
-    height: auto;
-  }
-}
-
-.show {
-  height: auto;
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 5px;
+.ddOnHover:hover .ddOnHoverOuterBody {
+  grid-template-rows: 1fr;
 }
 
 .ddOnHoverBody {
+  overflow: hidden;
   background-color: #ffffff;
   color: black;
-  padding: 32px;
-  transition: all 0.2s ease;
 }
 
 .ddOnHoverBodyTitle {

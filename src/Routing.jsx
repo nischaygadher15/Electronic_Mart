@@ -40,9 +40,9 @@ const router = createBrowserRouter([
       { path: "/admin/add", element: <Addproduct_2 /> },
       { path: "/admin/edit/", element: <Addproduct_2 /> },
       { path: "/admin/view", element: <ViewProducts_2 /> },
-      { path: "/admin/view", element: <UserGrid /> },
-      { path: "/admin/view", element: <UserList /> },
-      { path: "/admin/view", element: <UserProfile /> },
+      { path: "/admin/usergrid", element: <UserGrid /> },
+      { path: "/admin/userlist", element: <UserList /> },
+      { path: "/admin/userprofile", element: <UserProfile /> },
     ],
   },
   {

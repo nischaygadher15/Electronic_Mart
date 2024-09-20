@@ -330,105 +330,186 @@ const DefaultLayout = ({ children }) => {
           </div>
           <ul
             className="col-8 d-flex justify-content-evenly align-items-center mb-0"
-            style={{ listStyle: "none" }}
             id={style.navLinks}
           >
             <li>
-              <NavLink to="/">HOME</NavLink>
+              {/* Home */}
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "activeNavLink" : "")}
+              >
+                HOME
+              </NavLink>
             </li>
             <li>
-              <div
-                className={style.ddOnHover}
-                onMouseOver={() => {
-                  document
-                    .querySelector("#electronics")
-                    .classList.add(style.show);
-                }}
-                onMouseLeave={() => {
-                  document
-                    .querySelector("#electronics")
-                    .classList.remove(style.show);
-                }}
-              >
+              {/* Electronics */}
+              <div className={style.ddOnHover}>
                 <span className={style.ddOnHoverTitle}>
                   ELECTRONICS <IoMdArrowDropdown className="ms-1" />
                 </span>
-                <div className={style.ddOnHoverOuterBody} id="electronics">
-                  <div className={`row ${style.ddOnHoverBody}`}>
-                    <div className="col-6 p-0">
-                      <ul className={style.ddOnHoverList}>
-                        <li className={style.ddOnHoverBodyTitle}>
-                          <h4 className="mb-4">Mobiles, Computers</h4>
-                        </li>
-                        <li>
-                          <a href="#">All Mobile Phones</a>
-                        </li>
-                        <li>
-                          <a href="#">All Mobile Accessories</a>
-                        </li>
-                        <li>
-                          <a href="#">Cases & Covers</a>
-                        </li>
-                        <li>
-                          <a href="#">Screen Protectors</a>
-                        </li>
-                        <li>
-                          <a href="#">Power Banks</a>
-                        </li>
-                        <li>
-                          <a href="#">All Certified Refurbished</a>
-                        </li>
-                        <li>
-                          <a href="#">Tablets</a>
-                        </li>
-                        <li>
-                          <a href="#">Wearable Devices</a>
-                        </li>
-                        <li>
-                          <a href="#">Smart Home</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-6 p-0">
-                      <ul className={style.ddOnHoverList}>
-                        <li className={style.ddOnHoverBodyTitle}>
-                          <h4 className="mb-4 opacity-0">Mobiles, Computers</h4>
-                        </li>
-                        <li>
-                          <a href="#">Musical Instruments</a>
-                        </li>
-                        <li>
-                          <a href="#">Gaming Consoles</a>
-                        </li>
-                        <li>
-                          <a href="#">All Electronics</a>
-                        </li>
-                        <li>
-                          <a href="#">Air Conditioners</a>
-                        </li>
-                        <li>
-                          <a href="#">Refrigerators</a>
-                        </li>
-                        <li>
-                          <a href="#">Washing Machines</a>
-                        </li>
-                        <li>
-                          <a href="#">Kitchen & Home Appliances</a>
-                        </li>
-                        <li>
-                          <a href="#">Heating & Cooling Appliances</a>
-                        </li>
-                        <li>
-                          <a href="#">All Appliances</a>
-                        </li>
-                      </ul>
+                <div className={style.ddOnHoverOuterBody}>
+                  <div className={style.ddOnHoverBody}>
+                    <div className="row" style={{ margin: "24px" }}>
+                      <div className="col-6 p-0">
+                        <ul className={style.ddOnHoverList}>
+                          <li className={style.ddOnHoverBodyTitle}>
+                            <h4 className="mb-4">Mobiles, Computers</h4>
+                          </li>
+                          <li>
+                            <a href="#">All Mobile Phones</a>
+                          </li>
+                          <li>
+                            <a href="#">All Mobile Accessories</a>
+                          </li>
+                          <li>
+                            <a href="#">Cases & Covers</a>
+                          </li>
+                          <li>
+                            <a href="#">Screen Protectors</a>
+                          </li>
+                          <li>
+                            <a href="#">Power Banks</a>
+                          </li>
+                          <li>
+                            <a href="#">All Certified Refurbished</a>
+                          </li>
+                          <li>
+                            <a href="#">Tablets</a>
+                          </li>
+                          <li>
+                            <a href="#">Wearable Devices</a>
+                          </li>
+                          <li>
+                            <a href="#">Smart Home</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-6 p-0">
+                        <ul className={style.ddOnHoverList}>
+                          <li className={style.ddOnHoverBodyTitle}>
+                            <h4 className="mb-4 opacity-0">
+                              Mobiles, Computers
+                            </h4>
+                          </li>
+                          <li>
+                            <a href="#">Musical Instruments</a>
+                          </li>
+                          <li>
+                            <a href="#">Gaming Consoles</a>
+                          </li>
+                          <li>
+                            <a href="#">All Electronics</a>
+                          </li>
+                          <li>
+                            <a href="#">Air Conditioners</a>
+                          </li>
+                          <li>
+                            <a href="#">Refrigerators</a>
+                          </li>
+                          <li>
+                            <a href="#">Washing Machines</a>
+                          </li>
+                          <li>
+                            <a href="#">Kitchen & Home Appliances</a>
+                          </li>
+                          <li>
+                            <a href="#">Heating & Cooling Appliances</a>
+                          </li>
+                          <li>
+                            <a href="#">All Appliances</a>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
             <li>
-              <NavLink to="/Appliance">APPLIANCES</NavLink>
+              {/* APPLIANCES */}
+              <div className={style.ddOnHover}>
+                <span className={style.ddOnHoverTitle}>
+                  APPLIANCES <IoMdArrowDropdown className="ms-1" />
+                </span>
+                <div className={style.ddOnHoverOuterBody}>
+                  <div className={style.ddOnHoverBody}>
+                    <div className="row" style={{ margin: "24px" }}>
+                      <div className="col-6 p-0">
+                        <ul className={style.ddOnHoverList}>
+                          <li className={style.ddOnHoverBodyTitle}>
+                            <h4 className="mb-4">
+                              TV, Appliances, Electronics
+                            </h4>
+                          </li>
+                          <li>
+                            <a href="#">Televisions</a>
+                          </li>
+                          <li>
+                            <a href="#">All Mobile Accessories</a>
+                          </li>
+                          <li>
+                            <a href="#">Home Entertainment Systems</a>
+                          </li>
+                          <li>
+                            <a href="#">Headphones</a>
+                          </li>
+                          <li>
+                            <a href="#">Speakers</a>
+                          </li>
+                          <li>
+                            <a href="#">MP3, Media Players & Accessories</a>
+                          </li>
+                          <li>
+                            <a href="#">Audio & Video Accessories</a>
+                          </li>
+                          <li>
+                            <a href="#">Cameras</a>
+                          </li>
+                          <li>
+                            <a href="#">Camera Accessories</a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div className="col-6 p-0">
+                        <ul className={style.ddOnHoverList}>
+                          <li className={style.ddOnHoverBodyTitle}>
+                            <h4 className="mb-4 opacity-0">
+                              Mobiles, Computers
+                            </h4>
+                          </li>
+                          <li>
+                            <a href="#">Musical Instruments</a>
+                          </li>
+                          <li>
+                            <a href="#">Gaming Consoles</a>
+                          </li>
+                          <li>
+                            <a href="#">All Electronics</a>
+                          </li>
+                          <li>
+                            <a href="#">Air Conditioners</a>
+                          </li>
+                          <li>
+                            <a href="#">Refrigerators</a>
+                          </li>
+                          <li>
+                            <a href="#">Washing Machines</a>
+                          </li>
+                          <li>
+                            <a href="#">Kitchen & Home Appliances</a>
+                          </li>
+                          <li>
+                            <a href="#">Heating & Cooling Appliances</a>
+                          </li>
+                          <li>
+                            <a href="#">All Appliances</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
               <NavLink to="/aboutus">ABOUT US</NavLink>
@@ -534,110 +615,109 @@ const DefaultLayout = ({ children }) => {
             </form>
           </Modal.Body>
         </Modal>
-
-        {/* <=================================== Registration Modal ===================================> */}
-        <div className="regModal">
-          <Modal
-            show={regShow}
-            onHide={handleRegClose}
-            centered
-            bsPrefix={style.logInModal}
-          >
-            <Modal.Header closeButton bsPrefix={style.modelHead}>
-              Register
-            </Modal.Header>
-            <Modal.Body bsPrefix={style.modelBody}>
-              <form id={style.logInForm}>
-                <div className="mb-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Your Name"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="mb-4">
-                  <input
-                    type="email"
-                    className="form-control"
-                    placeholder="Email"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Password"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="password"
-                    className="form-control"
-                    placeholder="Confirm Password"
-                    style={inputStyle}
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="submit"
-                    value="Register"
-                    className={style.LogInBtn}
-                  />
-                </div>
-                <div className="mb-3">
-                  <input
-                    type="checkbox"
-                    className="form-check-input me-2"
-                    id={style.remMeCheck}
-                  />
-                  <span>I Accept to the Terms & Conditions</span>
-                </div>
-                <div
-                  className="mb-3 d-flex align-items-center justify-content-center"
+      </div>
+      {/* <=================================== Registration Modal ===================================> */}
+      <div className="regModal">
+        <Modal
+          show={regShow}
+          onHide={handleRegClose}
+          centered
+          bsPrefix={style.logInModal}
+        >
+          <Modal.Header closeButton bsPrefix={style.modelHead}>
+            Register
+          </Modal.Header>
+          <Modal.Body bsPrefix={style.modelBody}>
+            <form id={style.logInForm}>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Your Name"
+                  style={inputStyle}
+                />
+              </div>
+              <div className="mb-4">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Email"
+                  style={inputStyle}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Password"
+                  style={inputStyle}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  className="form-control"
+                  placeholder="Confirm Password"
+                  style={inputStyle}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="submit"
+                  value="Register"
+                  className={style.LogInBtn}
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="checkbox"
+                  className="form-check-input me-2"
+                  id={style.remMeCheck}
+                />
+                <span>I Accept to the Terms & Conditions</span>
+              </div>
+              <div
+                className="mb-3 d-flex align-items-center justify-content-center"
+                style={{ fontSize: "18px" }}
+              >
+                <span>Have an account already?&nbsp;</span>
+                <button
+                  className="btn p-0 text-warning"
                   style={{ fontSize: "18px" }}
+                  onClick={() => {
+                    handleRegClose();
+                    handleLogInShow();
+                  }}
                 >
-                  <span>Have an account already?&nbsp;</span>
-                  <button
-                    className="btn p-0 text-warning"
-                    style={{ fontSize: "18px" }}
-                    onClick={() => {
-                      handleRegClose();
-                      handleLogInShow();
-                    }}
-                  >
-                    Login
-                  </button>
-                </div>
-                <div className={style.socialIcons}>
-                  <a
-                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#facebook"
-                    className={style.socFrame}
-                    style={{ backgroundColor: "#849fd7" }}
-                  >
-                    <RiFacebookBoxFill />
-                  </a>
-                  <a
-                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#twitter"
-                    className={style.socFrame}
-                    style={{ backgroundColor: "#33BDF1" }}
-                  >
-                    <FaTwitter />
-                  </a>
-                  <a
-                    href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#google-plus"
-                    className={style.socFrame}
-                    style={{ backgroundColor: "#e46f61" }}
-                  >
-                    <FaGooglePlusG />
-                  </a>
-                </div>
-              </form>
-            </Modal.Body>
-          </Modal>
-        </div>
+                  Login
+                </button>
+              </div>
+              <div className={style.socialIcons}>
+                <a
+                  href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#facebook"
+                  className={style.socFrame}
+                  style={{ backgroundColor: "#849fd7" }}
+                >
+                  <RiFacebookBoxFill />
+                </a>
+                <a
+                  href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#twitter"
+                  className={style.socFrame}
+                  style={{ backgroundColor: "#33BDF1" }}
+                >
+                  <FaTwitter />
+                </a>
+                <a
+                  href="https://p.w3layouts.com/demos_new/template_demo/11-06-2021/electronics-mart-liberty-demo_Free/1081434887/web/index.html?_gl=1*2ofybf*_ga*Mjg0NTk3MzcxLjE3MjQ4NTY1ODE.*_ga_9HSZ46TKMQ*MTcyNDg1NjU4MC4xLjEuMTcyNDg1NzE5My41OC4wLjA.*_ga_EGV5GTJEP5*MTcyNDg1NjU4MS4xLjEuMTcyNDg1NzE5MS4wLjAuMA..*_ga_FFZF56TTWE*MTcyNDg1NjU4NC4xLjEuMTcyNDg1NzE5MS4wLjAuMA..&_ga=2.4833392.254561684.1724856584-284597371.1724856581#google-plus"
+                  className={style.socFrame}
+                  style={{ backgroundColor: "#e46f61" }}
+                >
+                  <FaGooglePlusG />
+                </a>
+              </div>
+            </form>
+          </Modal.Body>
+        </Modal>
       </div>
 
       {/* <================================= Children =================================>   */}

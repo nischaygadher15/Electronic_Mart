@@ -1,0 +1,85 @@
+.userGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.userCard {
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+  margin-bottom: 0px;
+}
+
+.userCardImg {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userCardBody {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  margin-top: 16px;
+  flex: none;
+}
+
+.userContactInfo {
+  list-style-type: none;
+  padding: 0px;
+  margin: 20px 0;
+}
+
+.userContactInfo > li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+  overflow-x: hidden;
+}
+
+/* Pagination Css */
+.containerPg {
+  list-style: none;
+  display: flex;
+  margin: 0px;
+}
+
+.liTag,
+.prevBtnLi,
+.nextBtnLi {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.activeliTag {
+  background-color: #5664d2;
+  border-radius: 50%;
+  color: white;
+}
+
+.activeAClass {
+  color: white !important;
+}
+
+.aClass,
+.prevBtnA,
+.nextBtnA {
+  text-decoration: none;
+  color: black;
+}
+
+.disabledBtn,
+.disabledLink {
+  color: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  cursor: default;
+}
