@@ -1,14 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from "../Admin/UserGrid.module.css";
 import { Card } from "react-bootstrap";
 import users from "../../JSON_Data/usersList.js";
 import { IoMdCall } from "react-icons/io";
 import { IoMdMail } from "react-icons/io";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaGalacticSenate, FaLocationDot } from "react-icons/fa6";
 import ReactPaginate from "react-paginate";
+import { FaListUl } from "react-icons/fa6";
+import { FiGrid } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa";
+import { FiUser } from "react-icons/fi";
+import { MdEdit } from "react-icons/md";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { useOutletContext } from "react-router-dom";
+import UserGridHeader from "./UserGridHeader.jsx";
+import AdminFooter from "../Admin/AdminFooter.jsx";
 
 const UserGrid = () => {
-  //Varialble Declaration
+  //Variable Declaration
+  let parentRef = useOutletContext();
   let userList = users.slice(0, users.length);
   const [itemOffset, setItemOffset] = useState(0);
   let itemsPerPage = 9;
@@ -24,13 +34,13 @@ const UserGrid = () => {
     const newOffset = (event.selected * itemsPerPage) % userList.length;
     setCurrentPage(parseInt(event.selected + 1));
     setItemOffset(newOffset);
-    // setTimeout(() => {
-    //   viewWrapper.current.scrollTo({
-    //     top: "130",
-    //     left: "0",
-    //     behavior: "smooth",
-    //   });
-    // }, 300);
+    setTimeout(() => {
+      parentRef.current.scrollTo({
+        top: "0",
+        left: "0",
+        behavior: "smooth",
+      });
+    }, 300);
   };
 
   useEffect(() => {
@@ -38,22 +48,10 @@ const UserGrid = () => {
     setCurrentItems(currentItems);
   }, [itemOffset]);
 
-  useEffect(
-    () => console.log(`Current Page: ${currentPage}/${pageCount}`),
-    [currentPage]
-  );
-
   return (
     <>
-      <div style={{ padding: "24px" }}>
-        <div className="userGridHead">
-          <span>Users List ({users.length})</span>
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
+      <div style={{ padding: "24px", marginBottom: "100px" }}>
+        <UserGridHeader users={users.length} />
         <div className={style.userGrid}>
           {currentItems.map((u) => {
             return (
@@ -91,12 +89,19 @@ const UserGrid = () => {
                         <span>{u.nat}</span>
                       </li>
                     </ul>
-                    <div
-                      className="d-flex justify-content-center"
-                      style={{ gap: "10px" }}
-                    >
-                      <button className="btn btn-primary w-50">Edit</button>
-                      <button className="btn btn-danger w-50">Delete</button>
+                    <div className={style.userActionBtn}>
+                      <button className={`btn ${style.userProfileBtn}`}>
+                        <FiUser style={{ marginRight: "5px" }} />
+                        Profile
+                      </button>
+                      <button className="btn btn-primary">
+                        <MdEdit style={{ marginRight: "5px" }} />
+                        Edit
+                      </button>
+                      <button className="btn btn-danger">
+                        <FaRegTrashCan style={{ marginRight: "5px" }} />
+                        Delete
+                      </button>
                     </div>
                   </Card.Text>
                 </Card.Body>
@@ -106,7 +111,7 @@ const UserGrid = () => {
         </div>
 
         {/* <========================= Pagination ========================> */}
-        <div className="pagination d-flex justify-content-between align-items-center">
+        <div className="text-black d-flex justify-content-between align-items-center">
           <span>
             Page {currentPage} Of {pageCount}
           </span>
@@ -133,6 +138,7 @@ const UserGrid = () => {
           />
         </div>
       </div>
+      <AdminFooter />
     </>
   );
 };

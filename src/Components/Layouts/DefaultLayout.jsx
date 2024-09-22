@@ -570,7 +570,12 @@ const DefaultLayout = ({ children }) => {
                   <span>Remember me?</span>
                 </div>
                 <div className="adminWrapper">
-                  <button className="btn btn-primary">Admin Panel</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => nvg("/admin/dash")}
+                  >
+                    Admin Panel
+                  </button>
                 </div>
               </div>
               <div

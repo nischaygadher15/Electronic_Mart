@@ -12,7 +12,6 @@ import "../node_modules/bootstrap/dist/js/bootstrap.js";
 
 function App() {
   let AppWrapper = useRef(null);
-
   return (
     <div
       style={{

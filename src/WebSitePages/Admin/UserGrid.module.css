@@ -1,9 +1,33 @@
+.userActionBtn {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.userActionBtn > button {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userProfileBtn {
+  background-color: #e8eef9;
+  color: #1f58c7;
+}
+
+.userProfileBtn:hover {
+  background-color: #1f58c7;
+  color: #e8eef9;
+}
+
+/* <=============== User Grid ===============>  */
 .userGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 35px;
 }
 
 .userCard {
@@ -42,7 +66,7 @@
   overflow-x: hidden;
 }
 
-/* Pagination Css */
+/* <=============== Pagination Css  ===============>  */
 .containerPg {
   list-style: none;
   display: flex;
@@ -61,7 +85,7 @@
 }
 
 .activeliTag {
-  background-color: #5664d2;
+  background-color: #1f58c7;
   border-radius: 50%;
   color: white;
 }

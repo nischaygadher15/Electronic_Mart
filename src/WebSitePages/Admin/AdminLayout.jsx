@@ -2,8 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, Outlet, useNavigate, useParams } from "react-router-dom";
 import { ProductId } from "../../Components/Navbar/ProductContext";
 import { ACTIVE_USER, selectUser } from "../../Store/userSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -25,10 +24,6 @@ import { FaClipboardList } from "react-icons/fa";
 
 const AdminLayout = ({ children }) => {
   // <==== Variable Declaration ====>
-  let dashRef = useRef();
-  let addRef = useRef();
-  let viewRef = useRef();
-  let editRef = useRef();
   let adminMainArea = useRef(null);
   let { id } = useParams();
   let nvg = useNavigate();
@@ -36,21 +31,7 @@ const AdminLayout = ({ children }) => {
   let activeUser = useSelector(selectUser);
 
   //State Variables
-  let [dash, setDash] = useState(false);
-  let [add, setAdd] = useState(false);
-  let [view, setView] = useState(false);
-  let [edit, setEdit] = useState(false);
   let { showLoader, isLoading, setisLoading } = useContext(ProductId);
-  let [dashClicked, setDashClicked] = useState(false);
-  let [usersClicked, setUsersClicked] = useState(false);
-  let [productsClicked, setProductsClicked] = useState(false);
-
-  let myStyle = ({ isActive }) => {
-    return {
-      color: isActive ? "white" : "black",
-      backgroundColor: isActive ? "blue" : "transparent",
-    };
-  };
 
   // <======== Fetching data ========>
   let getData = async () => {
@@ -61,140 +42,9 @@ const AdminLayout = ({ children }) => {
   };
   useEffect(() => {
     getData();
-    setDashClicked(true);
+
     return;
   }, []);
-
-  // <==== Accordians ====>
-  let accList0 = useRef(null);
-  let accList1 = useRef(null);
-  let accList2 = useRef(null);
-  let accMouseOver0 = React.useCallback(() => {
-    accList0.current.style.color = "white";
-    accList0.current.style.fontWeight = "bold";
-  }, []);
-  let accMouseOut0 = React.useCallback(() => {
-    accList0.current.style.color = "#8590a5  ";
-    accList0.current.style.fontWeight = "normal";
-  }, []);
-  let accMouseOver1 = React.useCallback(() => {
-    accList1.current.style.color = "white";
-    accList1.current.style.fontWeight = "bold";
-  }, []);
-  let accMouseOut1 = React.useCallback(() => {
-    accList1.current.style.color = "#8590a5  ";
-    accList1.current.style.fontWeight = "normal";
-  }, []);
-  let accMouseOver2 = React.useCallback(() => {
-    accList2.current.style.color = "white";
-    accList2.current.style.fontWeight = "bold";
-  }, []);
-  let accMouseOut2 = React.useCallback(() => {
-    accList2.current.style.color = "#8590a5  ";
-    accList2.current.style.fontWeight = "normal";
-  }, []);
-
-  // useEffect(() => {
-  //   if (dashClicked) {
-  //     accList0.current.removeEventListener("mouseover", accMouseOver0);
-  //     accList0.current.removeEventListener("mouseout", accMouseOut0);
-  //     accList0.current.style.color = "white";
-  //     accList0.current.style.fontWeight = "bold";
-  //     nvg("/admin/dash");
-  //   } else {
-  //     accList0.current.addEventListener("mouseover", accMouseOver0);
-  //     accList0.current.addEventListener("mouseout", accMouseOut0);
-  //   }
-  //   return;
-  // }, [dashClicked]);
-
-  // useEffect(() => {
-  //   if (usersClicked) {
-  //     accList1.current.removeEventListener("mouseover", accMouseOver1);
-  //     accList1.current.removeEventListener("mouseout", accMouseOut1);
-  //     accList1.current.style.color = "white";
-  //     accList1.current.style.fontWeight = "bold";
-  //   } else {
-  //     accList1.current.addEventListener("mouseover", accMouseOver1);
-  //     accList1.current.addEventListener("mouseout", accMouseOut1);
-  //   }
-  //   return;
-  // }, [usersClicked]);
-
-  // useEffect(() => {
-  //   if (productsClicked) {
-  //     accList2.current.removeEventListener("mouseover", accMouseOver2);
-  //     accList2.current.removeEventListener("mouseout", accMouseOut2);
-  //     accList2.current.style.color = "white";
-  //     accList2.current.style.fontWeight = "bold";
-  //   } else {
-  //     accList2.current.addEventListener("mouseover", accMouseOver2);
-  //     accList2.current.addEventListener("mouseout", accMouseOut2);
-  //   }
-  //   return;
-  // }, [productsClicked]);
-
-  // <==== Getting ID FROM URl ====>
-  // useEffect(() => {
-  //   if (id) {
-  //     activeLinks(false, false, false, true);
-  //     nvg(`/admin/edit/${id}`);
-  //   }
-  //   if (window.location.href.includes("/admin/view"))
-  //     activeLinks(false, false, true, false);
-  // }, [id]);
-
-  // // <==== Switching Tabs IN DASHBOARD ====>
-  // let activeLinks = (link1, link2, link3, link4) => {
-  //   if (link1) {
-  //     setDash(true);
-  //     dashRef.current.style.backgroundColor = "blue";
-  //     dashRef.current.style.color = "white";
-  //   } else {
-  //     setDash(false);
-  //     dashRef.current.style.backgroundColor = "transparent";
-  //     dashRef.current.style.color = "black";
-  //   }
-  //   if (link2) {
-  //     setAdd(true);
-  //     addRef.current.style.backgroundColor = "blue";
-  //     addRef.current.style.color = "white";
-  //   } else {
-  //     setAdd(false);
-  //     addRef.current.style.backgroundColor = "transparent";
-  //     addRef.current.style.color = "black";
-  //   }
-  //   if (link3) {
-  //     setView(true);
-  //     viewRef.current.style.backgroundColor = "blue";
-  //     viewRef.current.style.color = "white";
-  //   } else {
-  //     setView(false);
-  //     viewRef.current.style.backgroundColor = "transparent";
-  //     viewRef.current.style.color = "black";
-  //   }
-  //   if (link4) {
-  //     setEdit(true);
-  //     editRef.current.style.backgroundColor = "blue";
-  //     editRef.current.style.color = "white";
-  //   } else {
-  //     setEdit(false);
-  //     editRef.current.style.backgroundColor = "transparent";
-  //     editRef.current.style.color = "black";
-  //   }
-  // };
-
-  // let showDash = (e) => {
-  //   activeLinks(true, false, false, false);
-  // };
-  // let addDash = (e) => {
-  //   activeLinks(false, true, false, false);
-  //   nvg("/admin/add");
-  // };
-  // let viewDash = (e) => {
-  //   activeLinks(false, false, true, false);
-  //   nvg("/admin/view");
-  // };
 
   return (
     <div
@@ -254,15 +104,6 @@ const AdminLayout = ({ children }) => {
                           }}
                         >
                           User List
-                        </NavLink>
-                        <NavLink
-                          to="/admin/userprofile"
-                          className={style.myNavLink}
-                          style={{
-                            padding: "10px 60px",
-                          }}
-                        >
-                          User Profile
                         </NavLink>
                       </Accordion.Body>
                     </Accordion.Item>
@@ -324,7 +165,8 @@ const AdminLayout = ({ children }) => {
           </Navbar>
         </div>
         <div id={style.adminMainArea} ref={adminMainArea}>
-          {children}
+          {/* {children} */}
+          <Outlet context={adminMainArea} />
         </div>
       </div>
     </div>

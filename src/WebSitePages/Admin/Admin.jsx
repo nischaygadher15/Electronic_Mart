@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import AdminLayout from "./AdminLayout";
-import { Outlet } from "react-router-dom";
+import { Outlet, useOutletContext } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "../../Components/Loader";
@@ -25,9 +25,7 @@ const Admin = () => {
         transition:Bounce
       />
       <ProductListProvider>
-        <AdminLayout>
-          <Outlet />
-        </AdminLayout>
+        <AdminLayout />
       </ProductListProvider>
     </>
   );

@@ -83,7 +83,6 @@ const Home = () => {
     const newOffset = (event.selected * itemsPerPage) % products.length;
     setCurrentPage(parseInt(event.selected + 1));
     setItemOffset(newOffset);
-    console.log(AppWrapper);
     setTimeout(() => {
       AppWrapper.current.scrollTo({
         top: "500",
