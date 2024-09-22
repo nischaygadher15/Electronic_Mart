@@ -4,11 +4,11 @@ import { FaListUl, FaPlus } from "react-icons/fa6";
 import { FiGrid } from "react-icons/fi";
 import { NavLink, useNavigate } from "react-router-dom";
 
-const UserGridHeader = ({ users }) => {
+const UserGridHeader = ({ users, text }) => {
   return (
     <div className={style.userGridHead}>
       <span>
-        <span className="fw-bold me-2">Users</span>({users})
+        <span className="fw-bold me-2">{text}</span>({users})
       </span>
       <ul className={style.userGridViewAction}>
         <li>

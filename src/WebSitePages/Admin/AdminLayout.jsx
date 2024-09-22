@@ -76,7 +76,7 @@ const AdminLayout = ({ children }) => {
                   </NavLink>
 
                   {/* Users Accordian */}
-                  <Accordion className={style.MyAccordian}>
+                  <Accordion className={style.MyAccordian} defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={style.accHeader}>
                         <span className="d-flex align-items-center">
@@ -110,7 +110,7 @@ const AdminLayout = ({ children }) => {
                   </Accordion>
 
                   {/* Product Accordian */}
-                  <Accordion className={style.MyAccordian}>
+                  <Accordion className={style.MyAccordian} defaultActiveKey="0">
                     <Accordion.Item eventKey="0">
                       <Accordion.Header className={style.accHeader}>
                         <span className="d-flex align-items-center">

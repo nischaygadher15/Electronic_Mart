@@ -51,7 +51,7 @@ const UserGrid = () => {
   return (
     <>
       <div style={{ padding: "24px", marginBottom: "100px" }}>
-        <UserGridHeader users={users.length} />
+        <UserGridHeader users={users.length} text={"User Grid"} />
         <div className={style.userGrid}>
           {currentItems.map((u) => {
             return (

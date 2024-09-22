@@ -11,7 +11,7 @@ const UserList = () => {
   return (
     <>
       <div style={{ padding: "30px", marginBottom: "100px" }}>
-        <UserGridHeader users={users.length} />
+        <UserGridHeader users={users.length} text={"User List"} />
         <div className={`${style.userList} shadow`}>
           <table className={style.userTb}>
             <thead>

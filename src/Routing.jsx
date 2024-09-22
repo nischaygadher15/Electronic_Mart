@@ -14,6 +14,7 @@ import ViewProducts_2 from "./WebSitePages/Admin/ViewProducts_2";
 import UserGrid from "./WebSitePages/Admin/UserGrid";
 import UserList from "./WebSitePages/Admin/UserList";
 import UserProfile from "./WebSitePages/Admin/UserProfile";
+import Orders from "./WebSitePages/Admin/Orders";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       { path: "/admin/usergrid", element: <UserGrid /> },
       { path: "/admin/userlist", element: <UserList /> },
       { path: "/admin/userprofile", element: <UserProfile /> },
+      { path: "/admin/orders", element: <Orders /> },
     ],
   },
   {
