@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "../Admin/Orders.module.css";
 import users from "../../JSON_Data/usersList.js";
 import { MdEdit } from "react-icons/md";
 import { FaRegTrashCan } from "react-icons/fa6";
 import AdminFooter from "../Admin/AdminFooter";
 import { FaCcMastercard } from "react-icons/fa";
+import Modal from "react-bootstrap/Modal";
+import products from "../../JSON_Data/ProductsList.js";
+import { IoMdDownload } from "react-icons/io";
 
 const Orders = () => {
+  const [viewDetail, setVDShow] = useState(false);
+
+  const handleClose = () => setVDShow(false);
+  const handleShow = () => setVDShow(true);
   return (
     <>
       <>
@@ -60,14 +67,8 @@ const Orders = () => {
                       </td>
                       <td>
                         <button
-                          className="btn btn-primary text-center"
-                          style={{
-                            fontSize: "14px",
-                            borderTopLeftRadius: "50px",
-                            borderBottomLeftRadius: "50px",
-                            borderTopRightRadius: "50px",
-                            borderBottomRightRadius: "50px",
-                          }}
+                          className={`btn btn-primary text-center ${style.viewDetailBtn}`}
+                          onClick={handleShow}
                         >
                           View Details
                         </button>
@@ -85,6 +86,80 @@ const Orders = () => {
                 })}
               </tbody>
             </table>
+
+            {/* <===================== View Detail Modal =====================>  */}
+            <Modal
+              show={viewDetail}
+              onHide={handleClose}
+              centered
+              bsPrefix={style.vdModal}
+            >
+              <Modal.Header closeButton>
+                <Modal.Title className="fs-5">Order Details</Modal.Title>
+              </Modal.Header>
+              <Modal.Body bsPrefix={style.vdModalBody}>
+                <p>
+                  Order Id: <span className="text-primary">#SK2540</span>
+                </p>
+                <p>
+                  Billing Name:
+                  <span className="text-primary">Martin Gurley</span>
+                </p>
+                <table className="productList w-100 mb-4">
+                  <thead>
+                    <tr>
+                      <th>Product</th>
+                      <th>Product Name</th>
+                      <th>Price</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.slice(0, 2).map((p) => {
+                      return (
+                        <>
+                          <tr>
+                            <td>
+                              <img
+                                src={p.image[0]}
+                                style={{ width: "50px", height: "60px" }}
+                              />
+                            </td>
+                            <td>
+                              <p>{p.title.substring(0, 30)}</p>
+                              <p>&#8377; {p.price} X 1</p>
+                            </td>
+                            <td>&#8377; {p.price}</td>
+                          </tr>
+                        </>
+                      );
+                    })}
+                    <tr>
+                      <td>Sub Total:</td>
+                      <td></td>
+                      <td>$400</td>
+                    </tr>
+                    <tr>
+                      <td>Shipping:</td>
+                      <td></td>
+                      <td>Free</td>
+                    </tr>
+                    <tr>
+                      <td>Total:</td>
+                      <td></td>
+                      <td>$400</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </Modal.Body>
+              <Modal.Footer className="d-flex justify-content-between">
+                <button className="btn btn-primary">
+                  Invoice <IoMdDownload />
+                </button>
+                <button className="btn btn-danger" onClick={handleClose}>
+                  Close
+                </button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </div>
         <AdminFooter />

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import style from "../Admin/AdminNavBar.module.css";
 import logo from "../../assets/logo-light.png";
+import logoSm from "../../assets/logo-sm-dark.png";
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import userDefaultPic from "../../assets/test1.jpg";
 import { CiLogout } from "react-icons/ci";
@@ -39,6 +40,7 @@ const AdminNavBar = () => {
     <div id={style.adminNav}>
       <div id={style.navLeft}>
         <img src={logo} alt="Website Logo" id={style.logo} />
+        {/* <img src={logoSm} alt="Website Logo" id={style.logo} /> */}
       </div>
 
       <div id={style.navRight}>
