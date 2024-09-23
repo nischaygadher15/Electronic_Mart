@@ -9,6 +9,10 @@
 
 #graphs {
   min-height: 295px;
+  width: 100%;
+  max-height: 280px;
+  display: flex;
+  justify-content: center;
 }
 
 #circleDiag {

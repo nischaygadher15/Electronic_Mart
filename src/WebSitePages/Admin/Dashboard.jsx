@@ -254,9 +254,7 @@ const Dashboard = () => {
                   <Card.Body>
                     <h6 style={{ fontSize: "16px" }}>Revenue Analytics</h6>
                     <div id={style.graphs}>
-                      <div style={{ width: "100%", maxHeight: "280px" }}>
-                        <canvas id="barChart" style={{ minWidth: "100%" }} />
-                      </div>
+                      <canvas id="barChart" />
                     </div>
                     <Card.Body>
                       <div className="row">

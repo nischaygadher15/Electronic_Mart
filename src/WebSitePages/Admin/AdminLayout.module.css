@@ -12,6 +12,7 @@
   /* width: 5%; */
   height: calc(100vh - 70px);
   background-color: #252b3b;
+  /* overflow: hidden; */
 }
 
 #adminMainArea {

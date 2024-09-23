@@ -15,6 +15,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../Firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { LuShoppingCart } from "react-icons/lu";
 
 const AdminNavBar = () => {
   let userDrop = useRef(null);
@@ -57,13 +58,190 @@ const AdminNavBar = () => {
           </form>
         </div>
         <div id={style.userWrapper}>
+          {/* Dark/Bright Mode */}
           <button className="btn" style={{ border: "none" }}>
             <MdDarkMode />
             {/* <MdOutlineLightMode /> */}
           </button>
-          <button className="btn" style={{ border: "none" }}>
-            <IoMdNotificationsOutline />
-          </button>
+
+          {/* Notification */}
+          <Dropdown>
+            <Dropdown.Toggle
+              variant="white"
+              id="dropdown-basic"
+              style={{ color: "#505d69", border: "none" }}
+              bsPrefix={style.notfDropToggle}
+            >
+              <IoMdNotificationsOutline />
+            </Dropdown.Toggle>
+            <Dropdown.Menu align="end" className={style.notfDropMenu}>
+              <Dropdown.Item
+                className={`${style.notfDropItem} d-flex justify-content-between align-items-center`}
+              >
+                <span className="fs-5 fe-semibold">Notificationa</span>
+                <a role="button" className="text-primary">
+                  Mark all as read
+                </a>
+              </Dropdown.Item>
+              <Dropdown.Item className={style.notfDropItem}>
+                <div className="row g-0">
+                  <div className="col-2 d-flex align-items-center">
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "blue",
+                        fontSize: "18px",
+                        display: "grid",
+                        placeContent: "center",
+                      }}
+                    >
+                      <LuShoppingCart
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <p className="mb-1">Your order is placed</p>
+                    <p className="mb-1" style={{ whiteSpace: "initial" }}>
+                      If several languages coalesce the grammar
+                    </p>
+                  </div>
+                  <div className="col-2">3 min ago</div>
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item className={style.notfDropItem}>
+                <div className="row g-0">
+                  <div className="col-2 d-flex align-items-center">
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "blue",
+                        fontSize: "18px",
+                        display: "grid",
+                        placeContent: "center",
+                      }}
+                    >
+                      <LuShoppingCart
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <p className="mb-1">Your order is placed</p>
+                    <p className="mb-1" style={{ whiteSpace: "initial" }}>
+                      If several languages coalesce the grammar
+                    </p>
+                  </div>
+                  <div className="col-2">3 min ago</div>
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item className={style.notfDropItem}>
+                <div className="row g-0">
+                  <div className="col-2 d-flex align-items-center">
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "blue",
+                        fontSize: "18px",
+                        display: "grid",
+                        placeContent: "center",
+                      }}
+                    >
+                      <LuShoppingCart
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <p className="mb-1">Your order is placed</p>
+                    <p className="mb-1" style={{ whiteSpace: "initial" }}>
+                      If several languages coalesce the grammar
+                    </p>
+                  </div>
+                  <div className="col-2">3 min ago</div>
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item className={style.notfDropItem}>
+                <div className="row g-0">
+                  <div className="col-2 d-flex align-items-center">
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "blue",
+                        fontSize: "18px",
+                        display: "grid",
+                        placeContent: "center",
+                      }}
+                    >
+                      <LuShoppingCart
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <p className="mb-1">Your order is placed</p>
+                    <p className="mb-1" style={{ whiteSpace: "initial" }}>
+                      If several languages coalesce the grammar
+                    </p>
+                  </div>
+                  <div className="col-2">3 min ago</div>
+                </div>
+              </Dropdown.Item>
+              <Dropdown.Item className={style.notfDropItem}>
+                <div className="row g-0">
+                  <div className="col-2 d-flex align-items-center">
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "50%",
+                        backgroundColor: "blue",
+                        fontSize: "18px",
+                        display: "grid",
+                        placeContent: "center",
+                      }}
+                    >
+                      <LuShoppingCart
+                        style={{
+                          color: "white",
+                          fontSize: "18px",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <p className="mb-1">Your order is placed</p>
+                    <p className="mb-1" style={{ whiteSpace: "initial" }}>
+                      If several languages coalesce the grammar
+                    </p>
+                  </div>
+                  <div className="col-2">3 min ago</div>
+                </div>
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+          {/* User Section */}
           <div id={style.userDropDown}>
             <Dropdown>
               <Dropdown.Toggle
