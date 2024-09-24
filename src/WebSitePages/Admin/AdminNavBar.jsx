@@ -69,10 +69,14 @@ const AdminNavBar = () => {
             <Dropdown.Toggle
               variant="white"
               id="dropdown-basic"
-              style={{ color: "#505d69", border: "none" }}
-              bsPrefix={style.notfDropToggle}
+              className={style.notfDropToggle}
             >
               <IoMdNotificationsOutline />
+              <span
+                className={`badge rounded-pill bg-danger ${style.notfBadge}`}
+              >
+                9
+              </span>
             </Dropdown.Toggle>
             <Dropdown.Menu align="end" className={style.notfDropMenu}>
               <Dropdown.Item

@@ -86,7 +86,7 @@
   --bs-dropdown-color: var(--bs-body-color);
   --bs-dropdown-bg: var(--bs-body-bg);
   --bs-dropdown-border-color: var(--bs-border-color-translucent);
-  --bs-dropdown-border-radius: var(--bs-border-radius);
+  --bs-dropdown-border-radius: 10px;
   --bs-dropdown-border-width: var(--bs-border-width);
   --bs-dropdown-inner-border-radius: calc(
     var(--bs-border-radius) - var(--bs-border-width)
@@ -123,6 +123,19 @@
   border-radius: var(--bs-dropdown-border-radius);
 }
 
+.notfDropMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.notfDropMenu::-webkit-scrollbar-track {
+  background: white;
+}
+
+.notfDropMenu::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
 .notfDropItem {
   display: block;
   width: 100%;
@@ -138,6 +151,12 @@
   border-radius: var(--bs-dropdown-item-border-radius, 0);
 }
 
+.notfDropToggle {
+  color: #505d69;
+  border: none;
+  position: relative;
+}
+
 .notfDropItem:hover {
   color: black;
   background-color: #f8f9fa !important;
@@ -145,4 +164,11 @@
 
 .notfDropToggle::after {
   display: none;
+}
+
+.notfBadge {
+  font-size: 10px;
+  position: absolute !important;
+  top: 14px !important;
+  left: 50%;
 }
