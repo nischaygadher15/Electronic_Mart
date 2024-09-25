@@ -7,6 +7,7 @@ export const ProductId = createContext();
 const ProductListProvider = ({ children }) => {
   // Loader
   let [isLoading, setisLoading] = useState(false);
+  let [navBarMini, setNavbarMini] = useState(false);
   let showLoader = (t) => {
     setisLoading(true);
     setTimeout(() => setisLoading(false), t * 1000);
@@ -19,11 +20,11 @@ const ProductListProvider = ({ children }) => {
     <>
       <ProductId.Provider
         value={{
-          pId,
-          setPid,
           showLoader,
           isLoading,
           setisLoading,
+          navBarMini,
+          setNavbarMini,
         }}
       >
         {children}

@@ -21,6 +21,7 @@ import { FaProductHunt } from "react-icons/fa6";
 import { Accordion } from "react-bootstrap";
 import AdminFooter from "./AdminFooter";
 import { FaClipboardList } from "react-icons/fa";
+import { AdminMini, AdminMiniProvider } from "./AdminNavMini";
 
 const AdminLayout = ({ children }) => {
   // <==== Variable Declaration ====>
@@ -42,9 +43,36 @@ const AdminLayout = ({ children }) => {
   };
   useEffect(() => {
     getData();
-
     return;
   }, []);
+
+  // Navbar Mini Functionality
+  let { navBarMini, setNavbarMini } = useContext(ProductId);
+
+  useEffect(() => {
+    if (navBarMini) {
+      Array.from(document.querySelectorAll(`.${style.MyAccordian}`)).map(
+        (acc) => {
+          acc.classList.add(`${style.noAccArrow}`);
+        }
+      );
+      Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
+        acc.parentElement.classList.remove("show");
+      });
+      document.querySelector(`#${style.adminSidebar}`).style.width = "5%";
+    } else {
+      Array.from(document.querySelectorAll(`.${style.MyAccordian}`)).map(
+        (acc) => {
+          acc.classList.remove(`${style.noAccArrow}`);
+        }
+      );
+      Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
+        acc.parentElement.classList.add("show");
+      });
+      document.querySelector(`#${style.adminSidebar}`).style.width = "18%";
+    }
+    console.log("navBarMin:", navBarMini);
+  }, [navBarMini]);
 
   return (
     <div
@@ -72,7 +100,7 @@ const AdminLayout = ({ children }) => {
                     <MdOutlineDashboard
                       style={{ fontSize: "20px", marginRight: "10px" }}
                     />
-                    Dashboard
+                    {navBarMini ? "" : "Dashboard"}
                   </NavLink>
 
                   {/* Users Accordian */}
@@ -83,7 +111,8 @@ const AdminLayout = ({ children }) => {
                           <FaUsers
                             style={{ fontSize: "20px", marginRight: "10px" }}
                           />
-                          Users
+
+                          {navBarMini ? "" : "Users"}
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
@@ -117,7 +146,8 @@ const AdminLayout = ({ children }) => {
                           <FaProductHunt
                             style={{ fontSize: "20px", marginRight: "10px" }}
                           />
-                          Products
+
+                          {navBarMini ? "" : "Products"}
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
@@ -157,7 +187,8 @@ const AdminLayout = ({ children }) => {
                     <FaClipboardList
                       style={{ fontSize: "20px", marginRight: "10px" }}
                     />
-                    Orders
+
+                    {navBarMini ? "" : "Orders"}
                   </NavLink>
                 </Nav>
               </Navbar.Collapse>

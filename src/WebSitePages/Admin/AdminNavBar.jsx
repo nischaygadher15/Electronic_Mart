@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import style from "../Admin/AdminNavBar.module.css";
 import logo from "../../assets/logo-light.png";
@@ -16,6 +16,7 @@ import { auth } from "../../Firebase/firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { LuShoppingCart } from "react-icons/lu";
+import { ProductId } from "../../Components/Navbar/ProductContext";
 
 const AdminNavBar = () => {
   let userDrop = useRef(null);
@@ -37,6 +38,13 @@ const AdminNavBar = () => {
       });
     nvg("/login");
   };
+
+  // NavMIn Functionality
+  let { navBarMini, setNavbarMini } = useContext(ProductId);
+  let handleNavMin = () => {
+    setNavbarMini(!navBarMini);
+  };
+
   return (
     <div id={style.adminNav}>
       <div id={style.navLeft}>
@@ -46,7 +54,11 @@ const AdminNavBar = () => {
 
       <div id={style.navRight}>
         <div id={style.searchWrapper}>
-          <button className="btn" style={{ border: "none" }}>
+          <button
+            className="btn"
+            style={{ border: "none" }}
+            onClick={handleNavMin}
+          >
             <HiOutlineBars3CenterLeft />
           </button>
           <form className="searchForm">

@@ -116,7 +116,7 @@ const Dashboard = () => {
 
   return (
     <div id={style.dashWrapper}>
-      <div style={{ padding: "24px" }}>
+      <div style={{ padding: "24px", marginBottom: "50px" }}>
         <div className="row">
           <div className="col-12">
             <h6 style={{ paddingBottom: "24px" }}>DASHBOARD</h6>
