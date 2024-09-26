@@ -56,20 +56,44 @@ const AdminLayout = ({ children }) => {
           acc.classList.add(`${style.noAccArrow}`);
         }
       );
+      Array.from(document.querySelectorAll(`.accIcon`)).map((icon) => {
+        icon.style.position = "absolute";
+        icon.style.top = "calc(50% - 10px)";
+        icon.style.left = "calc(50% - 10px)";
+      });
+
       Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
         acc.parentElement.classList.remove("show");
       });
       document.querySelector(`#${style.adminSidebar}`).style.width = "5%";
+      document.querySelector(`#${style.adminMainArea}`).style.width = "95%";
+      Array.from(document.querySelectorAll(`.${style.myNavLink}`)).map(
+        (navLk) => {
+          navLk.classList.add(`${style.navLinkMini}`);
+        }
+      );
     } else {
       Array.from(document.querySelectorAll(`.${style.MyAccordian}`)).map(
         (acc) => {
           acc.classList.remove(`${style.noAccArrow}`);
         }
       );
+      Array.from(document.querySelectorAll(`.accIcon`)).map((icon) => {
+        icon.style.position = "relative";
+        icon.style.top = "0";
+        icon.style.left = "0";
+      });
       Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
         acc.parentElement.classList.add("show");
       });
       document.querySelector(`#${style.adminSidebar}`).style.width = "18%";
+      document.querySelector(`#${style.adminMainArea}`).style.width = "82%";
+
+      Array.from(document.querySelectorAll(`.${style.myNavLink}`)).map(
+        (navLk) => {
+          navLk.classList.remove(`${style.navLinkMini}`);
+        }
+      );
     }
     console.log("navBarMin:", navBarMini);
   }, [navBarMini]);
@@ -82,7 +106,7 @@ const AdminLayout = ({ children }) => {
       }}
     >
       {/* <======== Loader ========> */}
-      {isLoading && <Loader />}
+      {/* {isLoading && <Loader />} */}
 
       {/* <======== Admin NavBar ========> */}
       <AdminNavBar />
@@ -97,10 +121,12 @@ const AdminLayout = ({ children }) => {
                 <Nav className="d-flex flex-column" id={style.myNav}>
                   {/* Dashboard */}
                   <NavLink to="/admin/dash" className={style.myNavLink}>
-                    <MdOutlineDashboard
-                      style={{ fontSize: "20px", marginRight: "10px" }}
-                    />
-                    {navBarMini ? "" : "Dashboard"}
+                    <MdOutlineDashboard style={{ fontSize: "20px" }} />
+                    {navBarMini ? (
+                      ""
+                    ) : (
+                      <span style={{ marginLeft: "10px" }}>Dashboard</span>
+                    )}
                   </NavLink>
 
                   {/* Users Accordian */}
@@ -109,10 +135,15 @@ const AdminLayout = ({ children }) => {
                       <Accordion.Header className={style.accHeader}>
                         <span className="d-flex align-items-center">
                           <FaUsers
-                            style={{ fontSize: "20px", marginRight: "10px" }}
+                            style={{ fontSize: "20px" }}
+                            className="accIcon"
                           />
 
-                          {navBarMini ? "" : "Users"}
+                          {navBarMini ? (
+                            ""
+                          ) : (
+                            <span style={{ marginLeft: "10px" }}>Users</span>
+                          )}
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
@@ -144,10 +175,15 @@ const AdminLayout = ({ children }) => {
                       <Accordion.Header className={style.accHeader}>
                         <span className="d-flex align-items-center">
                           <FaProductHunt
-                            style={{ fontSize: "20px", marginRight: "10px" }}
+                            style={{ fontSize: "20px" }}
+                            className="accIcon"
                           />
 
-                          {navBarMini ? "" : "Products"}
+                          {navBarMini ? (
+                            ""
+                          ) : (
+                            <span style={{ marginLeft: "10px" }}>Products</span>
+                          )}
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
@@ -184,11 +220,13 @@ const AdminLayout = ({ children }) => {
 
                   {/* Order */}
                   <NavLink to="/admin/orders" className={style.myNavLink}>
-                    <FaClipboardList
-                      style={{ fontSize: "20px", marginRight: "10px" }}
-                    />
+                    <FaClipboardList style={{ fontSize: "20px" }} />
 
-                    {navBarMini ? "" : "Orders"}
+                    {navBarMini ? (
+                      ""
+                    ) : (
+                      <span style={{ marginLeft: "10px" }}>Orders</span>
+                    )}
                   </NavLink>
                 </Nav>
               </Navbar.Collapse>

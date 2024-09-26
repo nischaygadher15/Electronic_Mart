@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import style from "../Admin/AdminNavBar.module.css";
 import logo from "../../assets/logo-light.png";
@@ -22,6 +22,7 @@ const AdminNavBar = () => {
   let userDrop = useRef(null);
   let [userDropClicked, setUserDropClicked] = useState(false);
   let nvg = useNavigate();
+  let [myLogo, setLogo] = useState(logo);
 
   // <==== Admin Logout Function ====>
   let logOut = () => {
@@ -45,10 +46,26 @@ const AdminNavBar = () => {
     setNavbarMini(!navBarMini);
   };
 
+  useEffect(() => {
+    if (navBarMini) {
+      document.querySelector(`#${style.navLeft}`).style.width = "5%";
+      document.querySelector(`#${style.navRight}`).style.width = "95%";
+      document.querySelector(`#${style.navLeft}`).style.justifyContent =
+        "center";
+      setLogo(logoSm);
+    } else {
+      document.querySelector(`#${style.navLeft}`).style.width = "18%";
+      document.querySelector(`#${style.navRight}`).style.width = "82%";
+      document.querySelector(`#${style.navLeft}`).style.justifyContent =
+        "flex-start";
+      setLogo(logo);
+    }
+  }, [navBarMini]);
+
   return (
     <div id={style.adminNav}>
       <div id={style.navLeft}>
-        <img src={logo} alt="Website Logo" id={style.logo} />
+        <img src={myLogo} alt="Website Logo" id={style.logo} />
         {/* <img src={logoSm} alt="Website Logo" id={style.logo} /> */}
       </div>
 

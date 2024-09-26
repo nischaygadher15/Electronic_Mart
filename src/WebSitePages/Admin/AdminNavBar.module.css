@@ -34,7 +34,9 @@
 
 #navLeft {
   width: 18%;
-  /* width: 5%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #252b3b;
   padding: 0px 30px;
 }
