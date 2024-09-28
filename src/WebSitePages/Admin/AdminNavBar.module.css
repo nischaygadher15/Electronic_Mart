@@ -39,6 +39,7 @@
   align-items: center;
   background-color: #252b3b;
   padding: 0px 30px;
+  transition: all 200ms linear;
 }
 
 #navRight {

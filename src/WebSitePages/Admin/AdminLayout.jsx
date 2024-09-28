@@ -56,6 +56,7 @@ const AdminLayout = ({ children }) => {
           acc.classList.add(`${style.noAccArrow}`);
         }
       );
+
       Array.from(document.querySelectorAll(`.accIcon`)).map((icon) => {
         icon.style.position = "absolute";
         icon.style.top = "calc(50% - 10px)";
@@ -65,6 +66,7 @@ const AdminLayout = ({ children }) => {
       Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
         acc.parentElement.classList.remove("show");
       });
+
       document.querySelector(`#${style.adminSidebar}`).style.width = "5%";
       document.querySelector(`#${style.adminMainArea}`).style.width = "95%";
       Array.from(document.querySelectorAll(`.${style.myNavLink}`)).map(
@@ -72,6 +74,13 @@ const AdminLayout = ({ children }) => {
           navLk.classList.add(`${style.navLinkMini}`);
         }
       );
+
+      Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
+        acc.classList.add(`${style.myBodyMini}`);
+      });
+      Array.from(document.querySelectorAll(`.accMiniHead`)).map((acc) => {
+        acc.style.display = "block";
+      });
     } else {
       Array.from(document.querySelectorAll(`.${style.MyAccordian}`)).map(
         (acc) => {
@@ -83,9 +92,9 @@ const AdminLayout = ({ children }) => {
         icon.style.top = "0";
         icon.style.left = "0";
       });
-      Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
-        acc.parentElement.classList.add("show");
-      });
+      // Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
+      //   acc.parentElement.classList.add("show");
+      // });
       document.querySelector(`#${style.adminSidebar}`).style.width = "18%";
       document.querySelector(`#${style.adminMainArea}`).style.width = "82%";
 
@@ -94,6 +103,13 @@ const AdminLayout = ({ children }) => {
           navLk.classList.remove(`${style.navLinkMini}`);
         }
       );
+
+      Array.from(document.querySelectorAll(`.${style.myBody}`)).map((acc) => {
+        acc.classList.remove(`${style.myBodyMini}`);
+      });
+      Array.from(document.querySelectorAll(`.accMiniHead`)).map((acc) => {
+        acc.style.display = "none";
+      });
     }
     console.log("navBarMin:", navBarMini);
   }, [navBarMini]);
@@ -147,6 +163,23 @@ const AdminLayout = ({ children }) => {
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
+                        <div
+                          className="accMiniHead"
+                          style={{ display: "none" }}
+                        >
+                          <NavLink
+                            className={style.myNavLink}
+                            style={{
+                              padding: "10px 60px",
+                              backgroundColor: "#252B3B",
+                            }}
+                          >
+                            Users
+                          </NavLink>
+                          <hr
+                            style={{ border: "1px solid white", margin: "0px" }}
+                          />
+                        </div>
                         <NavLink
                           to="/admin/usergrid"
                           className={style.myNavLink}
@@ -187,6 +220,23 @@ const AdminLayout = ({ children }) => {
                         </span>
                       </Accordion.Header>
                       <Accordion.Body className={style.myBody}>
+                        <div
+                          className="accMiniHead"
+                          style={{ display: "none" }}
+                        >
+                          <NavLink
+                            className={style.myNavLink}
+                            style={{
+                              padding: "10px 60px",
+                              backgroundColor: "#252B3B",
+                            }}
+                          >
+                            Products
+                          </NavLink>
+                          <hr
+                            style={{ border: "1px solid white", margin: "0px" }}
+                          />
+                        </div>
                         <NavLink
                           to="/admin/add"
                           className={style.myNavLink}

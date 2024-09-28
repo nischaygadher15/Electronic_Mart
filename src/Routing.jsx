@@ -4,7 +4,6 @@ import Home from "./WebSitePages/Home";
 import Login from "./WebSitePages/Login";
 import PageNotFound from "./WebSitePages/PageNotFound";
 import Register from "./WebSitePages/Register";
-import Products from "./WebSitePages/Products";
 import Cart from "./WebSitePages/Cart";
 import Admin from "./WebSitePages/Admin/Admin";
 import ProtectedAdmin from "./Components/Protection";
@@ -15,6 +14,7 @@ import UserGrid from "./WebSitePages/Admin/UserGrid";
 import UserList from "./WebSitePages/Admin/UserList";
 import UserProfile from "./WebSitePages/Admin/UserProfile";
 import Orders from "./WebSitePages/Admin/Orders";
+import ProductView from "./WebSitePages/ProductView";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
-      { path: "/products", element: <Products /> },
+      { path: "/productview", element: <ProductView /> },
       { path: "/cart", element: <Cart /> },
     ],
   },

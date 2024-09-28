@@ -43,7 +43,7 @@ import { RiFacebookBoxFill } from "react-icons/ri";
 import { FaPaperPlane } from "react-icons/fa";
 
 const Home = () => {
-  //Varialble Declaration
+  //Variable Declaration
   let home = useRef(0);
   let bestSellerBox = useRef(null);
   let AppWrapper = useOutletContext();
