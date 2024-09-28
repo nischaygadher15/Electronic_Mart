@@ -52,6 +52,8 @@ const ProductView = () => {
     magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
       prdImgCox.height * cy
     }px`;
+
+    //Still incomplete
   };
 
   return (
