@@ -15,46 +15,63 @@ import p1 from "../assets/si1.png";
 import p2 from "../assets/si2.png";
 import p3 from "../assets/si3.png";
 import p4 from "../assets/test1.jpg";
+import { FiZoomIn } from "react-icons/fi";
 
 const ProductView = () => {
-  //Variable Declaration
-  let products = data.slice(0, data.length);
+  // <=============================== Variable Declaration ===============================>
 
-  // Image Magnify on Mouse Hover
-  // #style.productImgActive
-  // .style.magnifyLens
-  //.style.magnifiedImg
+  let products = data.slice(0, data.length);
+  let prdOtherImages = useRef(null);
+
+  // <=============================== Image Magnify on Mouse Hover ===============================>
+
   let mouseMove = (e) => {
     let prdImg = document.querySelector(`#${style.productImgActive}`);
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
     let prdImgCox = prdImg.getBoundingClientRect();
-
+    document.querySelector(`.${style.hoverZoomHint}`).style.display = "none";
+    lens.classList.add(`${style.active}`);
+    magImg.classList.add(`${style.active}`);
     let x = e.pageX - prdImgCox.left - lens.offsetWidth / 2;
     let y = e.pageY - prdImgCox.top - lens.offsetHeight / 2;
     let maxX = prdImgCox.width - lens.offsetWidth;
     let maxY = prdImgCox.height - lens.offsetHeight;
+    let cx = magImg.offsetWidth / lens.offsetWidth;
+    let cy = magImg.offsetHeight / lens.offsetHeight;
 
     if (x > maxX) x = maxX;
     if (x < 0) x = 0;
-
     if (y > maxY) y = maxY;
     if (y < 0) y = 0;
 
     lens.style.cssText = `top:${y}px; left:${x}px`;
-
-    let cx = magImg.offsetWidth / lens.offsetWidth;
-    let cy = magImg.offsetHeight / lens.offsetHeight;
-
-    magImg.style.cssText = `background: 
+    magImg.style.cssText = `background: #ffffff
     url("${prdImg.src}") no-repeat`;
     magImg.style.backgroundPosition = ` -${x * cx}px -${y * cy}px`;
     magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
       prdImgCox.height * cy
     }px`;
-
-    //Still incomplete
   };
+
+  let hideLense = () => {
+    let lens = document.querySelector(`.${style.magnifyLens}`);
+    let magImg = document.querySelector(`.${style.magnifiedImg}`);
+    document.querySelector(`.${style.hoverZoomHint}`).style.display = "block";
+    lens.classList.remove(`${style.active}`);
+    magImg.classList.remove(`${style.active}`);
+  };
+
+  // Change Active Images
+  useEffect(() => {
+    Array.from(prdOtherImages.current.children).map((i) => {
+      i.addEventListener("click", (e) => {
+        document
+          .querySelector(`#${style.productImgActive}`)
+          .setAttribute("src", `${e.target.src}`);
+      });
+    });
+  }, []);
 
   return (
     <div className={style.productViewWrapper}>
@@ -75,6 +92,7 @@ const ProductView = () => {
           <div className="productImgFrame">
             <div
               className={`${style.productImgBox} d-flex justify-content-center`}
+              onMouseLeave={hideLense}
             >
               <img
                 src={p4}
@@ -83,9 +101,20 @@ const ProductView = () => {
                 id={style.productImgActive}
                 onMouseMove={mouseMove}
               />
-              <div className={style.magnifyLens} onMouseMove={mouseMove}></div>
+              <div
+                className={style.magnifyLens}
+                onMouseMove={mouseMove}
+                onMouseLeave={hideLense}
+              ></div>
+              <div className={style.hoverZoomHint}>
+                <FiZoomIn />
+                <span>Hover Over To Zoom</span>
+              </div>
             </div>
-            <div className="d-flex justify-content-center mt-2">
+            <div
+              className="d-flex justify-content-center mt-2"
+              ref={prdOtherImages}
+            >
               <img src={p1} className={style.productImg} />
               <img src={p2} className={style.productImg} />
               <img src={p3} className={style.productImg} />
