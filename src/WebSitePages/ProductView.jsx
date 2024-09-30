@@ -14,14 +14,15 @@ import { FaRegHandPointRight } from "react-icons/fa";
 import p1 from "../assets/si1.png";
 import p2 from "../assets/si2.png";
 import p3 from "../assets/si3.png";
-import p4 from "../assets/test1.jpg";
 import { FiZoomIn } from "react-icons/fi";
+import Carousel from "react-bootstrap/Carousel";
 
 const ProductView = () => {
   // <=============================== Variable Declaration ===============================>
 
   let products = data.slice(0, data.length);
   let prdOtherImages = useRef(null);
+  let activeImg = useRef(null);
 
   // <=============================== Image Magnify on Mouse Hover ===============================>
 
@@ -57,7 +58,7 @@ const ProductView = () => {
   let hideLense = () => {
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
-    document.querySelector(`.${style.hoverZoomHint}`).style.display = "block";
+    document.querySelector(`.${style.hoverZoomHint}`).style.display = "flex";
     lens.classList.remove(`${style.active}`);
     magImg.classList.remove(`${style.active}`);
   };
@@ -71,6 +72,8 @@ const ProductView = () => {
           .setAttribute("src", `${e.target.src}`);
       });
     });
+
+    // activeImg.current.
   }, []);
 
   return (
@@ -94,13 +97,30 @@ const ProductView = () => {
               className={`${style.productImgBox} d-flex justify-content-center`}
               onMouseLeave={hideLense}
             >
-              <img
-                src={p4}
+              {/* <img
+                src={p1}
                 alt="Product Active Image"
                 className="img-fluid"
                 id={style.productImgActive}
                 onMouseMove={mouseMove}
-              />
+              /> */}
+              <Carousel className="w-100" controls={false} indicators={false}>
+                {/* Here you have to write map fun. for images. */}
+                <Carousel.Item>
+                  <img src={p1} ref={activeImg} />
+                </Carousel.Item>
+                <Carousel.Item className="hey">
+                  <img
+                    src={p2}
+                    id={style.productImgActive}
+                    onMouseMove={mouseMove}
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img src={p2} />
+                </Carousel.Item>
+              </Carousel>
+
               <div
                 className={style.magnifyLens}
                 onMouseMove={mouseMove}
