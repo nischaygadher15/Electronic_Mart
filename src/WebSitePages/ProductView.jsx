@@ -22,45 +22,51 @@ const ProductView = () => {
 
   let products = data.slice(0, data.length);
   let prdOtherImages = useRef(null);
-  let activeImg = useRef(null);
+  let imgCarousel = useRef(null);
 
   // <=============================== Image Magnify on Mouse Hover ===============================>
 
   let mouseMove = (e) => {
-    let prdImg = document.querySelector(`#${style.productImgActive}`);
-    let lens = document.querySelector(`.${style.magnifyLens}`);
-    let magImg = document.querySelector(`.${style.magnifiedImg}`);
-    let prdImgCox = prdImg.getBoundingClientRect();
-    document.querySelector(`.${style.hoverZoomHint}`).style.display = "none";
-    lens.classList.add(`${style.active}`);
-    magImg.classList.add(`${style.active}`);
-    let x = e.pageX - prdImgCox.left - lens.offsetWidth / 2;
-    let y = e.pageY - prdImgCox.top - lens.offsetHeight / 2;
-    let maxX = prdImgCox.width - lens.offsetWidth;
-    let maxY = prdImgCox.height - lens.offsetHeight;
-    let cx = magImg.offsetWidth / lens.offsetWidth;
-    let cy = magImg.offsetHeight / lens.offsetHeight;
+    if (e.target.tagName == "IMG") {
+      e.target.id = `${style.productImgActive}`;
+      console.log("mouseMove");
+      //   {
+      //   let prdImg = document.querySelector(`#${style.productImgActive}`);
+      //   let lens = document.querySelector(`.${style.magnifyLens}`);
+      //   let magImg = document.querySelector(`.${style.magnifiedImg}`);
+      //   let prdImgCox = prdImg.getBoundingClientRect();
+      //   document.querySelector(`.${style.hoverZoomHint}`).style.display = "none";
+      //   lens.classList.add(`${style.atv}`);
+      //   magImg.classList.add(`${style.atv}`);
+      //   let x = e.pageX - prdImgCox.left - lens.offsetWidth / 2;
+      //   let y = e.pageY - prdImgCox.top - lens.offsetHeight / 2;
+      //   let maxX = prdImgCox.width - lens.offsetWidth;
+      //   let maxY = prdImgCox.height - lens.offsetHeight;
+      //   let cx = magImg.offsetWidth / lens.offsetWidth;
+      //   let cy = magImg.offsetHeight / lens.offsetHeight;
 
-    if (x > maxX) x = maxX;
-    if (x < 0) x = 0;
-    if (y > maxY) y = maxY;
-    if (y < 0) y = 0;
+      //   if (x > maxX) x = maxX;
+      //   if (x < 0) x = 0;
+      //   if (y > maxY) y = maxY;
+      //   if (y < 0) y = 0;
 
-    lens.style.cssText = `top:${y}px; left:${x}px`;
-    magImg.style.cssText = `background: #ffffff
-    url("${prdImg.src}") no-repeat`;
-    magImg.style.backgroundPosition = ` -${x * cx}px -${y * cy}px`;
-    magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
-      prdImgCox.height * cy
-    }px`;
+      //   lens.style.cssText = `top:${y}px; left:${x}px`;
+      //   magImg.style.cssText = `background: #ffffff
+      // url("${prdImg.src}") no-repeat`;
+      //   magImg.style.backgroundPosition = ` -${x * cx}px -${y * cy}px`;
+      //   magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
+      //     prdImgCox.height * cy
+      //   }px`;
+      // }
+    }
   };
 
   let hideLense = () => {
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
     document.querySelector(`.${style.hoverZoomHint}`).style.display = "flex";
-    lens.classList.remove(`${style.active}`);
-    magImg.classList.remove(`${style.active}`);
+    lens.classList.remove(`${style.atv}`);
+    magImg.classList.remove(`${style.atv}`);
   };
 
   // Change Active Images
@@ -72,8 +78,6 @@ const ProductView = () => {
           .setAttribute("src", `${e.target.src}`);
       });
     });
-
-    // activeImg.current.
   }, []);
 
   return (
@@ -97,27 +101,28 @@ const ProductView = () => {
               className={`${style.productImgBox} d-flex justify-content-center`}
               onMouseLeave={hideLense}
             >
-              {/* <img
-                src={p1}
-                alt="Product Active Image"
-                className="img-fluid"
-                id={style.productImgActive}
-                onMouseMove={mouseMove}
-              /> */}
-              <Carousel className="w-100" controls={false} indicators={false}>
+              <Carousel
+                className="w-100"
+                controls={false}
+                indicators={false}
+                interval={5000}
+                id="imgCarousel"
+                pause={"hover"}
+              >
                 {/* Here you have to write map fun. for images. */}
                 <Carousel.Item>
-                  <img src={p1} ref={activeImg} />
-                </Carousel.Item>
-                <Carousel.Item className="hey">
                   <img
                     src={p2}
-                    id={style.productImgActive}
-                    onMouseMove={mouseMove}
+                    // id={style.productImgActive}
+                    // onMouseMove={mouseMove}
+                    className="w-100 z-2"
                   />
                 </Carousel.Item>
+                <Carousel.Item className="hey">
+                  <img src={p2} className="w-100 z-2" onMouseMove={mouseMove} />
+                </Carousel.Item>
                 <Carousel.Item>
-                  <img src={p2} />
+                  <img src={p3} className="w-100 z-2" onMouseMove={mouseMove} />
                 </Carousel.Item>
               </Carousel>
 
