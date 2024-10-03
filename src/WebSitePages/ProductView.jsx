@@ -22,46 +22,42 @@ const ProductView = () => {
 
   let products = data.slice(0, data.length);
   let prdOtherImages = useRef(null);
-  let imgCarousel = useRef(null);
+  let [atvImg, setActiveImg] = useState(0);
+  let [carouselTime, setCarsTime] = useState(1000);
+  let imgArray = [p1, p2, p3];
 
   // <=============================== Image Magnify on Mouse Hover ===============================>
 
   let mouseMove = (e) => {
-    if (e.target.tagName == "IMG") {
-      e.target.id = `${style.productImgActive}`;
-      console.log("mouseMove");
-      //   {
-      //   let prdImg = document.querySelector(`#${style.productImgActive}`);
-      //   let lens = document.querySelector(`.${style.magnifyLens}`);
-      //   let magImg = document.querySelector(`.${style.magnifiedImg}`);
-      //   let prdImgCox = prdImg.getBoundingClientRect();
-      //   document.querySelector(`.${style.hoverZoomHint}`).style.display = "none";
-      //   lens.classList.add(`${style.atv}`);
-      //   magImg.classList.add(`${style.atv}`);
-      //   let x = e.pageX - prdImgCox.left - lens.offsetWidth / 2;
-      //   let y = e.pageY - prdImgCox.top - lens.offsetHeight / 2;
-      //   let maxX = prdImgCox.width - lens.offsetWidth;
-      //   let maxY = prdImgCox.height - lens.offsetHeight;
-      //   let cx = magImg.offsetWidth / lens.offsetWidth;
-      //   let cy = magImg.offsetHeight / lens.offsetHeight;
+    let [prdImg] = document.getElementsByName(`IMG-${atvImg}`);
+    let lens = document.querySelector(`.${style.magnifyLens}`);
+    let magImg = document.querySelector(`.${style.magnifiedImg}`);
+    let prdImgCox = prdImg.getBoundingClientRect();
+    document.querySelector(`.${style.hoverZoomHint}`).style.display = "none";
+    lens.classList.add(`${style.atv}`);
+    magImg.classList.add(`${style.atv}`);
+    let x = e.pageX - prdImgCox.left - lens.offsetWidth / 2;
+    let y = e.pageY - prdImgCox.top - lens.offsetHeight / 2;
+    let maxX = prdImgCox.width - lens.offsetWidth;
+    let maxY = prdImgCox.height - lens.offsetHeight;
+    let cx = magImg.offsetWidth / lens.offsetWidth;
+    let cy = magImg.offsetHeight / lens.offsetHeight;
 
-      //   if (x > maxX) x = maxX;
-      //   if (x < 0) x = 0;
-      //   if (y > maxY) y = maxY;
-      //   if (y < 0) y = 0;
+    if (x > maxX) x = maxX;
+    if (x < 0) x = 0;
+    if (y > maxY) y = maxY;
+    if (y < 0) y = 0;
 
-      //   lens.style.cssText = `top:${y}px; left:${x}px`;
-      //   magImg.style.cssText = `background: #ffffff
-      // url("${prdImg.src}") no-repeat`;
-      //   magImg.style.backgroundPosition = ` -${x * cx}px -${y * cy}px`;
-      //   magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
-      //     prdImgCox.height * cy
-      //   }px`;
-      // }
-    }
+    lens.style.cssText = `top:${y}px; left:${x}px`;
+    magImg.style.cssText = `background: #ffffff
+      url("${prdImg.src}") no-repeat`;
+    magImg.style.backgroundPosition = ` -${x * cx}px -${y * cy}px`;
+    magImg.style.backgroundSize = `${prdImgCox.width * cx}px ${
+      prdImgCox.height * cy
+    }px`;
   };
 
-  let hideLense = () => {
+  let hideLense = (e) => {
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
     document.querySelector(`.${style.hoverZoomHint}`).style.display = "flex";
@@ -70,15 +66,20 @@ const ProductView = () => {
   };
 
   // Change Active Images
+
+  // useEffect(() => {
+  //   Array.from(prdOtherImages.current.children).map((i) => {
+  //     i.addEventListener("click", (e) => {
+  //       document
+  //         .querySelector(`#${style.productImgActive}`)
+  //         .setAttribute("src", `${e.target.src}`);
+  //     });
+  //   });
+  // }, []);
+
   useEffect(() => {
-    Array.from(prdOtherImages.current.children).map((i) => {
-      i.addEventListener("click", (e) => {
-        document
-          .querySelector(`#${style.productImgActive}`)
-          .setAttribute("src", `${e.target.src}`);
-      });
-    });
-  }, []);
+    console.log(`ActiveImg: ${atvImg}`);
+  }, [atvImg]);
 
   return (
     <div className={style.productViewWrapper}>
@@ -105,26 +106,29 @@ const ProductView = () => {
                 className="w-100"
                 controls={false}
                 indicators={false}
-                interval={5000}
-                id="imgCarousel"
+                interval={carouselTime}
                 pause={"hover"}
+                onSelect={(e) => setActiveImg(e)}
               >
-                {/* Here you have to write map fun. for images. */}
-                <Carousel.Item>
-                  <img
-                    src={p2}
-                    // id={style.productImgActive}
-                    // onMouseMove={mouseMove}
-                    className="w-100 z-2"
-                  />
-                </Carousel.Item>
-                <Carousel.Item className="hey">
-                  <img src={p2} className="w-100 z-2" onMouseMove={mouseMove} />
-                </Carousel.Item>
-                <Carousel.Item>
-                  <img src={p3} className="w-100 z-2" onMouseMove={mouseMove} />
-                </Carousel.Item>
+                {imgArray.map((i, inx) => {
+                  return (
+                    <Carousel.Item key={inx}>
+                      <img
+                        src={i}
+                        className={style.productImgActive}
+                        onMouseMove={mouseMove}
+                        name={`IMG-${inx}`}
+                      />
+                    </Carousel.Item>
+                  );
+                })}
               </Carousel>
+              {/* <img
+                src={p2}
+                id={style.productImgActive}
+                onMouseMove={mouseMove}
+                className="w-100"
+              /> */}
 
               <div
                 className={style.magnifyLens}
