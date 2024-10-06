@@ -23,10 +23,10 @@ const ProductView = () => {
   let prdOtherImages = useRef(null);
   let [atvImg, setActiveImg] = useState(0);
   let [stopCarousel, setStopCarousel] = useState(false);
+  let [carouselTime, setCarouselTime] = useState(5000);
   let imgArray = [p1, p2, p3];
-  let count = 0;
-  let [prevCount, setPrevCount] = useState(0);
-  let carouselInterval = useRef({});
+  let count = atvImg;
+  let carouselInterval = useRef(null);
 
   // <=============================== Image Magnify on Mouse Hover ===============================>
 
@@ -34,10 +34,7 @@ const ProductView = () => {
 
   function startCarousel() {
     let slides = Array.from(document.querySelectorAll(`.${style.slide}`));
-    if (prevCount != 0) {
-      count = prevCount;
-      setPrevCount(0);
-    }
+    // console.log(`Started With Cont: ${count}`);
     slides[count].style.animation = `${style.prev1} 0.5s ease-in forwards`;
     if (count >= slides.length - 1) {
       count = 0;
@@ -46,26 +43,26 @@ const ProductView = () => {
     }
     slides[count].style.animation = `${style.prev2} 0.5s ease-in forwards`;
     setActiveImg(count);
-    console.log("carousel running");
+    // console.log("carousel running");
   }
-
-  // useEffect(() => {
-  //   carouselInterval.current = setInterval(startCarousel, 5000);
-  //   return () => clearInterval(carouselInterval.current);
-  // }, []);
 
   useEffect(() => {
     // Stop Carousel
     if (stopCarousel) {
       clearInterval(carouselInterval.current);
-      setPrevCount(count);
+      console.log("carousel.stopped");
+      setActiveImg(count);
     } else {
-      carouselInterval.current = setInterval(startCarousel, 5000);
-      return () => clearInterval(carouselInterval.current);
+      carouselInterval.current = setInterval(startCarousel, carouselTime);
     }
+    return () => clearInterval(carouselInterval.current);
   }, [stopCarousel]);
 
+  useEffect(() => console.log(`Active Slide: ${atvImg}`), [atvImg]);
+
   let mouseMove = (e) => {
+    setStopCarousel(true);
+    // console.log(`flag offed`);
     let [prdImg] = document.getElementsByName(`IMG-${atvImg}`);
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
@@ -125,13 +122,7 @@ const ProductView = () => {
               className={`${style.productImgBox} d-flex justify-content-center mb-3`}
               onMouseLeave={hideLense}
             >
-              <div
-                className={style.myCarousel}
-                onMouseEnter={() => {
-                  setStopCarousel(true);
-                  console.log(`flag offed`);
-                }}
-              >
+              <div className={style.myCarousel}>
                 <img
                   src={imgArray[0]}
                   alt="Product Image"
@@ -175,6 +166,18 @@ const ProductView = () => {
                     key={`OtherImg${inx}`}
                     src={i}
                     className={style.productImg}
+                    onClick={() => {
+                      setStopCarousel(true);
+                      setCarouselTime(1000);
+                      let i = 0;
+                      while (i < 10) {
+                        if (count == inx) {
+                          setCarouselTime(5000);
+                          break;
+                        } else startCarousel();
+                        i++;
+                      }
+                    }}
                   />
                 );
               })}
