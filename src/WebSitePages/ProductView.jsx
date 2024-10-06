@@ -1,5 +1,6 @@
 import React, {
   forwardRef,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -7,7 +8,6 @@ import React, {
 } from "react";
 import style from "./ProductView.module.css";
 import data from "../JSON_Data/ProductsList.js";
-import { useOutletContext } from "react-router-dom";
 import smartWatch from "../assets/off1.png";
 import smartPhone from "../assets/off2.png";
 import { FaRegHandPointRight } from "react-icons/fa";
@@ -15,7 +15,6 @@ import p1 from "../assets/si1.png";
 import p2 from "../assets/si2.png";
 import p3 from "../assets/si3.png";
 import { FiZoomIn } from "react-icons/fi";
-import Carousel from "react-bootstrap/Carousel";
 
 const ProductView = () => {
   // <=============================== Variable Declaration ===============================>
@@ -23,10 +22,48 @@ const ProductView = () => {
   let products = data.slice(0, data.length);
   let prdOtherImages = useRef(null);
   let [atvImg, setActiveImg] = useState(0);
-  let [carouselTime, setCarsTime] = useState(1000);
+  let [stopCarousel, setStopCarousel] = useState(false);
   let imgArray = [p1, p2, p3];
+  let count = 0;
+  let [prevCount, setPrevCount] = useState(0);
+  let carouselInterval = useRef({});
 
   // <=============================== Image Magnify on Mouse Hover ===============================>
+
+  // Carousel Running Function
+
+  function startCarousel() {
+    let slides = Array.from(document.querySelectorAll(`.${style.slide}`));
+    if (prevCount != 0) {
+      count = prevCount;
+      setPrevCount(0);
+    }
+    slides[count].style.animation = `${style.prev1} 0.5s ease-in forwards`;
+    if (count >= slides.length - 1) {
+      count = 0;
+    } else {
+      count++;
+    }
+    slides[count].style.animation = `${style.prev2} 0.5s ease-in forwards`;
+    setActiveImg(count);
+    console.log("carousel running");
+  }
+
+  // useEffect(() => {
+  //   carouselInterval.current = setInterval(startCarousel, 5000);
+  //   return () => clearInterval(carouselInterval.current);
+  // }, []);
+
+  useEffect(() => {
+    // Stop Carousel
+    if (stopCarousel) {
+      clearInterval(carouselInterval.current);
+      setPrevCount(count);
+    } else {
+      carouselInterval.current = setInterval(startCarousel, 5000);
+      return () => clearInterval(carouselInterval.current);
+    }
+  }, [stopCarousel]);
 
   let mouseMove = (e) => {
     let [prdImg] = document.getElementsByName(`IMG-${atvImg}`);
@@ -58,28 +95,14 @@ const ProductView = () => {
   };
 
   let hideLense = (e) => {
+    setStopCarousel(false);
+    console.log("carousel started again.");
     let lens = document.querySelector(`.${style.magnifyLens}`);
     let magImg = document.querySelector(`.${style.magnifiedImg}`);
     document.querySelector(`.${style.hoverZoomHint}`).style.display = "flex";
     lens.classList.remove(`${style.atv}`);
     magImg.classList.remove(`${style.atv}`);
   };
-
-  // Change Active Images
-
-  // useEffect(() => {
-  //   Array.from(prdOtherImages.current.children).map((i) => {
-  //     i.addEventListener("click", (e) => {
-  //       document
-  //         .querySelector(`#${style.productImgActive}`)
-  //         .setAttribute("src", `${e.target.src}`);
-  //     });
-  //   });
-  // }, []);
-
-  useEffect(() => {
-    console.log(`ActiveImg: ${atvImg}`);
-  }, [atvImg]);
 
   return (
     <div className={style.productViewWrapper}>
@@ -92,43 +115,45 @@ const ProductView = () => {
           HOME&nbsp; {">"} &nbsp;SINGLE PRODUCT 1
         </p>
       </div>
-
       {/* <================================= Products View section =================================>   */}
+
       <div className="row" id={style.productView}>
         {/* Product Images  */}
         <div className="col-5">
           <div className="productImgFrame">
             <div
-              className={`${style.productImgBox} d-flex justify-content-center`}
+              className={`${style.productImgBox} d-flex justify-content-center mb-3`}
               onMouseLeave={hideLense}
             >
-              <Carousel
-                className="w-100"
-                controls={false}
-                indicators={false}
-                interval={carouselTime}
-                pause={"hover"}
-                onSelect={(e) => setActiveImg(e)}
+              <div
+                className={style.myCarousel}
+                onMouseEnter={() => {
+                  setStopCarousel(true);
+                  console.log(`flag offed`);
+                }}
               >
-                {imgArray.map((i, inx) => {
-                  return (
-                    <Carousel.Item key={inx}>
-                      <img
-                        src={i}
-                        className={style.productImgActive}
-                        onMouseMove={mouseMove}
-                        name={`IMG-${inx}`}
-                      />
-                    </Carousel.Item>
-                  );
-                })}
-              </Carousel>
-              {/* <img
-                src={p2}
-                id={style.productImgActive}
-                onMouseMove={mouseMove}
-                className="w-100"
-              /> */}
+                <img
+                  src={imgArray[0]}
+                  alt="Product Image"
+                  className={`${style.slide} ${style.defaultActiveSlide}`}
+                  onMouseMove={mouseMove}
+                  name="IMG-0"
+                />
+                <img
+                  src={imgArray[1]}
+                  alt="Product Image"
+                  className={`${style.slide}`}
+                  onMouseMove={mouseMove}
+                  name="IMG-1"
+                />
+                <img
+                  src={imgArray[2]}
+                  alt="Product Image"
+                  className={`${style.slide}`}
+                  onMouseMove={mouseMove}
+                  name="IMG-2"
+                />
+              </div>
 
               <div
                 className={style.magnifyLens}
@@ -144,9 +169,15 @@ const ProductView = () => {
               className="d-flex justify-content-center mt-2"
               ref={prdOtherImages}
             >
-              <img src={p1} className={style.productImg} />
-              <img src={p2} className={style.productImg} />
-              <img src={p3} className={style.productImg} />
+              {imgArray.map((i, inx) => {
+                return (
+                  <img
+                    key={`OtherImg${inx}`}
+                    src={i}
+                    className={style.productImg}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -189,7 +220,6 @@ const ProductView = () => {
           <div className={style.magnifiedImg}></div>
         </div>
       </div>
-
       {/* <================================= Product Offers =================================>   */}
       <div className="row g-5 m-0" id={style.offerWrapper}>
         <div className="col-6 mt-0 px-4">
