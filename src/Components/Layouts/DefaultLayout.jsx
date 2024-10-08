@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Container from "react-bootstrap/Container";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
-// import { ProductId } from "./ProductContext";
 import Loader from "../Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { ACTIVE_USER, selectUser } from "../../Store/userSlice";
@@ -47,6 +46,11 @@ import pay8 from "../../assets/pay8.png";
 import pay9 from "../../assets/pay9.png";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { RiSmartphoneFill } from "react-icons/ri";
+import p1 from "../../assets/si1.png";
+import p2 from "../../assets/si2.png";
+import p3 from "../../assets/si3.png";
+import { FaRegTrashCan } from "react-icons/fa6";
+import { IoMdClose } from "react-icons/io";
 
 const DefaultLayout = ({ children }) => {
   let mainWrapper = useRef(null);
@@ -68,20 +72,27 @@ const DefaultLayout = ({ children }) => {
     fontSize: "50px",
   };
 
+  let imgArray = [p1, p2, p3, p1, p2, p3, p1, p2, p3];
+
   // <============================ Log In Modal Functions ============================>
   let [logInShow, setLogInShow] = useState(false);
   const handleLogInClose = () => setLogInShow(false);
   const handleLogInShow = () => setLogInShow(true);
 
-  // <============================ Log In Modal Functions ============================>
+  // <============================ Register In Modal Functions ============================>
   let [regShow, setRegShow] = useState(false);
   const handleRegClose = () => setRegShow(false);
   const handleRegShow = () => setRegShow(true);
 
-  // <============================ Log In Modal Functions ============================>
+  // <============================ Location In Modal Functions ============================>
   let [locShow, setLocShow] = useState(false);
   const handleLocClose = () => setLocShow(false);
   const handleLocShow = () => setLocShow(true);
+
+  // <============================ Cart In Modal Functions ============================>
+  let [cartShow, setCartShow] = useState(false);
+  const handleCartClose = () => setCartShow(false);
+  const handleCartShow = () => setCartShow(true);
 
   let logOut = () => {
     showLoader(1);
@@ -149,9 +160,10 @@ const DefaultLayout = ({ children }) => {
               </div>
               <div className="rightNavIcons d-flex">
                 {/* <================================= Location Modal =================================> */}
-                <label htmlFor="" className="location">
+                <label htmlFor="locationBtn" className="location">
                   <button
                     className="btn"
+                    id="locationBtn"
                     style={{ padding: "0px", height: "100%", border: "none" }}
                     onClick={() => {
                       // locBox.current.style.display = "flex";
@@ -277,14 +289,109 @@ const DefaultLayout = ({ children }) => {
                   </Dropdown>
                 </label>
 
-                {/* <================================= Cart =================================> */}
+                {/* <================================= Cart Modal =================================> */}
                 <label htmlFor="cart">
                   <button
                     className="btn"
                     style={{ padding: "0px", height: "100%", border: "none" }}
+                    onClick={handleCartShow}
                   >
                     <FaShoppingCart id="cart" className={style.navbarIcons} />
                   </button>
+
+                  <Modal
+                    show={cartShow}
+                    onHide={handleCartClose}
+                    centered
+                    bsPrefix={style.locModal}
+                  >
+                    <Modal.Header bsPrefix={style.modelLocHead}>
+                      <Modal.Title className="w-100">
+                        <p
+                          className=" w-100 d-flex justify-content-center align-items-center text-white fs-3 mb-0"
+                          style={{ backgroundColor: "#292560" }}
+                        >
+                          CART
+                          <FaShoppingCart id="cart" className="ms-2" />
+                        </p>
+                      </Modal.Title>
+                      <button
+                        className={`btn ${style.modelCartCloseBtn}`}
+                        onClick={handleCartClose}
+                      >
+                        <IoMdClose style={{ fontSize: "20px" }} />
+                      </button>
+                    </Modal.Header>
+                    <Modal.Body
+                      bsPrefix={style.modelLocBody}
+                      style={{
+                        boxShadow: "0px 0px 2px 2px rgba(0,0,0,0.2)",
+                        padding: "16px",
+                        paddingTop: "0px",
+                        margin: "20px",
+                        marginBottom: "0",
+                      }}
+                    >
+                      <table className={style.cartList}>
+                        <tr>
+                          <th style={{ width: "57%" }}>Product Name</th>
+                          <th style={{ width: "20%" }}>Quantity</th>
+                          <th style={{ width: "15%" }}>Price</th>
+                          <th style={{ width: "8%" }}>Delete</th>
+                        </tr>
+                        {imgArray.map((i) => {
+                          return (
+                            <tr>
+                              <td>
+                                <div className="d-flex align-items-center">
+                                  <img
+                                    src={i}
+                                    alt="Product Image in Cart"
+                                    className={`img-fluid ${style.cartPdImg}`}
+                                  />
+                                  <p className="mb-0">Redmi 9 Prime</p>
+                                </div>
+                              </td>
+                              <td>
+                                <div className="d-flex">
+                                  <button
+                                    className={`btn btn-danger ${style.decCart}`}
+                                  >
+                                    -
+                                  </button>
+                                  <input
+                                    type="text"
+                                    className={style.cartQty}
+                                  />
+                                  <button
+                                    className={`btn btn-primary ${style.incCart}`}
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                              </td>
+                              <td>&#8377;{`1500`}</td>
+                              <td>
+                                <button
+                                  className={`btn btn-danger ${style.cartDelete}`}
+                                >
+                                  <FaRegTrashCan />
+                                </button>
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </table>
+                    </Modal.Body>
+                    <div className={style.checkOutWrapper}>
+                      <p className="mb-0 fs-5 fw-bold">
+                        Subtotal: &#8377;2270.00
+                      </p>
+                      <button className={`btn ${style.checkOutBtn}`}>
+                        Check Out With
+                      </button>
+                    </div>
+                  </Modal>
                 </label>
               </div>
             </div>
@@ -292,6 +399,7 @@ const DefaultLayout = ({ children }) => {
         </div>
       </nav>
 
+      {/* <================================= Lower Navbar =================================> */}
       <nav id={style.lowerNavBar}>
         <div
           className="row justify-content-between"

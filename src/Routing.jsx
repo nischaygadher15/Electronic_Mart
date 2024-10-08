@@ -2,9 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import Home from "./WebSitePages/Home";
 import Login from "./WebSitePages/Login";
-import PageNotFound from "./WebSitePages/PageNotFound";
+// import PageNotFound from "./WebSitePages/PageNotFound";
 import Register from "./WebSitePages/Register";
-import Cart from "./WebSitePages/Cart";
+// import Cart from "./WebSitePages/Cart";
 import Admin from "./WebSitePages/Admin/Admin";
 import ProtectedAdmin from "./Components/Protection";
 import Dashboard from "./WebSitePages/Admin/Dashboard";
@@ -25,7 +25,6 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/productview", element: <ProductView /> },
-      { path: "/cart", element: <Cart /> },
     ],
   },
   ,
@@ -49,7 +48,7 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <PageNotFound />,
+    // element: <PageNotFound />,
   },
 ]);
 

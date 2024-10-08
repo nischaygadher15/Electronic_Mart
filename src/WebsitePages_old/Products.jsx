@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { ProductId } from "../Components/Navbar/ProductContext";
+import { ProductId } from "../Components/Navbar/ProductContext.jsx";
 import style from "../WebSitePages/Products.module.css";
-import Loader from "../Components/Loader";
+import Loader from "../Components/Loader.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../Store/cartSlice.js";
 import { ACTIVE_USER, selectUser } from "../Store/userSlice.js";

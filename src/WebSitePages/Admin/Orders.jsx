@@ -97,7 +97,10 @@ const Orders = () => {
               <Modal.Header closeButton>
                 <Modal.Title className="fs-5">Order Details</Modal.Title>
               </Modal.Header>
-              <Modal.Body bsPrefix={style.vdModalBody}>
+              <Modal.Body
+                bsPrefix={style.vdModalBody}
+                style={{ maxHeight: "450px", overflowY: "auto" }}
+              >
                 <p>
                   Order Id: <span className="text-primary">#SK2540</span>
                 </p>
