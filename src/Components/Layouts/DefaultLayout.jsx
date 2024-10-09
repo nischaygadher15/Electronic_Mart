@@ -387,7 +387,13 @@ const DefaultLayout = ({ children }) => {
                       <p className="mb-0 fs-5 fw-bold">
                         Subtotal: &#8377;2270.00
                       </p>
-                      <button className={`btn ${style.checkOutBtn}`}>
+                      <button
+                        className={`btn ${style.checkOutBtn}`}
+                        onClick={() => {
+                          handleCartClose();
+                          nvg("/checkout");
+                        }}
+                      >
                         Check Out With
                       </button>
                     </div>

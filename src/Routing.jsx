@@ -15,6 +15,7 @@ import UserList from "./WebSitePages/Admin/UserList";
 import UserProfile from "./WebSitePages/Admin/UserProfile";
 import Orders from "./WebSitePages/Admin/Orders";
 import ProductView from "./WebSitePages/ProductView";
+import CheckOut from "./WebSitePages/CheckOut";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/productview", element: <ProductView /> },
+      { path: "/checkout", element: <CheckOut /> },
     ],
   },
   ,
