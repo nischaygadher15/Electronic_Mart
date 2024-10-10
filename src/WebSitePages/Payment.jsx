@@ -2,6 +2,14 @@ import React from "react";
 import style from "./Payment.module.css";
 
 const Payment = () => {
+  let toggleTab = (inx) => {
+    switch (inx) {
+      case 0:
+      case 1:
+      case 2:
+      case 3:
+    }
+  };
   return (
     <div className="paymentPage">
       <div className={style.productTitle}>
@@ -11,106 +19,29 @@ const Payment = () => {
         <p className="mb-0 fw-semibold">HOME&nbsp; {">"} &nbsp;CHECKOUT</p>
       </div>
 
-      <div className={style.payment}>
+      <div className={style.paymentMethods}>
         {/* <================================= Payment Methods Tabs =================================>   */}
-
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          {/* Cash on Delivery */}
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="cod"
-              data-bs-toggle="tab"
-              data-bs-target="#cod-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="cod-tab-pane"
-              aria-selected="true"
-            >
-              Cash on delivery
-            </button>
-          </li>
-
-          {/* Credit & Debit Card */}
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="cod"
-              data-bs-toggle="tab"
-              data-bs-target="#home-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="home-tab-pane"
-              aria-selected="true"
-            >
-              Credit/Debit Card
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="cod"
-              data-bs-toggle="tab"
-              data-bs-target="#home-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="home-tab-pane"
-              aria-selected="true"
-            >
-              Home
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button
-              class="nav-link active"
-              id="cod"
-              data-bs-toggle="tab"
-              data-bs-target="#home-tab-pane"
-              type="button"
-              role="tab"
-              aria-controls="home-tab-pane"
-              aria-selected="true"
-            >
-              Home
-            </button>
-          </li>
-        </ul>
-        <div class="tab-content" id="myTabContent">
-          <div
-            class="tab-pane fade show active"
-            id="cod-tab-pane"
-            role="tabpanel"
-            aria-labelledby="cod"
-            tabindex="0"
-          >
-            ...
+        <h1 className="text-center">Payment</h1>
+        <div className="methodsBox">
+          <div className="row">
+            <div className="col" onClick={() => toggleTab(0)} name="tab0">
+              Cash on delivery (COD)
+            </div>
+            <div className="col" onClick={() => toggleTab(1)} name="tab1">
+              Credit/Debit
+            </div>
+            <div className="col" onClick={() => toggleTab(2)} name="tab2">
+              Net Banking
+            </div>
+            <div className="col" onClick={() => toggleTab(3)} name="tab3">
+              Paypal Account
+            </div>
           </div>
-          <div
-            class="tab-pane fade"
-            id="cdCard-tab-pane"
-            role="tabpanel"
-            aria-labelledby="cdCard"
-            tabindex="0"
-          >
-            ...
-          </div>
-          <div
-            class="tab-pane fade"
-            id="contact-tab-pane"
-            role="tabpanel"
-            aria-labelledby="netBanking"
-            tabindex="0"
-          >
-            ...
-          </div>
-          <div
-            class="tab-pane fade"
-            id="disabled-tab-pane"
-            role="tabpanel"
-            aria-labelledby="paypalAcc"
-            tabindex="0"
-          >
-            ...
+          <div className="row">
+            <div className="codContent">Cod</div>
+            <div className="cdCardContent">Credit Debit Card</div>
+            <div className="netBankingContent">Net Banking</div>
+            <div className="paypalContent">Paypal Account</div>
           </div>
         </div>
       </div>
