@@ -1,0 +1,10 @@
+/* Page Wrappers */
+/* .paymentWrapper {
+  padding: 100px 60px;
+} */
+.productTitle {
+  padding: 100px 60px;
+  background: url("../assets/checkout.jpg") center;
+  background-size: cover;
+  color: white;
+}
