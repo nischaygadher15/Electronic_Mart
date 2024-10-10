@@ -16,6 +16,7 @@ import UserProfile from "./WebSitePages/Admin/UserProfile";
 import Orders from "./WebSitePages/Admin/Orders";
 import ProductView from "./WebSitePages/ProductView";
 import CheckOut from "./WebSitePages/CheckOut";
+import Payment from "./WebSitePages/Payment";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: "/register", element: <Register /> },
       { path: "/productview", element: <ProductView /> },
       { path: "/checkout", element: <CheckOut /> },
+      { path: "/payment", element: <Payment /> },
     ],
   },
   ,

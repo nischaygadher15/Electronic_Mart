@@ -8,6 +8,7 @@
 
 .cartTableWrapper {
   padding: 100px 60px;
+  padding-bottom: 0px;
 }
 
 /* Cart Table */
@@ -15,6 +16,7 @@
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-collapse: collapse !important;
+  margin-bottom: 60px;
 }
 
 th,
@@ -23,12 +25,12 @@ td {
   vertical-align: middle;
 }
 
-td {
+.checkOutTable td {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .prdImage {
-  width: 100px;
+  width: 90px;
   height: 100px;
 }
 
@@ -45,13 +47,54 @@ td {
   height: 40px;
   display: grid;
   place-content: center;
-  border: 1px solid #8f8585;
+  border: 1px solid #8f8585 !important;
   border-radius: 0px !important;
+  font-size: 18px;
 }
 
 .prdQty {
   width: 40px;
   margin: 8px;
-  background-color: #f4f4f4;
   text-align: center;
+  font-size: 16px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.orderForm input,
+select {
+  padding: 14px 18px !important;
+  font-size: 18px;
+}
+
+.orderForm input[type="text"],
+input[type="email"],
+select {
+  background-color: #f4f4f4 !important;
+}
+
+.subTotal tr {
+  border: none;
+  font-weight: bold;
+}
+
+.makePaymentBtn {
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #fdb03d;
+  font-size: 20px;
+  font-weight: 500;
+  border: 1px solid #e49012;
 }
