@@ -205,12 +205,12 @@
   max-height: 400px;
   overflow-y: scroll;
   /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-#bestSeller::-webkit-scrollbar {
+#bestSeller ::-webkit-scrollbar {
   display: none;
 }
 

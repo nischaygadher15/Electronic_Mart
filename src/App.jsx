@@ -17,7 +17,7 @@ function App() {
       style={{
         width: "100%",
         height: "100vh",
-        overflow: "hidden scroll",
+        overflow: "scroll",
       }}
       ref={AppWrapper}
     >

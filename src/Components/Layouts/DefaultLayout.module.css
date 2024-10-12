@@ -254,6 +254,7 @@
   font-size: 22px;
 }
 
+/* Location Modal */
 .locModal {
   --bs-modal-zindex: 1055;
   --bs-modal-width: 700px;
@@ -321,9 +322,9 @@
   overflow-y: auto;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
-}
+} */
 
 /* Cart Modal */
 

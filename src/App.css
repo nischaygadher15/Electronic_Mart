@@ -6,10 +6,6 @@
 
 /* Admin Panel Sidebar Navbar */
 .active {
-  color: var(--bs-navbar-active-color) !important;
-}
-
-.activeNavLink {
   color: #fdb03d !important;
 }
 

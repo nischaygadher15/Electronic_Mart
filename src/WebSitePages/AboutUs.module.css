@@ -6,7 +6,15 @@
   color: white;
 }
 
-.bestSuccess {
+.cusOpinionBox {
+  background: url("../assets/bg1.jpg") no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: white;
+}
+
+.bestSuccess,
+.cusOpinionBox {
   padding: 100px 60px;
   font-size: 18px;
 }
@@ -27,4 +35,15 @@
 
 .productBtn:hover {
   background-color: #292560;
+}
+
+.cusCard {
+  background-color: white;
+  color: black;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.cusCardImg {
+  border-radius: 50%;
 }
