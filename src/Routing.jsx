@@ -17,6 +17,7 @@ import Orders from "./WebSitePages/Admin/Orders";
 import ProductView from "./WebSitePages/ProductView";
 import CheckOut from "./WebSitePages/CheckOut";
 import Payment from "./WebSitePages/Payment";
+import AboutUs from "./WebSitePages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -24,11 +25,13 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
+      { path: "/home", element: <Home /> },
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/productview", element: <ProductView /> },
       { path: "/checkout", element: <CheckOut /> },
       { path: "/payment", element: <Payment /> },
+      { path: "/aboutus", element: <AboutUs /> },
     ],
   },
   ,

@@ -639,7 +639,7 @@ const DefaultLayout = ({ children }) => {
       </nav>
 
       {/* <================================= Log In Modal =================================> */}
-      <div className="LogInModal">
+      <div className="logInModal">
         <Modal
           show={logInShow}
           onHide={handleLogInClose}
