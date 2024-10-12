@@ -380,9 +380,9 @@ const AddProduct = () => {
                 </div>
                 <span className="fs-6 text-danger" ref={imageError}></span>
                 {progress > 0 ? (
-                  <div class="progress mt-3 px-0" role="progressbar">
+                  <div className="progress mt-3 px-0" role="progressbar">
                     <div
-                      class="progress-bar progress-bar-striped"
+                      className="progress-bar progress-bar-striped"
                       style={{ width: `${progress}%`, borderRadius: "20px" }}
                     >
                       <span>Uploading {progress}%</span>

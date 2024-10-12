@@ -155,7 +155,7 @@ const DefaultLayout = ({ children }) => {
                   className="btn btn-warning"
                   style={{ padding: "10px 40px" }}
                 >
-                  <i class="fa-solid fa-magnifying-glass" />
+                  <i className="fa-solid fa-magnifying-glass" />
                 </button>
               </div>
               <div className="rightNavIcons d-flex">
@@ -339,9 +339,9 @@ const DefaultLayout = ({ children }) => {
                           <th style={{ width: "15%" }}>Price</th>
                           <th style={{ width: "8%" }}>Delete</th>
                         </tr>
-                        {imgArray.map((i) => {
+                        {imgArray.map((i, inx) => {
                           return (
-                            <tr>
+                            <tr key={`prdImgTD${inx}`}>
                               <td>
                                 <div className="d-flex align-items-center">
                                   <img

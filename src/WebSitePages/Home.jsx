@@ -277,11 +277,12 @@ const Home = () => {
                     <option value="empty">Select Category</option>
                     {categories.map((c, inx) => {
                       return (
-                        <>
-                          <option key={inx} value={c.toLocaleLowerCase()}>
-                            {c}
-                          </option>
-                        </>
+                        <option
+                          key={`catOptionsHome${inx}`}
+                          value={c.toLocaleLowerCase()}
+                        >
+                          {c}
+                        </option>
                       );
                     })}
                   </select>
@@ -305,15 +306,19 @@ const Home = () => {
                       trackClassName="example-track"
                       defaultValue={[2000, 8000]}
                       ariaLabel={["minVal", "maxVal"]}
-                      renderThumb={(props, state) => (
-                        <div {...props}>
-                          <h6>
-                            <Badge bsPrefix={style.priceSliderLabel}>
-                              &#8377;&nbsp;{state.valueNow}
-                            </Badge>
-                          </h6>
-                        </div>
-                      )}
+                      renderThumb={(props, state) => {
+                        const { key, ...restProps } = props;
+                        const prop = { ...restProps };
+                        return (
+                          <div key={`reactSlider${key}`} {...prop}>
+                            <h6>
+                              <Badge bsPrefix={style.priceSliderLabel}>
+                                &#8377;&nbsp;{state.valueNow}
+                              </Badge>
+                            </h6>
+                          </div>
+                        );
+                      }}
                       pearling
                       min={0}
                       max={10000}
@@ -328,7 +333,7 @@ const Home = () => {
                 {/* <========================= Discount Filter ========================> */}
                 <div className={style.filterContainer}>
                   <Accordion className={style.MyAccordian}>
-                    <Accordion.Item defaultActiveKey="0">
+                    <Accordion.Item>
                       <Accordion.Header className={style.accHeader}>
                         Discount
                       </Accordion.Header>
@@ -506,7 +511,7 @@ const Home = () => {
                 {/* <========================= Size Filter ========================> */}
                 <div className={style.filterContainer}>
                   <Accordion className={style.MyAccordian}>
-                    <Accordion.Item defaultActiveKey="0">
+                    <Accordion.Item>
                       <Accordion.Header className={style.accHeader}>
                         Size
                       </Accordion.Header>
@@ -551,7 +556,7 @@ const Home = () => {
                 {/* <========================= Customer Rating Filter ========================> */}
                 <div className={style.filterContainer}>
                   <Accordion className={style.MyAccordian}>
-                    <Accordion.Item defaultActiveKey="0">
+                    <Accordion.Item>
                       <Accordion.Header className={style.accHeader}>
                         Customer Rating
                       </Accordion.Header>
@@ -564,7 +569,7 @@ const Home = () => {
                           />{" "}
                           4&nbsp;
                           <i
-                            class="fa-solid fa-star"
+                            className="fa-solid fa-star"
                             style={{ color: "#FCB92C", fontSize: "10px" }}
                           />
                           &nbsp;&&nbsp; Above
@@ -577,7 +582,7 @@ const Home = () => {
                           />{" "}
                           3&nbsp;
                           <i
-                            class="fa-solid fa-star"
+                            className="fa-solid fa-star"
                             style={{ color: "#FCB92C", fontSize: "10px" }}
                           />
                           &nbsp;&&nbsp; Above
@@ -590,7 +595,7 @@ const Home = () => {
                           />{" "}
                           2&nbsp;
                           <i
-                            class="fa-solid fa-star"
+                            className="fa-solid fa-star"
                             style={{ color: "#FCB92C", fontSize: "10px" }}
                           />
                           &nbsp;&&nbsp; Above
@@ -603,7 +608,7 @@ const Home = () => {
                           />{" "}
                           1&nbsp;
                           <i
-                            class="fa-solid fa-star"
+                            className="fa-solid fa-star"
                             style={{ color: "#FCB92C", fontSize: "10px" }}
                           />
                         </label>
@@ -624,9 +629,9 @@ const Home = () => {
                       id={style.bestSellInner}
                       className="d-flex flex-column"
                     >
-                      {currentItems.map((p) => {
+                      {currentItems.map((p, inx) => {
                         return (
-                          <div className="mb-3">
+                          <div className="mb-3" key={`bestSellItem${inx}`}>
                             <a
                               href="#"
                               className="d-flex mb-2"
@@ -649,9 +654,9 @@ const Home = () => {
                           </div>
                         );
                       })}
-                      {currentItems.map((p) => {
+                      {currentItems.map((p, inx) => {
                         return (
-                          <div className="mb-3">
+                          <div className="mb-3" key={`bestSell2Item${inx}`}>
                             <a
                               href="#"
                               className="d-flex mb-2"
@@ -691,7 +696,7 @@ const Home = () => {
                           position: "relative",
                           overflow: "hidden",
                         }}
-                        key={`product${inx}`}
+                        key={`productGrid${inx}`}
                         onMouseEnter={() => {
                           document.querySelector(`#qvb${inx}`).style.top =
                             "25%";
@@ -722,10 +727,8 @@ const Home = () => {
                           <Card.Title className="text-center mb-2">
                             <span>{`${p.title.substring(0, 15)}...`}</span>
                           </Card.Title>
-                          <Card.Text>
-                            <p className="text-center text-danger fw-bold mb-2">
-                              {`Price : $${p.price}`}
-                            </p>
+                          <Card.Text className="text-center text-danger fw-bold mb-2">
+                            {`Price : $${p.price}`}
                           </Card.Text>
                           <div className="add2Cart text-center">
                             <button className={`btn ${style.add2Cart}`}>

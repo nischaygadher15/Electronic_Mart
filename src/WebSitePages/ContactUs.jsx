@@ -17,8 +17,8 @@ const ContactUs = () => {
         <p className="mb-0 fw-semibold">HOME&nbsp; {">"} &nbsp;CONTACT US</p>
       </div>
       {/* <================================= Contact Us Form =================================>   */}
-      <div class={`row justify-content-evenly ${style.contactUsContent}`}>
-        <div class="col-5">
+      <div className={`row justify-content-evenly ${style.contactUsContent}`}>
+        <div className="col-5">
           <h2>Connect Us</h2>
           <ul className="list-unstyled">
             <li className="d-flex gap-3 mb-4 ">
@@ -68,7 +68,7 @@ const ContactUs = () => {
             </li>
           </ul>
         </div>
-        <div class="col-6">
+        <div className="col-6">
           <form className={style.contactUsForm}>
             <div className="mb-3">
               <input

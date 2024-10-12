@@ -256,7 +256,7 @@ const Payment = () => {
               <ul className="list-unstyled ms-3">
                 {popularBanks.map((b, inx) => {
                   return (
-                    <li key={inx} className="mb-3">
+                    <li key={`popBanks${inx}`} className="mb-3">
                       <label htmlFor={`selectedBank${inx}`}>
                         <input
                           type="radio"
@@ -274,7 +274,7 @@ const Payment = () => {
               <select name="otherBank" className="form-select my-4">
                 {otherBanks.map((ob, inx) => {
                   return (
-                    <option value={ob} key={`ob${inx}`}>
+                    <option value={ob} key={`otherBank${inx}`}>
                       {ob}
                     </option>
                   );

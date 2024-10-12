@@ -77,7 +77,7 @@ const ViewProducts_2 = () => {
             <span style={{ color: "#505D69" }}>
               Ecommerce &nbsp;
               <i
-                class="fa-solid fa-greater-than"
+                className="fa-solid fa-greater-than"
                 style={{ fontSize: "12px" }}
               />{" "}
               &nbsp;View Products
@@ -272,7 +272,7 @@ const ViewProducts_2 = () => {
                             />{" "}
                             4&nbsp;
                             <i
-                              class="fa-solid fa-star"
+                              className="fa-solid fa-star"
                               style={{ color: "#FCB92C", fontSize: "10px" }}
                             />
                             &nbsp;&&nbsp; Above
@@ -285,7 +285,7 @@ const ViewProducts_2 = () => {
                             />{" "}
                             3&nbsp;
                             <i
-                              class="fa-solid fa-star"
+                              className="fa-solid fa-star"
                               style={{ color: "#FCB92C", fontSize: "10px" }}
                             />
                             &nbsp;&&nbsp; Above
@@ -298,7 +298,7 @@ const ViewProducts_2 = () => {
                             />{" "}
                             2&nbsp;
                             <i
-                              class="fa-solid fa-star"
+                              className="fa-solid fa-star"
                               style={{ color: "#FCB92C", fontSize: "10px" }}
                             />
                             &nbsp;&&nbsp; Above
@@ -311,7 +311,7 @@ const ViewProducts_2 = () => {
                             />{" "}
                             1&nbsp;
                             <i
-                              class="fa-solid fa-star"
+                              className="fa-solid fa-star"
                               style={{ color: "#FCB92C", fontSize: "10px" }}
                             />
                           </label>
@@ -330,7 +330,7 @@ const ViewProducts_2 = () => {
                     <span className="fs-5 fw-semibold">Products</span>
                     <div id={style.searchBox}>
                       <i
-                        class="fa-solid fa-magnifying-glass"
+                        className="fa-solid fa-magnifying-glass"
                         id={style.searchIcon}
                       />
                       <input

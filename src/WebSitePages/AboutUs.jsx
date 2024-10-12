@@ -85,32 +85,30 @@ const AboutUs = () => {
           eaque ipsa quae ab illo inventore.
         </p>
         <div className="cusOpinions mt-5 row">
-          {cusImages.map((c) => {
+          {cusImages.map((c, inx) => {
             return (
-              <>
-                <div className="col">
-                  <div className={style.cusCard}>
-                    <RiDoubleQuotesL
-                      style={{ color: "#fdb03d", fontSize: "30px" }}
+              <div className="col" key={`csOpinions${inx}`}>
+                <div className={style.cusCard}>
+                  <RiDoubleQuotesL
+                    style={{ color: "#fdb03d", fontSize: "30px" }}
+                  />
+                  <p style={{ marginLeft: "30px" }}>
+                    Nam libero tempore, cum soluta nobis est eligendi optio
+                    cumque nihil impedit."
+                  </p>
+                  <div className="d-flex gap-3">
+                    <img
+                      src={c}
+                      alt="Customet Image"
+                      className={style.cusCardImg}
                     />
-                    <p style={{ marginLeft: "30px" }}>
-                      Nam libero tempore, cum soluta nobis est eligendi optio
-                      cumque nihil impedit."
-                    </p>
-                    <div className="d-flex gap-3">
-                      <img
-                        src={c}
-                        alt="Customet Image"
-                        className={style.cusCardImg}
-                      />
-                      <div className="cusNameBox">
-                        <p className="fs-5 fw-bold mb-1">Petey Cruis</p>
-                        <small>Caption Here</small>
-                      </div>
+                    <div className="cusNameBox">
+                      <p className="fs-5 fw-bold mb-1">Petey Cruis</p>
+                      <small>Caption Here</small>
                     </div>
                   </div>
                 </div>
-              </>
+              </div>
             );
           })}
         </div>

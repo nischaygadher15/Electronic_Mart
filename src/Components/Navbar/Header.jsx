@@ -80,7 +80,7 @@ const Header = () => {
               <div className={`input-group mx-2 py-2`}>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Search"
                   aria-describedby="basic-addon2"
                   onChange={(e) => dispatch(searchByWord(e.target.value))}
@@ -170,7 +170,7 @@ const Header = () => {
                     className="btn btn-warning"
                     style={{ padding: "10px 40px" }}
                   >
-                    <i class="fa-solid fa-magnifying-glass" />
+                    <i className="fa-solid fa-magnifying-glass" />
                   </button>
                 </div>
                 <div className="rightNavIcons d-flex">

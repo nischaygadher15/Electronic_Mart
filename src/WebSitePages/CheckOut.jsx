@@ -37,7 +37,7 @@ const CheckOut = () => {
             {products.map((p, inx) => {
               if (inx < 3) {
                 return (
-                  <tr>
+                  <tr key={`cartTableItems${inx}`}>
                     <td>{inx + 1}</td>
                     <td>
                       <div className="d-flex align-items-center prdDetail">

@@ -308,13 +308,13 @@ const Addproduct_2 = () => {
             <p style={{ color: "#505D69" }}>Fill all information below</p>
           </div>
 
-          <div class="mb-3">
-            <label for="productName" class="form-label">
+          <div className="mb-3">
+            <label for="productName" className="form-label">
               Product Name
             </label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="productName"
               ref={productName}
             />
@@ -323,24 +323,24 @@ const Addproduct_2 = () => {
 
           <div className="d-flex mb-3">
             <div className="w-50">
-              <label for="brandName" class="form-label">
+              <label for="brandName" className="form-label">
                 Brand Name
               </label>
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="brandName"
                 ref={brandName}
               />
               <span className={style.errorMsg} ref={brandErr}></span>
             </div>
             <div className="ms-4 w-50">
-              <label for="productPrice" class="form-label">
+              <label for="productPrice" className="form-label">
                 Price
               </label>
               <input
                 type="number"
-                class="form-control"
+                className="form-control"
                 id="productPrice"
                 ref={productPrice}
               />
@@ -350,12 +350,16 @@ const Addproduct_2 = () => {
 
           <div className="d-flex mb-3">
             <div className="w-50">
-              <label for="category" class="form-label">
+              <label for="category" className="form-label">
                 Category
               </label>
-              <ul class={style.searchSelect} ref={selectBox} id="searchSelect">
+              <ul
+                className={style.searchSelect}
+                ref={selectBox}
+                id="searchSelect"
+              >
                 <li
-                  class={style.selectedOne}
+                  className={style.selectedOne}
                   id="selectedOne"
                   onClick={handelCategory}
                   ref={selCat}
@@ -363,7 +367,7 @@ const Addproduct_2 = () => {
                   {selectedCat}
                   <div>
                     <i
-                      class="fa-solid fa-angle-down"
+                      className="fa-solid fa-angle-down"
                       style={{
                         fontSize: "20px",
                         color: "rgb(131, 128, 128)",
@@ -404,12 +408,12 @@ const Addproduct_2 = () => {
               <span className={style.errorMsg} ref={categoryErr}></span>
             </div>
             <div className="ms-4 w-50">
-              <label for="stock" class="form-label">
+              <label for="stock" className="form-label">
                 Product Stock
               </label>
               <input
                 type="number"
-                class="form-control"
+                className="form-control"
                 id="stock"
                 ref={stock}
               />
@@ -490,7 +494,7 @@ const Addproduct_2 = () => {
                             onClick={removeImage}
                           >
                             <i
-                              class="fa-regular fa-circle-xmark"
+                              className="fa-regular fa-circle-xmark"
                               id={`img-${inx}`}
                             />
                           </label>
