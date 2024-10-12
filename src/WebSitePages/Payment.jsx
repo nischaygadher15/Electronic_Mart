@@ -118,6 +118,7 @@ const Payment = () => {
 
   return (
     <div className="paymentPage">
+      {/* <================================= Payment Header =================================>   */}
       <div className={style.productTitle}>
         <h2 className="mb-4" style={{ fontSize: "25px" }}>
           <span className="fs-1">Payment</span> Page

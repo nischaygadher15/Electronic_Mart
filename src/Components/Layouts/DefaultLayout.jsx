@@ -632,12 +632,11 @@ const DefaultLayout = ({ children }) => {
               <NavLink to="/newArrivals">NEW ARRIVALS</NavLink>
             </li>
             <li>
-              <NavLink to="/contactUs">CONTACT US</NavLink>
+              <NavLink to="/contactus">CONTACT US</NavLink>
             </li>
           </ul>
         </div>
       </nav>
-
       {/* <================================= Log In Modal =================================> */}
       <div className="logInModal">
         <Modal

@@ -57,6 +57,7 @@ td {
   margin: 8px;
   text-align: center;
   font-size: 16px;
+  background-color: #f4f4f4 !important;
 }
 
 /* Chrome, Safari, Edge, Opera */
@@ -78,8 +79,8 @@ select {
 }
 
 .orderForm input[type="text"],
-input[type="email"],
-select {
+.orderForm input[type="email"],
+.orderForm select {
   background-color: #f4f4f4 !important;
 }
 
