@@ -333,54 +333,58 @@ const DefaultLayout = ({ children }) => {
                       }}
                     >
                       <table className={style.cartList}>
-                        <tr>
-                          <th style={{ width: "57%" }}>Product Name</th>
-                          <th style={{ width: "20%" }}>Quantity</th>
-                          <th style={{ width: "15%" }}>Price</th>
-                          <th style={{ width: "8%" }}>Delete</th>
-                        </tr>
-                        {imgArray.map((i, inx) => {
-                          return (
-                            <tr key={`prdImgTD${inx}`}>
-                              <td>
-                                <div className="d-flex align-items-center">
-                                  <img
-                                    src={i}
-                                    alt="Product Image in Cart"
-                                    className={`img-fluid ${style.cartPdImg}`}
-                                  />
-                                  <p className="mb-0">Redmi 9 Prime</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div className="d-flex">
+                        <thead>
+                          <tr>
+                            <th style={{ width: "57%" }}>Product Name</th>
+                            <th style={{ width: "20%" }}>Quantity</th>
+                            <th style={{ width: "15%" }}>Price</th>
+                            <th style={{ width: "8%" }}>Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {imgArray.map((i, inx) => {
+                            return (
+                              <tr key={`prdImgTD${inx}`}>
+                                <td>
+                                  <div className="d-flex align-items-center">
+                                    <img
+                                      src={i}
+                                      alt="Product Image in Cart"
+                                      className={`img-fluid ${style.cartPdImg}`}
+                                    />
+                                    <p className="mb-0">Redmi 9 Prime</p>
+                                  </div>
+                                </td>
+                                <td>
+                                  <div className="d-flex">
+                                    <button
+                                      className={`btn btn-danger ${style.decCart}`}
+                                    >
+                                      -
+                                    </button>
+                                    <input
+                                      type="text"
+                                      className={style.cartQty}
+                                    />
+                                    <button
+                                      className={`btn btn-primary ${style.incCart}`}
+                                    >
+                                      +
+                                    </button>
+                                  </div>
+                                </td>
+                                <td>&#8377;{`1500`}</td>
+                                <td>
                                   <button
-                                    className={`btn btn-danger ${style.decCart}`}
+                                    className={`btn btn-danger ${style.cartDelete}`}
                                   >
-                                    -
+                                    <FaRegTrashCan />
                                   </button>
-                                  <input
-                                    type="text"
-                                    className={style.cartQty}
-                                  />
-                                  <button
-                                    className={`btn btn-primary ${style.incCart}`}
-                                  >
-                                    +
-                                  </button>
-                                </div>
-                              </td>
-                              <td>&#8377;{`1500`}</td>
-                              <td>
-                                <button
-                                  className={`btn btn-danger ${style.cartDelete}`}
-                                >
-                                  <FaRegTrashCan />
-                                </button>
-                              </td>
-                            </tr>
-                          );
-                        })}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
                       </table>
                     </Modal.Body>
                     <div className={style.checkOutWrapper}>
@@ -448,12 +452,7 @@ const DefaultLayout = ({ children }) => {
           >
             <li>
               {/* Home */}
-              <NavLink
-                to="/"
-                className={({ isActive }) => (isActive ? "activeNavLink" : "")}
-              >
-                HOME
-              </NavLink>
+              <NavLink to="/">HOME</NavLink>
             </li>
             <li>
               {/* Electronics */}
@@ -629,7 +628,7 @@ const DefaultLayout = ({ children }) => {
               <NavLink to="/aboutus">ABOUT US</NavLink>
             </li>
             <li>
-              <NavLink to="/newArrivals">NEW ARRIVALS</NavLink>
+              <NavLink to="/newarrival">NEW ARRIVALS</NavLink>
             </li>
             <li>
               <NavLink to="/contactus">CONTACT US</NavLink>
